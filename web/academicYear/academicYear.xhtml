@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <f:facet name="first" >
+                <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" /> 
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        </f:facet>
+        <style type="text/css">
+                .ui-widget,
+                .ui-widget .ui-widget {
+                       font-size: 12px !important;
+                }
+                .ui-panelgrid td, .ui-panelgrid tr {
+                        border-style: none !important;
+                        background-color: transparent !important; 
+                }
+               
+            .value {
+                font-weight: bold;
+            }
+            
+            .ui-datatable {
+                margin-bottom: 25px
+            }
+            
+            .ui-datatable .ui-datatable-footer {
+                text-align:left;
+            }
+            
+            .ui-datalist ul {
+                padding: 0 0 0 10px;
+                margin: 5px 0;
+            }
+            
+            .ui-datatable .ui-button-icon-only .ui-button-text {
+                padding: 0;
+                line-height: 1.2;
+            }
+            .titlex{
+               color:palevioletred ! important;
+               font-style:bold ! important;
+               font-weight: 2100 ! important ;
+               font-size: 20px ! important; 
+            }
+            
+        
+        </style>
+        
+
+        
+        <h:form id="academicyr_frm"  >
+            <p:outputPanel id="pnlAccademic"> 
+                <h:outputText title="Academic Year" value="Academic Year" styleClass="titlex" style="padding-left: 30%"/>
+                <p:separator/>
+                    <h:panelGrid columns="4" cellpadding="5"  > 
+                            <h:outputText value="FileName:" />
+                            <h:selectOneMenu value="#{academicBean.newYear.fileCode}">
+                                    <f:selectItem itemLabel="Select One" itemValue="" />
+                                    <f:selectItems value="#{comboBoxes.filescodeAcademic}"/>
+                                </h:selectOneMenu>
+                               
+                            <h:outputText value="Academic Name:" />
+                            <h:inputText  value="#{academicBean.newYear.acdName}"  required="true" requiredMessage="Academic name is required" />
+                            
+                            <p:outputLabel for="time2" value="Start Year:" />
+                            <p:calendar id="time2"   value="#{academicBean.newYear.stryr}"  pattern="yyyy"   />
+                            
+                            
+                            <p:outputLabel for="time" value="End Year:" />
+                            <p:calendar id="time"  value="#{academicBean.newYear.endyr}"  pattern="yyyy"   />
+                             <p:outputLabel for="isActiveYear" value="Currently Active:" />
+                            <p:selectOneRadio id="isActiveYear"  value="#{academicBean.newYear.isActive}" >
+                            <f:selectItem itemLabel="Yes" itemValue="true" />
+                            <f:selectItem itemLabel="No" itemValue="false" />
+                            
+                            </p:selectOneRadio>
+                                                              
+                         </h:panelGrid>
+                        <p:separator />
+                        <h:outputText style="color:blue; font-style: italic; font-weight: bold; " value="Brief describe of academic year" />
+                        <p:editor value="#{academicBean.newYear.description}" height="100"  />
+                        
+                        <p:separator/>
+                        <div align="right">
+                            <h:panelGrid  columns="2" cellpadding="4"> 
+                                <p:commandButton process="@form" value="Save" update="@([id$= pnlAccademic]), @([id$= messages])"  actionListener="#{academicBean.checkActiveYear}" icon="ui-icon-disk"/> 
+                                <p:commandButton value="Close" icon="ui-icon-close" />
+                             </h:panelGrid>
+        
+                        </div>
+        </p:outputPanel>
+        </h:form>
+        
+        
+  
+        
+</html>

@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+        <style type="text/css">
+                .ui-widget,
+                .ui-widget .ui-widget {
+                       font-size: 12px !important;
+                 }
+       
+            /** Demo **/
+            .ui-grid-row .ui-grid-col-2,
+            .ui-grid-row .ui-grid-col-10 {
+                padding: 0.5em 0;
+            }
+            
+            .ui-outputLabel {
+                font-weight: bold;
+            }
+            
+            .ui-orderlist .ui-orderlist-list {
+                height: auto;
+            }
+            
+            .ui-orderlist .ui-grid-row .ui-grid-col-2, 
+            .ui-orderlist .ui-grid-row .ui-grid-col-10 {
+                padding: 0;
+            }
+            .label-padding-left ,.input-padding-left{
+                padding-left: 10px;
+                margin-bottom: 10px;
+            }
+            .label-padding-right ,.input-padding-right{
+                padding-right: 5px;
+                margin-bottom: 10px;
+            }
+        </style>
+    
+
+        <div class="ui-fluid">
+            <div class="openerp oe_form_sheetbg">
+            <div class=" oe_form_sheet oe_form_sheet_width">
+            <div class="ui-grid-row ">
+            <p:outputPanel>
+                <p:panel>
+             <div class="ui-g"> 
+            <div class="ui-grid-col-2">
+                <p:outputPanel styleClass="floatLeft">
+                        <span title="" data-original-title="" class=" oe_form_field oe_form_field_image oe_avatar oe_left">
+                            <p:graphicImage name="/main/images/admission/Admin.png" alt="Image Description for" title=" System" height="250" width="100" style="border: 1px;"> 
+
+                        </p:graphicImage></span>
+                 </p:outputPanel>
+            </div>
+             </div>
+            <div class="ui-grid-row ">
+               
+              
+                <p:outputLabel for="searchID" value="Search ID" style="padding-right: 10px;"/>
+                <p:inputMask id="searchID" mask="999999999" placeholder="search by National ID or " size="30"/>
+                 
+                
+                <h:panelGrid columns="6" cellpadding="5" styleClass="floatRight">
+                    <p:outputLabel for="mr" value="Title: " style="padding-right: 10px">
+                        <p:selectOneRadio id="mr" value="#" style="padding-right: 10px;">
+                            <f:selectItem itemLabel="MR" itemValue="MR" class="label-padding-left"/>
+                            <f:selectItem itemLabel="MRS" itemValue="MRS" class="label-padding-left"/>
+                            <f:selectItem itemLabel="MISS" itemValue="MISS" class="label-padding-left"/>   
+                            <f:selectItem itemLabel="DR" itemValue="DR" class="label-padding-left"/>
+                            <f:selectItem itemLabel="PROF" itemValue="PROF" class="label-padding-left"/>
+                            <f:selectItem itemLabel="ENG" itemValue="ENG" class="label-padding-left"/>
+                    </p:selectOneRadio>
+               </p:outputLabel>
+                </h:panelGrid>
+               
+               
+            <div class="ui-grid-row ">
+                
+                
+            <!-- <p:panelGrid columns="4" columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4" layout="grid" styleClass="ui-panelGrid-blank ui-fluid"> -->
+            <p:outputPanel style="margin-top: 10px !important;"/>
+                
+                <!-- <p:outputLabel for="nationalId" value="National ID" />
+                <p:inputMask id="nationalId"  mask="99999999"/> -->
+                
+
+                  <p:outputLabel for="surname" value="Surname:" style="padding-right: 10px; margin-bottom: 10px;"/>
+                  <p:inputMask id="surname" mask="" style="margin-bottom: 10px; padding-right: 10px "/>
+                
+                     
+                <p:outputLabel for="othername" value="Othernames:" style="padding-right: 10px; padding-left:5px; margin-bottom: 10px;"/>
+                <p:inputMask id="othername" mask="" style="margin-bottom: 10px;" size="40"/>
+                
+                                
+            
+                <div class="ui-grid-row ">
+                    <div class="ui-g">
+                        <div class="ui-g-2">
+                            <p:outputPanel styleClass="floatLeft">
+                            <p:outputLabel for="gender" value="Gender:" style="margin-bottom: 10px; padding-right: 17px">
+                            <p:selectOneMenu id="gender" value="#" style="width: 125px; margin-bottom: 10px; padding-right: 10px">
+                                <f:selectItem itemLabel="Male" itemValue="male"/>
+                                <f:selectItem itemLabel="Female" itemValue="female"/>
+                               </p:selectOneMenu> 
+                            </p:outputLabel>
+                            </p:outputPanel>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                      <div class="ui-g-2">
+                           <p:outputLabel for="popup" value="Date of Birth:" style="margin-bottom: 10px; padding-right: 5px; padding-left: 5px;">
+                           <p:calendar id="popup" pattern="MM/dd/yyyy" size="20" style=" margin-bottom: 10px; padding-right: 5px;">
+                       </p:calendar>
+                           </p:outputLabel></div>
+                    </div>
+                     <div class="ui-g">
+                      <div class="ui-g-3"> 
+                          <p:outputPanel styleClass="floatRight" style="clear: top;">
+                            <p:outputLabel for="marital" value="Marital Status:" style="margin-bottom: 10px; padding-right: 5px; padding-left: 5px;">
+                            <p:selectOneMenu id="marital" value="#" style=" margin-bottom: 10px; padding-right: 5px; padding-left: 5px;">
+                                <f:selectItem itemLabel="Married" itemValue="married"/>
+                                <f:selectItem itemLabel="Single" itemValue="single"/>
+                                
+                            </p:selectOneMenu> 
+                          </p:outputLabel>
+                          </p:outputPanel>
+                       </div>
+                    </div> 
+                    
+                <div class="ui-grid-row ">
+                       <div class="Content66 floatLeft">
+                
+                            
+                                <p:graphicImage  name="/main/images/admission/Admin.png" alt="Image Description for" title=" System" height="150" width="100" style="border: 1px;"> 
+
+                            </p:graphicImage>
+                   
+                
+                    </div>     
+                   
+                   <div class="Content33 floatRight">
+                
+                         <span title="" data-original-title="" class=" oe_form_field oe_form_field_image oe_avatar oe_left">
+                            <p:graphicImage name="/main/images/admission/Admin.png" alt="Image Description for" title=" System" height="250" width="100" style="border: 1px;"> 
+
+                            </p:graphicImage>
+                         </span>
+                
+                    </div>
+                </div>
+                </div>
+         
+
+            </div>
+                
+            </div>
+                </p:panel>
+            </p:outputPanel>
+            </div>  
+         
+            <p:tabView orientation="horizontal" id="ProductTabId" styleClass=" openerp oe_notebook ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+                   <p:tab title="#{productItemBean.selectedProduct.groupName} Units " titleStyleClass="floatLeft PFGrayText fontSize16 mediumFont overHidden" id="unitTabId">
+                           <!-- <ui:include src="/schoolFolder/schoolFolder.xhtml"/> -->
+                           <p:dataTable var="itemsPer" value="#{productItemBean.productItemList}" resizableColumns="true" id="itemsTable" paginator="true" rows="5" paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}" rowsPerPageTemplate="3,4,6,5,10,15" lazy="true">
+                               
+                                <f:facet name="header"> 
+                                      
+                                        
+                                </f:facet> 
+                               <p:column sortBy="#{itemsPer.itemId}" headerText="Item Id" styleClass="fontSize12 ">
+                                   <h:outputText value="#{itemsPer.itemId}" styleClass="fontSize12">
+                                </h:outputText>
+                               </p:column>  
+                               <p:column sortBy="#{itemsPer.serialNo}" headerText="Serial No">
+                                         <h:outputText value=" #{itemsPer.serialNo}" styleClass="fontSize12"> 
+                                </h:outputText></p:column>  
+                               <p:column sortBy="#{itemsPer.status}" headerText="Status">
+                                   <h:outputText value="#{itemsPer.status}" styleClass="fontSize12">  
+                                </h:outputText></p:column>  
+                               <p:column sortBy="#{itemsPer.costPrice}" headerText="Price">
+                                   <h:outputText value="#{itemsPer.costPrice}" styleClass="fontSize12"> 
+                                </h:outputText></p:column> 
+                                 <p:column style="width:80px;text-align: center">
+                                        <p:menuButton style="width:auto" value="More"> 
+                                            <p:menuitem value="Edit Stream " icon="ui-icon-pencil">
+
+                                            </p:menuitem>
+                                                <p:separator>
+                                                <p:menuitem value="Delete Stream" icon="ui-icon-circle-plus" style="margin:0 auto;" title="Delete">
+                                                </p:menuitem>
+                                              <p:separator>
+                                              </p:separator>
+                                                  
+                                                </p:separator>
+                                        </p:menuButton> 
+                                </p:column>
+                        </p:dataTable>
+                    </p:tab>
+                    <p:tab title="Inventory " titleStyleClass="floatLeft PFGrayText fontSize16 mediumFont overHidden" id="inventoryTabId">
+                              <!-- <ui:include src="/upload/basic_1.xhtml">   -->
+                    </p:tab> 
+                    <p:tab title="Procurement " titleStyleClass="floatLeft PFGrayText fontSize16 mediumFont overHidden" id="procuTabId">
+                           <!--  <ui:include src="/upload/imageupload.xhtml"/> -->
+                    </p:tab>
+              </p:tabView>
+           
+            </div>
+            </div>
+        </div>   
+  
+
+</html>

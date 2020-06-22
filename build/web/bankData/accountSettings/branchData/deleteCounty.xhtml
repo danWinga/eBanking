@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+        .ui-widget,
+        .ui-widget .ui-widget {
+               font-size: 12px !important;
+         }
+         .ui-lable{
+                font-weight:bold;
+            }
+    </style>
+     
+                <h:form id="deleteCounty">
+                    <h:panelGrid id="deleteCountyPl"  > 
+                        <h:outputText value="You are about to delete a record:" styleClass="ui-lable" />
+                        <h:panelGrid  columns="2"  cellpadding="5"> 
+                            
+                            <h:outputText value="code:" styleClass="ui-lable" />
+                            <p:inputText id="deleteCountyCode"  disabled="true"  value="#{dtBranchBean.selectedCounty.countyCode }"   />
+
+                            <h:outputText value="County Name :" styleClass="ui-lable" />
+                            <p:inputText id="deleteCountyName"  disabled="true"  value="#{dtBranchBean.selectedCounty.countyName }"   />
+                         </h:panelGrid>
+
+                            <f:facet name="footer">  
+                                        <p:separator/>
+                                        <div align="right">
+                                                <p:commandButton  process="deleteCounty" id="editCountyButton" icon="ui-icon-disk" value="Yes" actionListener="#{dtBranchBean.deleteCounty}" update=":main1:main2:frmCounty:countyDataTable,:main1:msgFrm:messages"  oncomplete="PF('deleteCountydlg5').hide();"/>
+                                                <p:commandButton value="Cancel" icon="ui-icon-close" oncomplete="PF('deleteCountydlg5').hide();"/>
+                                        </div>
+                            </f:facet>
+                    </h:panelGrid>
+                </h:form>
+    
+</html>
+

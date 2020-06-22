@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+        
+
+        <p:dataTable var="stream"  value="#{streamBean.streamList}" resizableColumns="true" id="streamTable" paginator="true" rows="5"
+                 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                 rowsPerPageTemplate="5,10,15"   selectionMode="single" selection="#{streamBean.selected}" rowKey="#{stream.streamCode}"  lazy="true" >
+            <p:ajax event="rowSelect" listener="#{streamBean.onRowSelect}" update="@([id$= streamdisplay2])" oncomplete="PF('editstreamOptionsdlg').show()" />
+                <f:facet name="header">  
+                   <p:outputPanel>
+                                <h:outputText styleClass=" PFRedText fontSize18 mediumFont " value="Class Stream" />
+                                <p:separator />
+                                <div align="right">
+                                    <p:commandButton  update="@([id$= formstream])" oncomplete="PF('newstreamdlg').show(); " icon="ui-icon-document" value="New Stream"/> 
+                                </div>
+                 </p:outputPanel>
+                </f:facet> 
+            <p:column sortBy="#{stream.streamCode}" headerText="code" >
+                <h:outputText value="#{stream.streamCode}" />
+            </p:column>  
+            <p:column  sortBy="#{stream.streamName}" headerText="Stream Name">
+                     <h:outputText    value=" #{stream.streamName}" /> 
+            </p:column>  
+            <p:column  sortBy="#{stream.classname}" headerText="Class">
+                <h:outputText value="#{stream.classname}" />  
+            </p:column>  
+            <p:column  sortBy="#{stream.capacity}" headerText="Capacity">
+                <h:outputText value="#{stream.capacity}" /> 
+            </p:column> 
+             <p:column style="width:80px;text-align: center">
+                        <p:menuButton style="width:auto" value="More"> 
+                            <p:menuitem value="Edit Stream " icon="ui-icon-pencil"  process=":main1:main2:classTabView:streamTable"  update=":main1:main2:classTabView:formeditstream:streamdisplay2"  oncomplete="PF('editstreamOptionsdlg').show()">
+                                <f:setPropertyActionListener   value="#{stream}"  target="#{streamBean.selected}" />
+                            </p:menuitem>
+                                <p:separator/>
+                                <p:menuitem value="Delete Stream" icon="ui-icon-circle-plus" style="margin:0 auto;"  title="Delete" >
+                                </p:menuitem>
+                              <p:separator />
+                       </p:menuButton> 
+             </p:column>
+        </p:dataTable>
+        <ui:include src="/streams/morestreamOptions.xhtml"/>
+        
+</html>

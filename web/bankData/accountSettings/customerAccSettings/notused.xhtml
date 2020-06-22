@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"> 
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+
+-->
+
+ <h:panelGrid columns="2" cellpadding="5"  >
+                       <p:outputLabel for="accSetAccType" value="Account Type:" style="padding-right: 10px;" />
+                       <h:selectOneMenu  id="accSetAccType" value="#{accSettingsBean.selectedAccType.acctypeCode}" onselect="true"   valueChangeListener="#{accSettingsBean.productTypes}"  >
+                           <f:selectItems value="#{accSettingsBean.accTypes}" />
+                           <p:ajax oncomplete="true"  partialSubmit="true" process="accSetAccType"  />
+                        </h:selectOneMenu> 
+                       
+                       <p:outputLabel for="accSetProductType" value="Product Type:" style="padding-right: 10px;" />
+                       <h:selectOneMenu  id="accSetProductType" value="#{accSettingsBean.selectedProduct.productCode}" onselect="true" >
+                            <f:selectItems value="#{accSettingsBean.productTypes}"/>
+                        </h:selectOneMenu> 
+                       
+                   </h:panelGrid>
+ <p:outputPanel  id="accSettingsPl">
+     <p:row>
+                           <p:commandButton value="New" id="newAccset1"  immediate="true"   icon="ui-icon-disk" >
+                               <p:ajax listener="#{accSettingsBean.addNewSettingUi}"  update="accSettingsPl" />
+                           </p:commandButton>
+                           <p:commandButton value="Edit" id="newAccset2"  immediate="true"  icon="ui-icon-disk" >
+                               <p:ajax listener="#{accSettingsBean.editSettingUi}"  update="accSettingsPl" />
+                           </p:commandButton>
+                           
+                       </p:row>
+                   <c:if test="${accSettingsBean.newSettings.uid == 0}">
+                       <h:panelGrid columns="2"  >
+                                    
+
+                                  <p:outputLabel for="accProaccType" value="Setting Code:"  style="padding-right: 10px; " />
+                                  <p:inputText id="accProaccType" value="#{accSettingsBean.selectedProduct.acctypeName}" placeholder="setting code"  readonly="true"  style="margin-bottom: 5px;"  />
+
+                                  <p:outputLabel for="accProSetProdName"  value="Product Name: " style="padding-right: 10px; "  />
+                                  <p:inputText id="accProSetProdName" value="#{accSettingsBean.selectedProduct.productName}" placeholder="product Name" readonly="true"  style="margin-bottom: 5px;"  />
+
+                                  <p:outputLabel for="accProSetCounterWithD"  value="Counter WithD: " style="padding-right: 10px; "  />
+                                  <p:inputText id="accProSetCounterWithD" value="#{accSettingsBean.selectedSettings.counterWithD}" placeholder="0.00" readonly="true"   style="margin-bottom: 5px;"   />
+
+                                  <p:outputLabel for="accProAtmWithD"  value="ATM WithDrawal: " style=" padding-right: 10px;" />
+                                  <p:inputText id="accProAtmWithD"   value="#{accSettingsBean.selectedSettings.atmwithdrawal}"  style="margin-bottom: 5px;"  readonly="true"  />
+
+                                  <p:outputLabel for="accProService"  value="Account Service: " style="padding-right: 10px;" />
+                                  <p:inputText id="accProService"   value="#{accSettingsBean.selectedSettings.accService}"  style="margin-bottom: 5px;" readonly="true"   />
+
+                                  <p:outputLabel for="accProChequePro" value="Cheque Processing:" style="padding-right: 10px;" />
+                                  <p:inputText id="accProChequePro"  value="#{accSettingsBean.selectedSettings.chequeProcessing}" placeholder="0.00" readonly="true"  style="margin-bottom: 5px;" />
+                                  <p:outputLabel for="accProMinBal" value="Minimum Balance:" style="padding-right: 10px;" />
+                                  <p:inputText id="accProMinBal"  value="#{accSettingsBean.selectedSettings.minBalance}" placeholder="0.00" readonly="true"   style="margin-bottom: 5px;" />
+                                  
+                                  
+
+                          </h:panelGrid>
+                       <p:spacer height="20px" />
+                          <p:separator/>
+                          <p:row>
+                              <p:commandButton value="Save" id="newAccset3x2" actionListener="#{accSettingsBean.addNewAccSetting}"  oncomplete="true" icon="ui-icon-disk" >
+                               <p:ajax listener="#{accSettingsBean.saveSettingUi}"  update="accSettingsPl" />
+                          </p:commandButton>
+                          </p:row>
+                    </c:if>
+                       
+                       <c:if test="${accSettingsBean.newSettings.uid == 2}">
+                       <h:panelGrid columns="2"  >
+                                    
+
+                                  <p:outputLabel for="accProaccType2" value="Setting Code:"  style="padding-right: 10px; " />
+                                  <p:inputText id="accProaccType2" value="#{accSettingsBean.selectedProduct.acctypeName}" placeholder="setting code"    style="margin-bottom: 5px;"  />
+
+                                  <p:outputLabel for="accProSetProdName2"  value="Product Name: " style="padding-right: 10px; "  />
+                                  <p:inputText id="accProSetProdName2" value="#{accSettingsBean.selectedProduct.productName}" placeholder="product Name"   style="margin-bottom: 5px;"  />
+
+                                  <p:outputLabel for="accProSetCounterWithD2"  value="Counter WithD: " style="padding-right: 10px; "  />
+                                  <p:inputText id="accProSetCounterWithD2" value="#{accSettingsBean.selectedSettings.counterWithD}" placeholder="0.00"    style="margin-bottom: 5px;"   />
+
+                                  <p:outputLabel for="accProAtmWithD2"  value="ATM WithDrawal: " style=" padding-right: 10px;" />
+                                  <p:inputText id="accProAtmWithD2"   value="#{accSettingsBean.selectedSettings.atmwithdrawal}"  style="margin-bottom: 5px;"    />
+
+                                  <p:outputLabel for="accProService2"  value="Account Service: " style="padding-right: 10px;" />
+                                  <p:inputText id="accProService2"   value="#{accSettingsBean.selectedSettings.accService}"  style="margin-bottom: 5px;"   />
+
+                                  <p:outputLabel for="accProChequePro2" value="Cheque Processing:" style="padding-right: 10px;" />
+                                  <p:inputText id="accProChequePro2"  value="#{accSettingsBean.selectedSettings.chequeProcessing}" placeholder="0.00"   style="margin-bottom: 5px;" />
+                                  <p:outputLabel for="accProMinBal2" value="Minimum Balance:" style="padding-right: 10px;" />
+                                  <p:inputText id="accProMinBal2"  value="#{accSettingsBean.selectedSettings.minBalance}" placeholder="0.00"    style="margin-bottom: 5px;" />
+                                  
+                                  
+
+                          </h:panelGrid>
+                           <p:spacer height="20px" />
+                          <p:separator/>
+                          <p:row>
+                              <p:commandButton value="Save" id="newAccset3x" actionListener="#{accSettingsBean.addNewAccSetting}"  oncomplete="true" icon="ui-icon-disk" >
+                               <p:ajax listener="#{accSettingsBean.saveSettingUi}"  update="accSettingsPl" />
+                          </p:commandButton>
+                          </p:row>
+                    </c:if>
+                
+                  <c:if test="${accSettingsBean.newSettings.uid == 1}">
+                      <h:form  >
+                      <h:panelGrid columns="2"  >
+                                    
+
+                                  <p:outputLabel for="accProaccType1" value="Setting Code:"  style="padding-right: 10px; " />
+                                  <p:inputText id="accProaccType1" value="#{accSettingsBean.selectedProduct.acctypeName}" placeholder="setting code"   style="margin-bottom: 5px;"  />
+
+                                  <p:outputLabel for="accProSetProdName1"  value="Product Name: " style="padding-right: 10px; "  />
+                                  <p:inputText id="accProSetProdName1" value="#{accSettingsBean.selectedProduct.productName}" placeholder="product Name"  style="margin-bottom: 5px;"  />
+
+                                  <p:outputLabel for="accProSetCounterWithD1"  value="Counter WithD: " style="padding-right: 10px; "  />
+                                  <p:inputText id="accProSetCounterWithD1" value="#{accSettingsBean.newSettings.counterWithD}" placeholder="0.00"   style="margin-bottom: 5px;"   />
+
+                                  <p:outputLabel for="accProAtmWithD1"  value="ATM WithDrawal: " style=" padding-right: 10px;" />
+                                  <p:inputText id="accProAtmWithD1"   value="#{accSettingsBean.newSettings.atmwithdrawal}"  style="margin-bottom: 5px;"    />
+
+                                  <p:outputLabel for="accProService1"  value="Account Service: " style="padding-right: 10px;" />
+                                  <p:inputText id="accProService1"   value="#{accSettingsBean.newSettings.accService}"  style="margin-bottom: 5px;"   />
+
+                                  <p:outputLabel for="accProChequePro1" value="Cheque Processing:" style="padding-right: 10px;" />
+                                  <p:inputText id="accProChequePro1"  value="#{accSettingsBean.newSettings.chequeProcessing}"     style="margin-bottom: 5px;" />
+                                  <p:outputLabel for="accProMinBal1" value="Minimum Balance:" style="padding-right: 10px;" />
+                                  <p:inputText id="accProMinBal1"  value="#{accSettingsBean.newSettings.minBalance}" placeholder="0.00"       style="margin-bottom: 5px;" />
+                                  
+                                  
+
+                          </h:panelGrid>
+                          <p:spacer height="20px" />
+                          <p:separator/>
+                          <p:row>
+                              <p:commandButton value="Save" process="@form" id="newAccset3" actionListener="#{accSettingsBean.AddNewAccSetting}"   icon="ui-icon-disk" >
+                                  
+                          </p:commandButton>
+                          </p:row>
+                      </h:form>
+                    </c:if>
+                 
+                   </p:outputPanel>
+</html>

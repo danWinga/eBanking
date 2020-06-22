@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+
+    
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <f:facet name="first" >
+                <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" /> 
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        </f:facet>
+        <style type="text/css">
+                .ui-widget,
+                .ui-widget .ui-widget {
+                       font-size: 12px !important;
+                }
+                .ui-panelgrid td, .ui-panelgrid tr {
+                        border-style: none !important;
+                        background-color: transparent !important; 
+                }
+               
+            .value {
+                font-weight: bold;
+            }
+            
+            .ui-datatable {
+                margin-bottom: 25px
+            }
+            
+            .ui-datatable .ui-datatable-footer {
+                text-align:left;
+            }
+            
+            .ui-datalist ul {
+                padding: 0 0 0 10px;
+                margin: 5px 0;
+            }
+            
+            .ui-datatable .ui-button-icon-only .ui-button-text {
+                padding: 0;
+                line-height: 1.2;
+            }
+            .titlex{
+               color:palevioletred ! important;
+               font-style:bold ! important;
+               font-weight: 2100 ! important ;
+               font-size: 20px ! important; 
+            }
+            .plBig123{
+                   float: none ! important;
+                   width: 100% ! important;
+                   height: auto ! important;
+               }
+               .plLeft01{
+                   float: left;
+                   width: 30% ! important;
+                   height: auto ! important ;
+                   margin:inherit! important;
+                   margin-top: auto ! important;
+                   background-color: #666 ! important;
+               }
+               .pRight01{
+                   float: right ! important;
+                   width: 60% ! important;
+                   height: auto ! important ;
+                   margin:inherit! important;
+                   margin-top: auto ! important;
+               }
+            
+        
+        </style>
+        </h:head>
+        <div class="ContentSideSections overHidden">
+            <div class="Content66 floatLeft overHidden TextShadow">
+                
+                    <ui:include src="/academicYear/academicTabs.xhtml"/>
+                              
+            
+            </div>
+         
+        
+        <div class="Content66 floatRight overHidden">
+            <h:form>
+         <ui:include src="/academicYear/academicSummary.xhtml"/> 
+        
+       
+        
+            </h:form>
+        </div>
+        </div>
+        
+</html>

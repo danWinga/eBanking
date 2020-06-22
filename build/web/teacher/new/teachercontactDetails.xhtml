@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    
+                    <h:panelGrid columns="3" cellspacing="2">               
+                    <p:panel  >
+                        <h:panelGrid  columns="2" cellpadding="2" id="grdteacher1"  > 
+                        <h:outputText value="Address1:" />
+                        <p:inputText id="nwteacheraddress1" value="#{newStakeholder.newStakeholder.address1}" required="true" requiredMessage="First name  is required."/>
+                                                
+                        <h:outputText value="Address2:" />
+                        <p:inputText id="nwteacheraddress2" value="#{newStakeholder.newStakeholder.address2}" />
+                        <h:outputText value="Postal Code:" />
+                        <p:inputText id="nwteacherpostalcode" value="#{newStakeholder.newStakeholder.postalCode}" />
+                        <h:outputText value="Mobile No:" />
+                        <p:inputText id="nwteachercontact1" value="#{newStakeholder.newStakeholder.contact1}" />
+                        <h:outputText value="Tel No:" />
+                        <p:inputText id="nwteachercontact2" value="#{newStakeholder.newStakeholder.contact2}" />
+                        
+                  
+                        </h:panelGrid>
+                    </p:panel>
+                   
+                    <p:panel >
+                        <h:panelGrid  columns="2" cellpadding="2">
+                        
+                        <h:outputText value="Email :" />
+                        <p:inputText id="nwteacheremail" value="#{newStakeholder.newStakeholder.email}" />
+                        <h:outputText value="Other Email :" />
+                        <p:inputText id="nwteacherotheremail" value="#{newStakeholder.newStakeholder.otherMail}" />
+                        
+                        <h:outputText value="Fax No :" />
+                        <p:inputText id="nwteacherfaxno" value="#{newStakeholder.newStakeholder.faxNumber}" />
+                        <h:outputText value="Can Email:" />
+                                <p:selectOneRadio id="nwteacheriscanemail" value="#{newStakeholder.newStakeholder.isCanEmail}"    >
+                                    <f:selectItem itemLabel="Yes" itemValue="true" />
+                                    <f:selectItem itemLabel="No" itemValue="false" />
+                                </p:selectOneRadio>  
+                                 <h:outputText value="Can Login:" />
+                                 <p:selectOneRadio id="nwteachercanlogin" value="#{newStakeholder.newStakeholder.canLogin}"    >
+                                 <f:selectItem itemLabel="Yes" itemValue="true" />
+                                 <f:selectItem itemLabel="No" itemValue="false" />
+                                 </p:selectOneRadio>
+                        </h:panelGrid>
+                      </p:panel> 
+                    <p:panel>
+                        <h:panelGrid  columns="1" cellpadding="2">
+                        <h:outputText  style="color:blue; font-style: italic; font-weight: bold; " value="Notes:" />
+                        <p:inputTextarea id="nwteachernotes" value="#{newStakeholder.newStakeholder.notes}" rows="9" autoResize="true"  />
+                        </h:panelGrid>   
+                            
+                       
+                        
+                    </p:panel>
+                    </h:panelGrid>              
+                       
+                     
+  
+</html>

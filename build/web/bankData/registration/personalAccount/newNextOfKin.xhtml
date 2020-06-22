@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+        <style type="text/css">
+                .ui-widget,
+                .ui-widget .ui-widget {
+                       font-size: 12px !important;
+                 }
+       
+            /** Demo **/
+            .ui-grid-row .ui-grid-col-2,
+            .ui-grid-row .ui-grid-col-10 {
+                padding: 0.5em 0;
+            }
+            
+            .ui-outputLabel {
+                font-weight: bold;
+            }
+            
+            .ui-orderlist .ui-orderlist-list {
+                height: auto;
+            }
+            
+            .ui-orderlist .ui-grid-row .ui-grid-col-2, 
+            .ui-orderlist .ui-grid-row .ui-grid-col-10 {
+                padding: 0;
+            }
+            .label-padding-left ,.input-padding-left{
+                padding-left: 10px;
+                margin-bottom: 10px;
+            }
+            .label-padding-right ,.input-padding-right{
+                padding-right: 5px;
+                margin-bottom: 10px;
+            }
+        </style>
+    <p:dialog id="newNextOfKinDlgId" styleClass=" PFRedText fontSize18 mediumFont " header="New " widgetVar="newNextOfKinDlg" dynamic="true" showEffect="fade" hideEffect="fade" resizable="false">
+            <p:separator />
+                <h:form id="newNextOfKinFrm"> 
+                    <h:panelGrid columns="4" id="newNextOfKinPl"  >
+                                    
+
+                                  <p:outputLabel for="regbfIdno" value="IDNo:"  style="padding-right: 10px; " />
+                                  <p:inputText id="regbfIdno" value="#{memberRegistrationBean.newBeneficiary.idNo}" placeholder="ID Number/passport if exist"  style="margin-bottom: 5px;" size="25" />
+                                  <p:outputLabel for="regbfSurname"  value="Surname: " style="padding-left: 10px;padding-right: 10px; "  />
+                                  <p:inputText id="regbfSurname" value="#{memberRegistrationBean.newBeneficiary.fisrtName}" placeholder="Surname" style="margin-bottom: 5px;" size="25"  />
+
+                                  <p:outputLabel for="regbfOthername"  value="Other names: " style="padding-right: 10px; "  />
+                                  <p:inputText id="regbfOthername" value="#{memberRegistrationBean.newBeneficiary.otherNames}" placeholder="Other Names"  style="margin-bottom: 5px;" size="25"  />
+                                  <p:outputLabel for="regbfbGender" value="Gender:" style="padding-left: 10px;padding-right: 10px; " />
+                                  <p:selectOneMenu id="regbfbGender" value="#{memberRegistrationBean.newBeneficiary.gender}" style="margin-bottom: 5px;"  >
+                                    <f:selectItem itemLabel="Male" itemValue="male"/>
+                                    <f:selectItem itemLabel="Female" itemValue="female"/>
+                                  </p:selectOneMenu>
+
+                                  <p:outputLabel for="regbfMobileNo"  value="MobileNo: " style="padding-right: 10px; " />
+                                  <p:inputText  id="regbfMobileNo"   value="#{memberRegistrationBean.newBeneficiary.cellNo}"  style="margin-bottom: 5px;"  />
+
+                                  <p:outputLabel for="regbfPhysicalAddress"  value="PhysicalAddress: " style="padding-left: 10px;padding-right: 10px; " />
+                                  <p:inputText  id="regbfPhysicalAddress"   value="#{memberRegistrationBean.newBeneficiary.physicalAddress}"  style="margin-bottom: 5px;"  />
+
+                                  <p:outputLabel for="regbfAddress" value="Address:" style="padding-right: 10px; " />
+                                  <p:inputText id="regbfAddress"  value="#{memberRegistrationBean.newBeneficiary.postalAddress}" placeholder="Utility : Electricity, water" style="padding-right: 10px;margin-bottom: 5px;" size="25"/>
+                                  
+                                  <p:outputLabel for="regbfbShares" value="Shares(%):" style="padding-left: 10px;padding-right: 10px; "/>
+                                  <p:inputText id="regbfbShares"  value="#{memberRegistrationBean.newBeneficiary.shares}" placeholder="Shares in (%)"  style="padding-right: 10px;" size="25"/>
+                                 
+                          </h:panelGrid>
+                </h:form>
+  
+    </p:dialog>
+</html>

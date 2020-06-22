@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/superadmintemplate.xhtml">
+      <!-- "/WEB-INF/admintemplate.xhtml"-->
+
+<!-- highlight area start-->
+       
+<ui:define name="implementation">
+    <h:form id="main2">
+<ui:include src="#{navigation.pageName}.xhtml" /> 
+ <!-- <ui:include src="/student/Registared_student.xhtml" />  -->
+
+    </h:form>
+                                
+      
+</ui:define>
+<ui:define name="source">
+    <h:form id="main3">
+        <ui:include src="#{navigation.sourceCode}.xhtml" /> 
+    </h:form>
+</ui:define>
+ 
+
+</ui:composition>

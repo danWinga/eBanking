@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+        <style type="text/css">
+                .ui-widget,
+                .ui-widget .ui-widget {
+                       font-size: 12px !important;
+                 }
+       
+            /** Demo **/
+            .ui-grid-row .ui-grid-col-2,
+            .ui-grid-row .ui-grid-col-10 {
+                padding: 0.5em 0;
+            }
+            
+            .ui-outputLabel {
+                font-weight: bold;
+            }
+            
+            .ui-orderlist .ui-orderlist-list {
+                height: auto;
+            }
+            
+            .ui-orderlist .ui-grid-row .ui-grid-col-2, 
+            .ui-orderlist .ui-grid-row .ui-grid-col-10 {
+                padding: 0;
+            }
+            .label-padding-left ,.input-padding-left{
+                padding-left: 10px;
+                margin-bottom: 10px;
+            }
+            .label-padding-right ,.input-padding-right{
+                padding-right: 5px;
+                margin-bottom: 10px;
+            }
+        </style>
+    
+            <p:dataTable paginatorAlwaysVisible="false"  var="nextKin" value="#{memberRegistrationBean.nextOfKinList}" resizableColumns="true" id="nextOfKinTable" paginator="true" rows="5"
+                 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                 rowsPerPageTemplate="5,10,15"  widgetVar="nextOfKinvarTable" selectionMode="single"  lazy="true" >
+                <!-- <p:ajax event="rowSelect" listener="#{schoolFolders.onRowSelect}" update=":main1:main2:folderTabId:formeditfolder:display44" oncomplete="PF('editFolderOptionsDlg').show()"  /> -->
+                <f:facet name="header">  
+                        <p:outputPanel>
+                            <!-- <h:outputText  styleClass=" PFRedText fontSize12 mediumFont " value="Next Of Kin" /> --> 
+                                <p:separator />
+                                <div align="right">
+                                    <!-- <p:commandButton  update=":main1:main2:personalAccRegFrm:regNextOfKinTabId:newNextOfKinFrm:newNextOfKinPl" oncomplete="PF('newNextOfKinDlg').show(); " icon="ui-icon-document" value="Add New"/>  -->
+                                </div>
+                        </p:outputPanel>
+                </f:facet> 
+            
+                <p:column  sortBy="#{nextKin.surnamekin}" headerText="Surname">
+                    <h:outputText value="#{nextKin.surnamekin}" />
+                    </p:column>  
+                <p:column  sortBy="#{nextKin.otherNameskin}" headerText="Othernames">
+                    <h:outputText value=" #{nextKin.otherNameskin}" /> 
+                    </p:column>  
+                
+                <p:column  sortBy="#{nextKin.cellNokin}" headerText="Cell No:">
+                    <h:outputText value="#{nextKin.cellNokin}" />  
+                    </p:column>  
+                <p:column  sortBy="#{nextKin.homeAddrkin}" headerText="Address">
+                    <h:outputText value="#{nextKin.homeAddrkin}" /> 
+                    </p:column> 
+                     <p:column style="width:80px;text-align: center">
+
+                        <p:menuButton style="width:auto" value="More">
+                                <p:menuitem   value="Edit Folder" id="folderEdit" icon="ui-icon-pencil"   >
+                                    
+                                                                      
+                                </p:menuitem>
+                                <p:separator/>
+                                
+                                <p:separator/>
+                                <p:menuitem value="Delete Folder"  icon="ui-icon-circle-plus"   title="Delete" >
+                                        
+                                </p:menuitem>
+                            
+                                <p:separator />
+                                
+                                
+                        </p:menuButton> 
+                
+                </p:column>
+            
+
+        </p:dataTable>
+    <!-- <ui:include src="/bankData/registration/personalAccount/nextOfKin.xhtml"/>  -->
+
+</html>

@@ -1,0 +1,1063 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    
+    
+     
+    <p:dialog id="newsubject" header="Product" widgetVar="productItemdlg" dynamic="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <div class="openerp oe_form_sheetbg">
+            <div class=" oe_form_sheet oe_form_sheet_width">
+                <!-- <p:graphicImage height="50" width="60"  style="padding-left: 5%" /> -->
+                <p:separator />
+                <h:form id="product_item_frm">
+            
+        
+        <div class=" oe_right oe_button_box" style="width: 300px;" name="buttons">
+                <button type="button" class="openerp oe_stat_button btn btn-default">
+
+                    <div class="stat_button_icon fa fa-building-o fa-fw"></div>
+
+
+                        <div>
+                            <span class="oe_form_field oe_form_field_char">
+
+
+                                <span class="oe_form_char_content">22.0 On Hand</span>
+
+                        </span>
+                    </div>
+                </button>
+                <button type="button" class="oe_stat_button btn btn-default oe_inline">
+
+                        <div class="stat_button_icon fa fa-arrows-v fa-fw"></div>
+
+                        <div>Moves</div>
+                </button>
+                <button type="button" class="oe_stat_button btn btn-default oe_inline">
+
+                        <div class="stat_button_icon fa fa-refresh fa-fw"></div>
+
+                        <div>Reordering Rules</div>
+                </button>
+        <button type="button" class="oe_stat_button btn btn-default oe_inline">
+        
+                <div class="stat_button_icon fa fa-cogs fa-fw"></div>
+
+                <div>Routes</div>
+        </button>
+        <button type="button" class=" oe_stat_button btn btn-default oe_inline">
+        
+                <div class="stat_button_icon fa fa-strikethrough fa-fw"></div>
+
+
+                <div>
+                <strong>0</strong><br>Sales</br>
+                </div>
+        </button>
+      </div>
+      <div class="oe_left" style="width: 500px;">
+          <span title="" data-original-title="" class=" oe_form_field oe_form_field_image oe_avatar oe_left"><img name="image_medium" src="http://localhost:8069/web/binary/image?model=product.template&amp;id=11&amp;field=image_medium&amp;t=1461664764772" border="1"/>
+        
+                <div class=" oe_form_field_image_controls oe_edit_only">
+                            <i class="fa fa-pencil fa-1g pull-left col-md-offset-1 oe_form_binary_file_edit" title="Edit"></i>
+                            <i class="fa fa-trash-o fa-1g col-md-offset-5 oe_form_binary_file_clear" title="Clear"></i>
+                              <div class=" oe_form_binary_progress" style="display: none">
+                                  <img src="http://localhost:8069/web/static/src/img/throbber.gif" height="16" width="16"/>
+                                  <b>Uploading ...</b>
+                              </div>
+
+                  <div class=" oe_hidden_input_file ">
+                      <form class=" oe_form_binary_form" enctype="multipart/form-data" method="post" action="/web/binary/upload">
+
+                          <input name="callback" type="hidden"/>
+
+
+
+
+                          <input accept="image/*" class="oe_form_binary_file" name="ufile" type="file"/>
+                      </form>
+                      <iframe style="display: none"></iframe>
+                  </div>
+                            
+                </div>
+        
+    </span>
+    <div class="oe_title" style="width: 390px;"><label for="oe-field-input-4" class="oe_form_label oe_align_right oe_edit_only">
+                
+            </label><h1><span class=" oe_form_field oe_form_field_char oe_inline oe_form_field_translatable oe_form_required">
+
+                    Product Name<input id=" oe-field-input-4" type="text"/><img class="oe_field_translate oe_input_icon" src="http://localhost:8069/web/static/src/img/icons/terp-translate.png" border="0" height="16" width="16"/>
+
+
+            </span></h1>
+    </div>
+    <div class="oe_left" name="options">
+        <div>
+            <span class="openerp oe_form_field oe_form_field_boolean">
+                <input class="field_boolean" id="openerp oe-field-input-5" name="sale_ok" type="checkbox">
+                <div class="boolean">
+
+                </div></input>
+            </span>
+            <label title="" data-original-title="" for="oe-field-input-5" class="openerp oe_form_label_help oe_align_right">
+                Can be Sold
+           </label>
+        </div>
+    </div>
+    </div>
+           <div class=" oe_clear ui-tabs ui-widget ui-widget-content ui-corner-all">
+        <ul role="tablist" class="openerp oe_notebook ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+            <li aria-selected="false" aria-labelledby="ui-id-1" aria-controls="notebook_page_6" tabindex="-1" role="tab" class="ui-state-default ui-corner-top">
+                <a id="ui-id-1" tabindex="-1" role="presentation" class="ui-tabs-anchor" href="#notebook_page_6">
+                    Information
+                </a>
+            </li><li aria-selected="false" aria-labelledby="ui-id-2" aria-controls="notebook_page_14" tabindex="-1" role="tab" class="ui-state-default ui-corner-top">
+                <a id="ui-id-2" tabindex="-1" role="presentation" class="ui-tabs-anchor" href="#notebook_page_14">
+                    Procurements
+                </a>
+            </li><li aria-selected="false" aria-labelledby="ui-id-3" aria-controls="notebook_page_19" tabindex="-1" role="tab" class="ui-state-default ui-corner-top">
+                <a id="ui-id-3" tabindex="-1" role="presentation" class="ui-tabs-anchor" href="#notebook_page_19">
+                    Inventory
+                </a>
+            </li><li aria-selected="false" aria-labelledby="ui-id-4" aria-controls="notebook_page_38" tabindex="-1" role="tab" class="ui-state-default ui-corner-top">
+                <a id="ui-id-4" tabindex="-1" role="presentation" class="ui-tabs-anchor" href="#notebook_page_38">
+                    Sales
+                </a>
+            </li><li aria-selected="false" aria-labelledby="ui-id-5" aria-controls="notebook_page_44" tabindex="-1" role="tab" class="ui-state-default ui-corner-top">
+                <a id="ui-id-5" tabindex="-1" role="presentation" class="ui-tabs-anchor" href="#notebook_page_44">
+                    Variants
+                </a>
+            </li><li aria-selected="true" aria-labelledby="ui-id-6" aria-controls="notebook_page_45" tabindex="0" role="tab" class="ui-state-default ui-corner-top ui-tabs-active ui-state-active">
+                <a id="ui-id-6" tabindex="-1" role="presentation" class="ui-tabs-anchor" href="#notebook_page_45">
+                    Accounting
+                </a>
+            </li>
+        </ul>
+    <div aria-hidden="true" aria-expanded="false" style="display: none;" role="tabpanel" aria-labelledby="ui-id-1" id="notebook_page_6" class="oe_notebook_page  ui-tabs-panel ui-widget-content ui-corner-bottom">
+    <table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell" width="50%"><table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-7" class=" oe_form_label_help oe_align_right">
+        Product Type
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_selection oe_form_required">
+    <select id="oe-field-input-7" name="type">
+            
+                <option value="false">
+                    
+                </option>
+            
+                <option value="&quot;product&quot;">
+                    Stockable Product
+                </option>
+            
+                <option value="&quot;consu&quot;">
+                    Consumable
+                </option>
+            
+                <option value="&quot;service&quot;">
+                    Service
+                </option>
+            
+    </select>
+</span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_invisible oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-8" class="oe_form_label_help oe_align_right oe_form_invisible">
+        Unit of Measure
+    </label></td><td colspan="1" class="oe_form_group_cell oe_form_invisible" width="99%"><span class="oe_form_field oe_form_field_many2one oe_form_field_with_button oe_form_required oe_form_invisible">
+        
+        
+            <a style="display: inline;" class="oe_m2o_cm_button oe_e" draggable="false" href="#" tabindex="-1">/</a>
+            <div>
+                <input autocomplete="off" class="ui-autocomplete-input" id="oe-field-input-8" type="text"/><span class="ui-helper-hidden-accessible" aria-live="polite" role="status"></span>
+                <span class="oe_m2o_drop_down_button">
+                    <img draggable="false" src="http://localhost:8069/web/static/src/img/down-arrow.png"/>
+                </span>
+            </div>
+        
+    </span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-9" class=" oe_form_label_help oe_align_right">
+        Sale Price
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_float">
+        
+            <input id="oe-field-input-9" type="text"/>
+        
+        
+    </span></td></tr></tbody></table></td><td colspan="1" class="oe_form_group_cell oe_group_right" width="50%"><table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-10" class=" oe_form_label_help oe_align_right">
+        Active
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_boolean">
+        <input class="field_boolean" id="oe-field-input-10" name="active" type="checkbox"/>
+    <div class="boolean"></div></span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label for="oe-field-input-11" class="oe_form_label oe_align_right">
+        EAN13 Barcode
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_char">
+        
+            <input id="oe-field-input-11" type="text"/>
+        
+        
+    </span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label for="oe-field-input-12" class="oe_form_label oe_align_right">
+        Internal Reference
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_char">
+        
+            <input id="oe-field-input-12" type="text"/>
+        
+        
+    </span></td></tr></tbody></table></td></tr></tbody></table><table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_invisible oe_form_group_cell_label" width="1%"><label for="oe-field-input-13" class="oe_form_label oe_align_right oe_form_invisible">
+        Company
+    </label></td><td colspan="1" class="oe_form_group_cell oe_form_invisible" width="99%"><span class="oe_form_field oe_form_field_selection oe_form_invisible">
+    <select id="oe-field-input-13" name="company_id">
+            
+                <option value="false">
+                    
+                </option>
+            
+                <option value="1">
+                    Citimax Technologies ltd
+                </option>
+            
+                <option value="3">
+                    Your Company, Chicago
+                </option>
+            
+    </select>
+</span></td></tr></tbody></table><div title="" data-original-title="" class="oe_form_field oe_form_field_text oe_form_field_translatable">
+        
+            <textarea style="overflow: hidden; word-wrap: break-word; resize: vertical; height: 25px;" class="field_text" rows="6" name="description" placeholder="describe the product characteristics..."></textarea><img class="oe_field_translate oe_input_icon" src="http://localhost:8069/web/static/src/img/icons/terp-translate.png" border="0" height="16" width="16"/>            
+        
+        
+    </div></div><div aria-hidden="true" aria-expanded="false" style="display: none;" role="tabpanel" aria-labelledby="ui-id-2" id="notebook_page_14" class="oe_notebook_page  ui-tabs-panel ui-widget-content ui-corner-bottom">
+    <table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell" width="50%"><table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_invisible oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-15" class="oe_form_label_help oe_align_right oe_form_invisible">
+        Costing Method
+    </label></td><td colspan="1" class="oe_form_group_cell oe_form_invisible" width="99%"><span class="oe_form_field oe_form_field_selection oe_form_required oe_form_invisible">
+    <select id="oe-field-input-15" name="cost_method">
+            
+                <option value="false">
+                    
+                </option>
+            
+                <option value="&quot;standard&quot;">
+                    Standard Price
+                </option>
+            
+                <option value="&quot;average&quot;">
+                    Average Price
+                </option>
+            
+                <option value="&quot;real&quot;">
+                    Real Price
+                </option>
+            
+    </select>
+</span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-16" class=" oe_form_label_help oe_align_right">
+        Cost Price
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><div><span class="oe_form_field oe_form_field_float">
+        
+            <input id="oe-field-input-16" type="text"/>
+        
+        
+    </span><button type="button" class="oe_button oe_form_button oe_link oe_form_invisible">
+        
+        
+        <span>- update</span>
+        
+    </button></div></td></tr></tbody></table></td><td colspan="1" class="oe_form_group_cell oe_group_right oe_form_invisible" width="50%"><div class="oe_horizontal_separator oe_clear  oe_form_invisible">
+        Purchase
+    </div>
+
+    <table class="oe_form_group  oe_form_invisible" border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-17" class=" oe_form_label_help oe_align_right">
+        Purchase Unit of Measure
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_many2one oe_form_field_with_button oe_form_required">
+        
+        
+            <a style="display: inline;" class="oe_m2o_cm_button oe_e" draggable="false" href="#" tabindex="-1">/</a>
+            <div>
+                <input autocomplete="off" class="ui-autocomplete-input" id="oe-field-input-17" type="text"/><span class="ui-helper-hidden-accessible" aria-live="polite" role="status"></span>
+                <span class="oe_m2o_drop_down_button">
+                    <img draggable="false" src="http://localhost:8069/web/static/src/img/down-arrow.png"/>
+                </span>
+            </div>
+        
+    </span></td></tr></tbody></table></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell" width="50%"><div class="oe_horizontal_separator oe_clear">
+        Supply Chain Information
+    </div>
+
+    <table class="oe_form_group" border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-18" class=" oe_form_label_help oe_align_right">
+        Routes
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><div class="oe_form_many2many_checkboxes">
+    
+        <div>
+            
+            
+                <input data-record-id="1" type="checkbox">
+            
+                    Make To Order</input>
+        </div>
+    
+</div></td></tr></tbody></table></td></tr></tbody></table><div class="oe_horizontal_separator oe_clear ">
+        Suppliers
+    </div><div class="oe_form_field oe_form_field_one2many"><div data-view-type="list" class="oe_view_manager">
+        <table class="oe_view_manager_header">
+            <colgroup><col width="20%"/>
+                    <col width="35%"></col>
+            <col width="15%"/>
+            <col width="30%"/>
+            </colgroup><tbody><tr class="oe_header_row oe_header_row_top">
+                <td colspan="2">
+                        <h2 class="oe_view_title">
+                            <span class="oe_view_title_text oe_breadcrumb_title"></span>
+                        </h2>
+                </td>
+                <td colspan="2">
+                        <div class="oe_view_manager_view_search"></div>
+                </td>
+            </tr>
+            <tr class="oe_header_row">
+                <td>
+                        <div class="oe_view_manager_buttons"><div class="oe_list_buttons">
+    
+    </div></div>
+                </td>
+                <td colspan="2">
+                        <div class="oe_view_manager_sidebar"></div>
+                </td>
+                <td>
+                    <ul class="oe_view_manager_switch oe_button_group oe_right">
+                        
+                    </ul>
+                    <div class="oe_view_manager_pager oe_right"><div class="oe_list_pager oe_list_pager_single_page" colspan="5">
+        
+    <div class="oe_pager_value">
+        
+            <span class="oe_list_pager_state">1-1 of 1</span>
+        
+    </div>
+    <ul class="oe_pager_group">
+        
+        <li>
+            <a class="oe_i" data-pager-action="previous" type="button">(</a>
+        </li>
+        <li>
+            <a class="oe_i" data-pager-action="next" type="button">)</a>
+        </li>
+        
+    </ul>
+
+    </div></div>
+                </td>
+            </tr>
+        </tbody></table>
+
+    <div class="oe_view_manager_wrapper">
+        <div>
+            <div class="oe_view_manager_body">
+                <div class="oe_searchview_drawer_container"></div>
+                    
+                        <div class="oe_view_manager_view_list"><div class="oe_list oe_view"><table class="oe_list_content">
+    
+    <thead>
+        
+        <tr class="oe_list_header_columns">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            
+            
+                <th data-id="sequence" class="oe_list_header_handle oe_sortable"><div>
+                    Sequence
+                </div></th>
+            
+                <th data-id="name" class="oe_list_header_many2one oe_sortable"><div>
+                    Supplier
+                </div></th>
+            
+                <th data-id="delay" class="oe_list_header_integer oe_sortable"><div>
+                    Delivery Lead Time
+                </div></th>
+            
+                <th data-id="min_qty" class="oe_list_header_float oe_sortable"><div>
+                    Minimal Quantity
+                </div></th>
+            
+                
+            
+            <th class="oe_list_record_delete" width="13px"></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            
+            <td class="oe_list_footer oe_number">
+            </td><td class="oe_list_footer oe_number">
+            </td><td class="oe_list_footer oe_number">
+            </td><td class="oe_list_footer oe_number">
+            </td>
+            <td class="oe_list_record_delete"></td>
+        </tr>
+    </tfoot>
+<tbody style="" class="ui-sortable">
+    <tr data-id="42" style="">
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    
+    
+        
+        
+        <td data-field="sequence" title="Assigns the priority to the list of product supplier." class="oe_list_field_cell oe_list_field_handle oe_number  oe_readonly "><div class="oe_list_handle"></div></td>
+    
+        
+        
+        <td data-field="name" title="Supplier of this product" class="oe_list_field_cell oe_list_field_many2one    oe_required">Mediapole</td>
+    
+        
+        
+        <td data-field="delay" title="Lead time in days between the confirmation of the purchase order and the receipt of the products in your warehouse. Used by the scheduler for automatic computation of the purchase order planning." class="oe_list_field_cell oe_list_field_integer oe_number   oe_required">4</td>
+    
+        
+        
+        <td data-field="min_qty" title="The minimal quantity to purchase to this supplier, expressed in the supplier Product Unit of Measure if not empty, in the default unit of measure of the product otherwise." class="oe_list_field_cell oe_list_field_float oe_number   oe_required">0.00</td>
+    
+        
+        
+        
+    
+    <td class="oe_list_record_delete" width="13px">
+        <button class="oe_i" name="delete" type="button">d</button>
+    </td>
+        
+    
+</tr>
+<tr><td class="oe_form_field_one2many_list_row_add" colspan="5"><a href="#">Add an item</a></td></tr><tr><td title="Sequence">&nbsp;</td><td title="Supplier">&nbsp;</td><td title="Delivery Lead Time">&nbsp;</td><td title="Minimal Quantity">&nbsp;</td><td class="oe_list_record_delete"><button type="button" style="visibility: hidden"> </button></td></tr><tr><td title="Sequence">&nbsp;</td><td title="Supplier">&nbsp;</td><td title="Delivery Lead Time">&nbsp;</td><td title="Minimal Quantity">&nbsp;</td><td class="oe_list_record_delete"><button type="button" style="visibility: hidden"> </button></td></tr></tbody></table></div></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div></div><div class="oe_horizontal_separator oe_clear ">
+        Description for Suppliers
+    </div><div title="" data-original-title="" class="oe_form_field oe_form_field_text oe_form_field_translatable">
+        
+            <textarea style="height: 96px; overflow: hidden; word-wrap: break-word; resize: vertical;" class="field_text" rows="6" name="description_purchase" placeholder="This note will be displayed on requests for quotation..."></textarea><img class="oe_field_translate oe_input_icon" src="http://localhost:8069/web/static/src/img/icons/terp-translate.png" border="0" height="16" width="16"/>            
+        
+        
+    </div></div><div aria-hidden="true" aria-expanded="false" style="display: none;" role="tabpanel" aria-labelledby="ui-id-3" id="notebook_page_19" class="oe_notebook_page  ui-tabs-panel ui-widget-content ui-corner-bottom">
+    <table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell" width="50%"><div class="oe_horizontal_separator oe_clear">
+        Stock and Expected Variations
+    </div>
+
+    <table class="oe_form_group" border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label for="oe-field-input-20" class=" oe_form_label oe_align_right">
+        Quantity On Hand
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><div><span class="oe_form_field oe_form_field_float oe_inline">
+        
+        
+            <span class="oe_form_char_content">22.000</span>
+        
+    </span><button type="button" class="oe_button oe_form_button oe_link">
+        
+        
+        <span>⇒ Update</span>
+        
+    </button></div></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label for="oe-field-input-21" class=" oe_form_label oe_align_right">
+        Incoming
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><div><span class="oe_form_field oe_form_field_float oe_inline">
+        
+        
+            <span class="oe_form_char_content">0.000</span>
+        
+    </span><button type="button" class="oe_button oe_form_button oe_link">
+        
+        
+        <span>⇒ Request Procurement</span>
+        
+    </button></div></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label for="oe-field-input-22" class=" oe_form_label oe_align_right">
+        Quantity Available
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_float">
+        
+        
+            <span class="oe_form_char_content">22.000</span>
+        
+    </span></td></tr></tbody></table></td><td colspan="1" class="oe_form_group_cell oe_group_right oe_form_invisible" width="50%"><div class="oe_horizontal_separator oe_clear  oe_form_invisible">
+        Lots
+    </div>
+
+    <table class="oe_form_group  oe_form_invisible" border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_invisible oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-23" class="oe_form_label_help oe_align_right oe_form_invisible">
+        Full Lots Traceability
+    </label></td><td colspan="1" class="oe_form_group_cell oe_form_invisible" width="99%"><span class="oe_form_field oe_form_field_boolean oe_form_invisible">
+        <input class="field_boolean" id="oe-field-input-23" name="track_all" type="checkbox"/>
+    <div class="boolean"></div></span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_invisible oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-24" class="oe_form_label_help oe_align_right oe_form_invisible">
+        Track Incoming Lots
+    </label></td><td colspan="1" class="oe_form_group_cell oe_form_invisible" width="99%"><span class="oe_form_field oe_form_field_boolean oe_form_invisible">
+        <input class="field_boolean" id="oe-field-input-24" name="track_incoming" type="checkbox"/>
+    <div class="boolean"></div></span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_invisible oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-25" class="oe_form_label_help oe_align_right oe_form_invisible">
+        Track Outgoing Lots
+    </label></td><td colspan="1" class="oe_form_group_cell oe_form_invisible" width="99%"><span class="oe_form_field oe_form_field_boolean oe_form_invisible">
+        <input class="field_boolean" id="oe-field-input-25" name="track_outgoing" type="checkbox"/>
+    <div class="boolean"></div></span></td></tr></tbody></table></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell" width="50%"><div class="oe_horizontal_separator oe_clear ">
+        Status
+    </div>
+
+    <table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label for="oe-field-input-26" class=" oe_form_label oe_align_right">
+        Status
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_selection">
+    <select id="oe-field-input-26" name="state">
+            
+                <option value="false">
+                    
+                </option>
+            
+                <option value="&quot;&quot;">
+                    
+                </option>
+            
+                <option value="&quot;draft&quot;">
+                    In Development
+                </option>
+            
+                <option value="&quot;sellable&quot;">
+                    Normal
+                </option>
+            
+                <option value="&quot;end&quot;">
+                    End of Lifecycle
+                </option>
+            
+                <option value="&quot;obsolete&quot;">
+                    Obsolete
+                </option>
+            
+    </select>
+</span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label for="oe-field-input-27" class=" oe_form_label oe_align_right">
+        Product Manager
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_many2one oe_form_field_with_button">
+        
+        
+            <a style="display: none;" class="oe_m2o_cm_button oe_e" draggable="false" href="#" tabindex="-1">/</a>
+            <div>
+                <input autocomplete="off" class="ui-autocomplete-input" id="oe-field-input-27" type="text"/><span class="ui-helper-hidden-accessible" aria-live="polite" role="status"></span>
+                <span class="oe_m2o_drop_down_button">
+                    <img draggable="false" src="http://localhost:8069/web/static/src/img/down-arrow.png"/>
+                </span>
+            </div>
+        
+    </span></td></tr></tbody></table></td><td colspan="1" class="oe_form_group_cell oe_group_right" width="50%"><div class="oe_horizontal_separator oe_clear">
+        Storage Location
+    </div>
+
+    <table class="oe_form_group" border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label for="oe-field-input-28" class=" oe_form_label oe_align_right">
+        Rack
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_char">
+        
+            <input id="oe-field-input-28" maxlength="16" type="text"/>
+        
+        
+    </span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label for="oe-field-input-29" class=" oe_form_label oe_align_right">
+        Row
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_char">
+        
+            <input id="oe-field-input-29" maxlength="16" type="text"/>
+        
+        
+    </span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label for="oe-field-input-30" class=" oe_form_label oe_align_right">
+        Case
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_char">
+        
+            <input id="oe-field-input-30" maxlength="16" type="text"/>
+        
+        
+    </span></td></tr></tbody></table></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell" width="50%"><div class="oe_horizontal_separator oe_clear">
+        Counter-Part Locations Properties
+    </div>
+
+    <table class="oe_form_group" border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-31" class=" oe_form_label_help oe_align_right">
+        Procurement Location
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_many2one oe_form_field_with_button">
+        
+        
+            <a style="display: inline;" class="oe_m2o_cm_button oe_e" draggable="false" href="#" tabindex="-1">/</a>
+            <div>
+                <input autocomplete="off" class="ui-autocomplete-input" id="oe-field-input-31" type="text"/><span class="ui-helper-hidden-accessible" aria-live="polite" role="status"></span>
+                <span class="oe_m2o_drop_down_button">
+                    <img draggable="false" src="http://localhost:8069/web/static/src/img/down-arrow.png"/>
+                </span>
+            </div>
+        
+    </span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-32" class=" oe_form_label_help oe_align_right">
+        Production Location
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_many2one oe_form_field_with_button">
+        
+        
+            <a style="display: inline;" class="oe_m2o_cm_button oe_e" draggable="false" href="#" tabindex="-1">/</a>
+            <div>
+                <input autocomplete="off" class="ui-autocomplete-input" id="oe-field-input-32" type="text"/><span class="ui-helper-hidden-accessible" aria-live="polite" role="status"></span>
+                <span class="oe_m2o_drop_down_button">
+                    <img draggable="false" src="http://localhost:8069/web/static/src/img/down-arrow.png"/>
+                </span>
+            </div>
+        
+    </span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-33" class=" oe_form_label_help oe_align_right">
+        Inventory Location
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_many2one oe_form_field_with_button">
+        
+        
+            <a style="display: inline;" class="oe_m2o_cm_button oe_e" draggable="false" href="#" tabindex="-1">/</a>
+            <div>
+                <input autocomplete="off" class="ui-autocomplete-input" id="oe-field-input-33" type="text"/><span class="ui-helper-hidden-accessible" aria-live="polite" role="status"></span>
+                <span class="oe_m2o_drop_down_button">
+                    <img draggable="false" src="http://localhost:8069/web/static/src/img/down-arrow.png"/>
+                </span>
+            </div>
+        
+    </span></td></tr></tbody></table></td><td colspan="1" class="oe_form_group_cell oe_group_right" width="50%"><div class="oe_horizontal_separator oe_clear">
+        Weights
+    </div>
+
+    <table class="oe_form_group" border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-34" class=" oe_form_label_help oe_align_right">
+        Volume
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_float">
+        
+            <input id="oe-field-input-34" type="text"/>
+        
+        
+    </span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-35" class=" oe_form_label_help oe_align_right">
+        Gross Weight
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_float">
+        
+            <input id="oe-field-input-35" type="text">kkkk</input>
+        
+        
+    </span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-36" class=" oe_form_label_help oe_align_right">
+        Net Weight
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_float">
+        
+            <input id="oe-field-input-36" type="text">dkfjdfkgkfg</input>
+        
+        
+    </span></td></tr></tbody></table></td></tr></tbody></table><div class="oe_horizontal_separator oe_clear  oe_form_invisible">
+        Packaging
+    </div>
+
+    <table class="oe_form_group  oe_form_invisible" border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-37" class=" oe_form_label_help oe_align_right">
+        Configurations
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><div class="oe_form_field oe_form_field_one2many"><div data-view-type="list" class="oe_view_manager">
+        <table class="oe_view_manager_header">
+            <colgroup><col width="20%"/>
+            <col width="35%"/>
+            <col width="15%"/>
+            <col width="30%"/>
+            </colgroup><tbody><tr class="oe_header_row oe_header_row_top">
+                <td colspan="2">
+                        <h2 class="oe_view_title">
+                            <span class="oe_view_title_text oe_breadcrumb_title"></span>
+                        </h2>
+                </td>
+                <td colspan="2">
+                        <div class="oe_view_manager_view_search"></div>
+                </td>
+            </tr>
+            <tr class="oe_header_row">
+                <td>
+                        <div class="oe_view_manager_buttons"><div class="oe_list_buttons">
+    
+    </div></div>
+                </td>
+                <td colspan="2">
+                        <div class="oe_view_manager_sidebar"></div>
+                </td>
+                <td>
+                    <ul class="oe_view_manager_switch oe_button_group oe_right">
+                        
+                    </ul>
+                    <div class="oe_view_manager_pager oe_right"><div style="display: none;" class="oe_list_pager oe_list_pager_single_page" colspan="6">
+        
+    <div class="oe_pager_value">
+        
+            <span class="oe_list_pager_state">-</span>
+        
+    </div>
+    <ul class="oe_pager_group">
+        
+        <li>
+            <a class="oe_i" data-pager-action="previous" type="button">(</a>
+        </li>
+        <li>
+            <a class="oe_i" data-pager-action="next" type="button">)</a>
+        </li>
+        
+    </ul>
+
+    </div></div>
+                </td>
+            </tr>
+        </tbody></table>
+
+    <div class="openerp oe_view_manager_wrapper">
+        <div>
+            <div class="openerp oe_view_manager_body">
+                <div class="oe_searchview_drawer_container"></div>
+                    
+                        <div class="oe_view_manager_view_list"><div class="oe_list oe_view"><table class="oe_list_content">
+    
+    <thead>
+        
+        <tr class="oe_list_header_columns">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            
+            
+                <th data-id="qty" class="oe_list_header_float oe_sortable"><div>
+                    Quantity by Package
+                </div></th>
+            
+                <th data-id="ul" class="oe_list_header_many2one oe_sortable"><div>
+                    Package Logistic Unit
+                </div></th>
+            
+                <th data-id="ul_qty" class="oe_list_header_integer oe_sortable"><div>
+                    Package by layer
+                </div></th>
+            
+                <th data-id="rows" class="oe_list_header_integer oe_sortable"><div>
+                    Number of Layers
+                </div></th>
+            
+                <th data-id="ul_container" class="oe_list_header_many2one oe_sortable"><div>
+                    Pallet Logistic Unit
+                </div></th>
+            
+            <th class="oe_list_record_delete" width="13px"></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            
+            <td class="oe_list_footer oe_number">
+            </td><td class="oe_list_footer oe_number">
+            </td><td class="oe_list_footer oe_number">
+            </td><td class="oe_list_footer oe_number">
+            </td><td class="oe_list_footer oe_number">
+            </td>
+            <td class="oe_list_record_delete"></td>
+        </tr>
+    </tfoot>
+<tbody><tr><td class="oe_form_field_one2many_list_row_add" colspan="6"><a href="#">Add an item</a></td></tr><tr><td title="Quantity by Package">&nbsp;</td><td title="Package Logistic Unit">&nbsp;</td><td title="Package by layer">&nbsp;</td><td title="Number of Layers">&nbsp;</td><td title="Pallet Logistic Unit">&nbsp;</td><td class="oe_list_record_delete"><button type="button" style="visibility: hidden"> </button></td></tr><tr><td title="Quantity by Package">&nbsp;</td><td title="Package Logistic Unit">&nbsp;</td><td title="Package by layer">&nbsp;</td><td title="Number of Layers">&nbsp;</td><td title="Pallet Logistic Unit">&nbsp;</td><td class="oe_list_record_delete"><button type="button" style="visibility: hidden"> </button></td></tr><tr><td title="Quantity by Package">&nbsp;</td><td title="Package Logistic Unit">&nbsp;</td><td title="Package by layer">&nbsp;</td><td title="Number of Layers">&nbsp;</td><td title="Pallet Logistic Unit">&nbsp;</td><td class="oe_list_record_delete"><button type="button" style="visibility: hidden"> </button></td></tr></tbody></table></div></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div></div></td></tr></tbody></table></div><div aria-hidden="true" aria-expanded="false" style="display: none;" role="tabpanel" aria-labelledby="ui-id-4" id="notebook_page_38" class="oe_notebook_page ui-tabs-panel ui-widget-content ui-corner-bottom">
+    <table class="openerp oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="3" class="oe_form_group_cell" width="150%"><div class="oe_horizontal_separator oe_clear ">
+        Sale Conditions
+    </div>
+
+    <table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label for="oe-field-input-39" class=" oe_form_label oe_align_right">
+        Warranty
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><div><span class="oe_form_field oe_form_field_float oe_inline">
+        
+            <input id="oe-field-input-39" type="text"/>
+        
+        
+    </span> months
+                                        </div></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-40" class=" oe_form_label_help oe_align_right">
+        Customer Lead Time
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><div><span class="oe_form_field oe_form_field_float oe_inline" style="vertical-align:baseline">
+        
+            <input id="oe-field-input-40" type="text"/>
+        
+        
+    </span> days
+                    </div></td></tr></tbody></table></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_invisible" width="50%"><div class="oe_horizontal_separator oe_clear  oe_form_invisible">
+        Unit of Measure
+    </div>
+
+    <table class="oe_form_group  oe_form_invisible" border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-41" class=" oe_form_label_help oe_align_right">
+        Unit of Sale
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_many2one oe_form_field_with_button">
+        
+        
+            <a style="display: none;" class="oe_m2o_cm_button oe_e" draggable="false" href="#" tabindex="-1">/</a>
+            <div>
+                <input autocomplete="off" class="ui-autocomplete-input" id="oe-field-input-41" type="text"/><span class="ui-helper-hidden-accessible" aria-live="polite" role="status"></span>
+                <span class="oe_m2o_drop_down_button">
+                    <img draggable="false" src="http://localhost:8069/web/static/src/img/down-arrow.png"/>
+                </span>
+            </div>
+        
+    </span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-42" class=" oe_form_label_help oe_align_right">
+        Unit of Measure -&gt; UOS Coeff
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_float">
+        
+            <input id="oe-field-input-42" type="text">dflgdfkgdflgfdgkdfg</input>
+        
+        
+    </span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label for="oe-field-input-43" class=" oe_form_label oe_align_right">
+        Measure Type
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_selection">
+    <select id="oe-field-input-43" name="mes_type">
+            
+                <option value="false">
+                    
+                </option>
+            
+                <option value="&quot;fixed&quot;">
+                    Fixed
+                </option>
+            
+                <option value="&quot;variable&quot;">
+                    Variable
+                </option>
+            
+    </select>
+</span></td></tr></tbody></table></td></tr></tbody></table><table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"></table><div class="oe_horizontal_separator oe_clear ">
+        Description for Quotations
+    </div><div title="" data-original-title="" class="oe_form_field oe_form_field_text oe_form_field_translatable">
+        
+            <textarea style="height: 96px; overflow: hidden; word-wrap: break-word; resize: vertical;" class="field_text" rows="6" name="description_sale" placeholder="note to be displayed on quotations..."></textarea><img class="oe_field_translate oe_input_icon" src="http://localhost:8069/web/static/src/img/icons/terp-translate.png" border="0" height="16" width="16"/>            
+        
+        
+    </div></div><div aria-hidden="true" aria-expanded="false" style="display: none;" role="tabpanel" aria-labelledby="ui-id-5" id="notebook_page_44" class="oe_notebook_page  ui-tabs-panel ui-widget-content ui-corner-bottom">
+    <div class="oe_right"><button type="button" class="oe_stat_button btn btn-default oe_inline">
+        
+        <div class="stat_button_icon fa fa-strikethrough fa-fw"></div>
+        
+        <div>Variant Prices</div>
+    </button><button type="button" class="oe_stat_button btn btn-default oe_inline">
+        
+        <div class="stat_button_icon fa fa-sitemap fa-fw"></div>
+        
+        
+    <div>
+        <strong>1</strong><br>List of Variants</br></div></button></div><p class="oe_grey"><strong>Warning</strong>: adding or deleting attributes
+                            will delete and recreate existing variants and lead
+                            to the loss of their possible customizations.
+                        </p><div class="oe_form_field oe_form_field_one2many"><div data-view-type="list" class="oe_view_manager">
+        <table class="oe_view_manager_header">
+            <colgroup><col width="20%">gkhghghgh</col>
+                <col width="35%">kkflf</col>
+            <col width="15%"/>
+            <col width="30%"/>
+            </colgroup><tbody><tr class="oe_header_row oe_header_row_top">
+                <td colspan="2">
+                        <h2 class="oe_view_title">
+                            <span class="oe_view_title_text oe_breadcrumb_title"></span>
+                        </h2>
+                </td>
+                <td colspan="2">
+                        <div class="oe_view_manager_view_search"></div>
+                </td>
+            </tr>
+            <tr class="oe_header_row">
+                <td>
+                        <div class="oe_view_manager_buttons"><div class="oe_list_buttons">
+    
+    </div></div>
+                </td>
+                <td colspan="2">
+                        <div class="oe_view_manager_sidebar"></div>
+                </td>
+                <td>
+                    <ul class="oe_view_manager_switch oe_button_group oe_right">
+                        
+                    </ul>
+                    <div class="oe_view_manager_pager oe_right"><div style="display: none;" class="oe_list_pager oe_list_pager_single_page" colspan="3">
+        
+    <div class="oe_pager_value">
+        
+            <span class="oe_list_pager_state">-</span>
+        
+    </div>
+    <ul class="oe_pager_group">
+        
+        <li>
+            <a class="oe_i" data-pager-action="previous" type="button">(</a>
+        </li>
+        <li>
+            <a class="oe_i" data-pager-action="next" type="button">)</a>
+        </li>
+        
+    </ul>
+
+    </div></div>
+                </td>
+            </tr>
+        </tbody></table>
+
+    <div class="oe_view_manager_wrapper">
+        <div>
+            <div class="oe_view_manager_body">
+                <div class="oe_searchview_drawer_container"></div>
+                    
+                        <div class="oe_view_manager_view_list"><div class="oe_list oe_view oe_list_editable"><div><div style="display: none;" class="oe_formview oe_view oe_form_editable">
+        <div class="oe_form_buttons"></div>
+        <div style="display: none;" class="oe_form_sidebar"></div>
+        <div class="oe_form_pager"></div>
+        <div class="oe_form_container"><div class="oe_form"><div class="oe_form_container oe_form_nosheet">
+    <field name="attribute_id" modifiers="{&quot;required&quot;:true}" nolabel="true"></field><field name="value_ids" widget="many2many_tags" options="{'no_create_edit': True}" domain="[('attribute_id', '=', attribute_id)]" context="{'default_attribute_id': attribute_id}" modifiers="{}" nolabel="true"></field></div></div></div>
+    </div></div><table class="oe_list_content">
+    
+    <thead>
+        
+        <tr class="oe_list_header_columns">
+            
+                
+            
+                
+            
+            
+            
+                <th data-id="attribute_id" class="oe_list_header_many2one oe_sortable"><div>
+                    Attribute
+                </div></th>
+            
+                <th data-id="value_ids" class="oe_list_header_many2many_tags oe_sortable"><div>
+                    Product Attribute Value
+                </div></th>
+            
+            <th class="oe_list_record_delete" width="13px"></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            
+            <td class="oe_list_footer oe_number">
+            </td><td class="oe_list_footer oe_number">
+            </td>
+            <td class="oe_list_record_delete"></td>
+        </tr>
+    </tfoot>
+<tbody><tr><td class="oe_form_field_one2many_list_row_add" colspan="3"><a href="#">Add an item</a></td></tr><tr><td title="Attribute">&nbsp;</td><td title="Product Attribute Value">&nbsp;</td><td class="oe_list_record_delete"><button type="button" style="visibility: hidden"> </button></td></tr><tr><td title="Attribute">&nbsp;</td><td title="Product Attribute Value">&nbsp;</td><td class="oe_list_record_delete"><button type="button" style="visibility: hidden"> </button></td></tr><tr><td title="Attribute">&nbsp;</td><td title="Product Attribute Value">&nbsp;</td><td class="oe_list_record_delete"><button type="button" style="visibility: hidden"> </button></td></tr></tbody></table></div></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div></div></div><div aria-hidden="false" aria-expanded="true" style="display: block;" role="tabpanel" aria-labelledby="ui-id-6" id="notebook_page_45" class="oe_notebook_page  ui-tabs-panel ui-widget-content ui-corner-bottom">
+    <table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-46" class=" oe_form_label_help oe_align_right">
+        Internal Category
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><div><span class="oe_form_field oe_form_field_many2one oe_form_field_with_button oe_form_required">
+        
+        
+            <a style="display: inline;" class="oe_m2o_cm_button oe_e" draggable="false" href="#" tabindex="-1">/</a>
+            <div>
+                <input autocomplete="off" class="ui-autocomplete-input" id="oe-field-input-46" type="text"/><span class="ui-helper-hidden-accessible" aria-live="polite" role="status"></span>
+                <span class="oe_m2o_drop_down_button">
+                    <img draggable="false" src="http://localhost:8069/web/static/src/img/down-arrow.png"/>
+                </span>
+            </div>
+        
+    </span></div></td></tr></tbody></table><table class="oe_form_group  oe_form_invisible" border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="4" class="oe_form_group_cell"><div class="oe_horizontal_separator oe_clear">
+        Inventory Valuation
+    </div></td></tr><tr class="oe_form_group_row"><td colspan="2" class="oe_form_group_cell" width="100%"><table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-47" class="oe_form_label_help oe_align_right">
+        Inventory Valuation
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><span class="oe_form_field oe_form_field_selection oe_form_required">
+    <select id="oe-field-input-47" name="valuation">
+            
+                <option value="false">
+                    
+                </option>
+            
+                <option value="&quot;manual_periodic&quot;">
+                    Periodical (manual)
+                </option>
+            
+                <option value="&quot;real_time&quot;">
+                    Real Time (automated)
+                </option>
+            
+    </select>
+</span></td></tr></tbody></table></td></tr><tr class="oe_form_group_row"><td colspan="2" class="oe_form_group_cell" width="100%"><table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label oe_form_invisible" width="1%"><label title="" data-original-title="" for="oe-field-input-48" class="oe_form_label_help oe_align_right oe_form_invisible">
+        Stock Input Account
+    </label></td><td colspan="1" class="oe_form_group_cell oe_form_invisible" width="99%"><span class="oe_form_field oe_form_field_many2one oe_form_field_with_button oe_form_invisible">
+        
+        
+            <a style="display: none;" class="oe_m2o_cm_button oe_e" draggable="false" href="#" tabindex="-1">/</a>
+            <div>
+                <input autocomplete="off" class="ui-autocomplete-input" id="oe-field-input-48" type="text"/><span class="ui-helper-hidden-accessible" aria-live="polite" role="status"></span>
+                <span class="oe_m2o_drop_down_button">
+                    <img draggable="false" src="http://localhost:8069/web/static/src/img/down-arrow.png"/>
+                </span>
+            </div>
+        
+    </span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label oe_form_invisible" width="1%"><label title="" data-original-title="" for="oe-field-input-49" class="oe_form_label_help oe_align_right oe_form_invisible">
+        Stock Output Account
+    </label></td><td colspan="1" class="oe_form_group_cell oe_form_invisible" width="99%"><span class="oe_form_field oe_form_field_many2one oe_form_field_with_button oe_form_invisible">
+        
+        
+            <a style="display: none;" class="oe_m2o_cm_button oe_e" draggable="false" href="#" tabindex="-1">/</a>
+            <div>
+                <input autocomplete="off" class="ui-autocomplete-input" id="oe-field-input-49" type="text"/><span class="ui-helper-hidden-accessible" aria-live="polite" role="status"></span>
+                <span class="oe_m2o_drop_down_button">
+                    <img draggable="false" src="http://localhost:8069/web/static/src/img/down-arrow.png"/>
+                </span>
+            </div>
+        
+    </span></td></tr></tbody></table></td></tr></tbody></table><newline></newline><table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell" width="50%"><table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_invisible oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-50" class="oe_form_label_help oe_align_right oe_form_invisible">
+        Income Account
+    </label></td><td colspan="1" class="oe_form_group_cell oe_form_invisible" width="99%"><span class="oe_form_field oe_form_field_many2one oe_form_field_with_button oe_form_invisible">
+        
+        
+            <a style="display: none;" class="oe_m2o_cm_button oe_e" draggable="false" href="#" tabindex="-1">/</a>
+            <div>
+                <input autocomplete="off" class="ui-autocomplete-input" id="oe-field-input-50" type="text"/><span class="ui-helper-hidden-accessible" aria-live="polite" role="status"></span>
+                <span class="oe_m2o_drop_down_button">
+                    <img draggable="false" src="http://localhost:8069/web/static/src/img/down-arrow.png"/>
+                </span>
+            </div>
+        
+    </span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label for="oe-field-input-51" class=" oe_form_label oe_align_right">
+        Customer Taxes
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%"><div class="oe_form_field oe_tags">
+        
+            <div style="height: 22px;" class="text-core"><div style="width: 252px; height: 22px;" class="text-wrap"><textarea rows="1" style="width: 264px; padding-left: 3px;"></textarea><div class="text-tags"></div><div style="max-height: 100px; top: 22px;" class="text-dropdown text-position-below"><div class="text-list"></div></div><input value="[]" type="hidden"/><div class="text-arrow"></div></div></div>
+        
+    </div></td></tr></tbody></table></td><td colspan="1" class="oe_form_group_cell oe_group_right" width="50%"><table class="oe_form_group " border="0" cellpadding="0" cellspacing="0"><tbody><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_invisible oe_form_group_cell_label" width="1%"><label title="" data-original-title="" for="oe-field-input-52" class="oe_form_label_help oe_align_right oe_form_invisible">
+        Expense Account
+    </label></td><td colspan="1" class="oe_form_group_cell oe_form_invisible" width="99%"><span class="oe_form_field oe_form_field_many2one oe_form_field_with_button oe_form_invisible">
+        
+        
+            <a style="display: none;" class="oe_m2o_cm_button oe_e" draggable="false" href="#" tabindex="-1">/</a>
+            <div>
+                <input autocomplete="off" class="ui-autocomplete-input" id="oe-field-input-52" type="text"/><span class="ui-helper-hidden-accessible" aria-live="polite" role="status"></span>
+                <span class="oe_m2o_drop_down_button">
+                    <img draggable="false" src="http://localhost:8069/web/static/src/img/down-arrow.png"/>
+                </span>
+            </div>
+        
+    </span></td></tr><tr class="oe_form_group_row"><td colspan="1" class="oe_form_group_cell oe_form_group_cell_label" width="1%"><label for="oe-field-input-53" class=" oe_form_label oe_align_right">
+        Supplier Taxes
+    </label></td><td colspan="1" class="oe_form_group_cell" width="99%">
+        <div class="oe_form_field oe_tags">
+        
+            <div style="height: 22px;" class="text-core">
+                <div style="width: 232px; height: 22px;" class="text-wrap"><textarea rows="1" style="width: 244px; padding-left: 3px;"></textarea><div class="text-tags"></div><div style="max-height: 100px; top: 22px;" class="text-dropdown text-position-below"><div class="text-list"></div></div><input value="[]" type="hidden"/><div class="text-arrow"></div></div></div>
+        
+           </div></td></tr></tbody></table></td></tr></tbody></table></div></div>
+                </h:form>
+         </div>
+        
+       
+        </div>
+    </p:dialog>
+           
+   
+ 
+   
+</html>

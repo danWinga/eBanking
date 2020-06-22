@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+        
+        
+    <p:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="PlStStudentClass">
+        <h:form id="frmplstudentclass"> 
+            <h:panelGrid columns="4" cellpadding="5">                
+                                                    
+                                        
+                                <h:outputText value="Choose Class:" />
+                                <h:selectOneMenu value="#{studentClassBean.newStudentClass.classcode}"  onselect="true" valueChangeListener="#{studentClassBean.clstreams}" >
+                                    <f:selectItem itemLabel="Select Class" itemValue="" />
+                                    <f:selectItems value="#{studentClassBean.classes}"/>
+                                    <p:ajax  oncomplete="true" listener="#{studentClassBean.clstreams}" update="@([id$= unassgn_stream ])" />
+                                </h:selectOneMenu>
+                                <h:outputText value="Choose  Stream:" />
+                                <h:selectOneMenu value="#{studentClassBean.newStudentClass.streamCode}" id="unassgn_stream"  >
+                                    <f:selectItem itemLabel="Select Stream" itemValue="" />
+                                    <f:selectItems value="#{studentClassBean.classStream}" />
+                                    
+                                </h:selectOneMenu>
+                               
+                        </h:panelGrid>
+            <p:separator />
+                <h3 style="margin-top: 0">Assign Student to Class</h3>
+                <p:pickList id="pickList" value="#{studentClassBean.studentsList}" var="studentList"  itemValue="#{studentList.assgnCode}" itemLabel="#{studentList.firstname}"
+                     showSourceControls="false" showTargetControls="false" 
+                    showSourceFilter="true" showTargetFilter="true" filterMatchMode="contains" > 
+                    <p:ajax event="transfer" listener="#{studentClassBean.onTransfer}" update="@([id$= messages ])" />
+    
+                    <f:facet name="sourceCaption">All un assigned Student</f:facet>  
+                    <f:facet name="targetCaption">Selected Students</f:facet>  
+                    <p:column>  
+                        #{studentList.assgnCode} - #{studentList.firstname} - #{studentList.lastname}
+                    </p:column>  
+                </p:pickList>
+               <div align="right">
+                    <p:commandButton id="allstudSubmit" value="Add Student/s" process="@form" update="@([id$= allstudentdata ])" actionListener="#{studentClassBean.addStudents}" oncomplete="PF('PlStStudentClass').hide()" style="margin-top:5px" />
+                    <p:commandButton id="allstudclose" value="close"  oncomplete="PF('PlStStudentClass').hide()" style="margin-top:5px" />
+               </div>
+           
+     
+        </h:form>
+    </p:dialog>
+      
+        
+</html>

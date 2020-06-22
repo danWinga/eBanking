@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+   
+     
+ <div class="ContentSideSections overHidden PFNextGen">
+<div class="Content21 floatLeft overHidden">
+ 
+                                
+    <p:fieldset legend="Basic" style="margin-bottom:20px">
+        <h:panelGrid columns="1">
+        <p:selectOneListbox id="advancedxs" value="#{subjectTeacherBean.selectedTeacher}" converter="teacherConverter"   var="t" filter="true" filterMatchMode="contains">
+                    
+        <f:selectItems value="#{subjectTeacherBean.teachers}" var="teacher"  itemLabel="#{teacher.firstName}--#{teacher.lastName}" itemValue="#{teacher}" />
+             
+            <p:column>
+                <h:outputText value="#{t.stakeholderCode}" />
+            </p:column>
+ 
+            <p:column>
+                <h:outputText value="#{t.firstName} -#{t.lastName}" />
+            </p:column>
+        </p:selectOneListbox>
+    
+    <h:outputText value="Select Teacher:" />
+    <h:selectOneMenu value="#{subjectTeacherBean.selectedTeacher.stakeholderCode}" onselect="true" >
+        <f:selectItem itemLabel="Select One" itemValue=""  />
+        <f:selectItems value="#{subjectTeacherBean.schoolTeachers}" />
+        <p:ajax  oncomplete="true" listener="#{subjectTeacherBean.searchTeacherWithId}"/>
+    </h:selectOneMenu>
+        </h:panelGrid>
+    </p:fieldset>  
+    
+    <p:commandButton value="Submit" process="advancedxs" update=":main1:main2:teacherSujct" oncomplete="PF('dlgxd').show()" icon="ui-icon-check" />
+    <p:dialog header="Selected Values" modal="true" showEffect="fade" widgetVar="dlgxd" resizable="false">
+        <p:panelGrid columns="2" id="teacherSujct" columnClasses="label,output">
+            
+ 
+            <h:outputText value="Advanced:" />
+            <h:outputText value="#{subjectTeacherBean.selectedTeacher.firstName}" />
+        </p:panelGrid>
+    </p:dialog>
+    
+ 
+<h:form enctype="multipart/form-data">
+    <p:growl id="message" showDetail="true" />
+ 
+    <p:fileUpload value="#{fileUploadView.file}" mode="simple" disabled="false" />
+ 
+    <p:commandButton value="Submit"  actionListener="#{fileUploadView.upload}" process="@form" disabled="false" update="message" />
+</h:form>
+  
+</div>
+    <div class="Content66 floatLeft overHidden">
+        <div class="BoxesIndent">
+            <div class="dispBlock overHidden">
+    <h:form enctype="multipart/form-data"> 
+            <p:messages showDetail="true"/>
+            <p:panelGrid columns="2">
+                <h:outputLabel  value="Select Image: *" />
+                <p:fileUpload value="#{uploadImage.file}" mode="simple" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+                <f:facet name="footer">
+                    <p:commandButton value="Submit"   process="@form"
+                                     actionListener="#{uploadImage.upload}"/>
+                </f:facet>
+            </p:panelGrid>
+            <p:spacer height="20"></p:spacer>
+            
+        </h:form> 
+            </div>
+        </div>
+        
+    </div>
+     
+     <div class="Content33 floatLeft overHidden">
+    <h:form enctype="multipart/form-data"> 
+            <p:messages showDetail="true"/>
+            <p:panelGrid columns="2">
+                <h:outputLabel  value="Select Image: *" />
+                <p:fileUpload value="#{uploadImage.file}" mode="simple" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+                <f:facet name="footer">
+                    <p:commandButton value="Submit"   process="@form"
+                                     actionListener="#{uploadImage.upload}"/>
+                </f:facet>
+            </p:panelGrid>
+            <p:spacer height="20"></p:spacer>
+            
+        </h:form> 
+         
+         <h:form id="uploadform">
+                        <h:panelGrid columns="1" cellpadding="5" >
+                                <h:outputText value="Scan and Upload Profile Picture of Player:" />
+                                <p:fileUpload fileUploadListener="#{players.profilePic}" oncomplete="upload.hide();" update=" :main1:main2:messages" multiple="false" mode="advanced" dragDropSupport="false"  
+                                sizeLimit="10000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+                                <f:facet name="footer">
+                                        <p:separator />
+                                        <div align="right">
+                                                <p:commandButton value="Close" icon="ui-icon-close" oncomplete="upload.hide();"/>
+                                        </div>
+                                </f:facet>
+                        </h:panelGrid>
+             <p:spacer height="20"></p:spacer>
+             <p:dataTable value="#{tableBean.allImage}" var="item" paginator="true" rows="5" liveResize="true"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="3,5,10" widgetVar="50" style="width: 600px;" >          
+                <f:facet name="header">
+                        <h:outputText value="Image showing from database" />
+                    </f:facet>
+                 <p:column headerText="Image Id">
+                    
+                    <h:outputText value="#{item.imageID}"/>
+                </p:column>
+                 <p:column headerText=" Image Name">
+                    
+                    <h:outputText value="#{item.imageName}"/>
+                </p:column>
+                 <p:column headerText="Image">
+                     <p:outputPanel >
+                    
+                    <h:outputLink value="DisplayImage?Image_id=#{item.imageID}" target="_blank" >
+                        <h:graphicImage value="DisplayImage?Image_id=#{item.imageID}" width="50" height="50"></h:graphicImage>
+                    </h:outputLink>
+                   </p:outputPanel>
+                </p:column>
+            </p:dataTable>
+                </h:form>
+         
+         
+    </div>
+     
+            
+     
+ </div>
+</html>

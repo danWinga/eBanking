@@ -1,0 +1,178 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#160;">
+    <!ENTITY bull "&#8226;">
+    <!ENTITY copy "&#169;">
+]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <f:facet name="first">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="shortcut icon" type="image/png" href="#{request.contextPath}/resources/main/images/img/citimax14.png" />
+    </f:facet>
+
+    <title>eBankingSystem</title>
+    <h:outputStylesheet name="main/css/showcase.css" />
+    <h:outputStylesheet name="main/css/perfect-scrollbar.css" />
+    <h:outputStylesheet name="main/css/base.css" />
+    <h:outputStylesheet name="main/css/sh.css" />
+    
+    
+    <h:outputScript name="jquery/jquery.js" library="primefaces" />
+    <h:outputScript name="jquery/jquery-plugins.js" library="primefaces" />
+    <h:outputScript name="main/js/perfect-scrollbar.js" />
+    <h:outputScript name="main/js/showcase.js" /> 
+    <ui:insert name="head" />
+        <script type="text/javascript">
+		var _gaq = _gaq || [];
+  		_gaq.push(['_setAccount', 'UA-12200033-1']);
+  		_gaq.push(['_trackPageview']);
+
+  		(function() {
+   			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  		})();
+	</script>
+</h:head>
+
+
+<h:body>
+
+    <!-- PC CONTENT STARTS HERE-->
+    <div class="PC">
+         <h:form>
+	<div id="MENUSIDE">
+    	<div id="MENUSIDEindent">
+            <span id="LOGO" class="bordersOfMenuSide">
+                <h:graphicImage name="main/images/img/logo2.png" width="150" />
+                <!-- <h:graphicImage styleClass="hiddenIcons" name="main/images/logo2.png" /> -->
+                <div id="hiddenLogoTextEl" class="hiddenLogoText">
+                    <span class="dispBlock logoDarkText fontSize30"><span class="dispBlock logoBlueText fontSize30 mediumFont">e-Banking</span></span>
+                </div>
+            </span>
+            <span class="emptyBox"></span>
+            <div class="MenuSideMainLink bordersOfMenuSide"><h:graphicImage name="main/images/zoom.svg" class="zoomIcon"/><input id="menuSearch" type="text" placeholder="Search Menu" class="mediumFont fontSize14 mustClose searchInput"/></div>
+            <h:form id="x23">
+            
+           <ui:include src="/menuleft/menupage.xhtml" />  
+             
+             </h:form>
+           
+        </div>    
+            
+    </div>
+    <script type="text/javascript">
+        restoreMenuState();
+    </script>
+    </h:form> 
+    <div id="CONTENTSIDE">
+    	<div id="CONTENTSIDEindent">
+            
+        	<!-- header bar start-->
+			<div class="ContentSideSections" id="PFTopLinksCover" style="height:60px;">
+                <a id="LOGOTEXTSIDE" href="#{request.contextPath}/index.xhtml">
+                    
+                    
+                    <p:outputLabel class="dispBlock logoBlueText fontSize30 mediumFont " value="Welcome : #{loginBean.firstName}"  /> 
+                </a>
+                           
+                <span class="PFTopLinks floatRight boldFont cursorPointer" >
+                    
+                    <h:form>
+                       
+                        <p:commandLink  id="logout" process="@this"  actionListener="#{loginBean.logout}"  oncomplete="window.location.replace(window.location.href);"  > 
+                           <h:graphicImage name="main/images/logout.png" /><span class="PFRedText">Log</span><span class="PFDarkText">out</span>
+                           
+                        </p:commandLink>
+                    </h:form>
+                </span>
+                <a href="#{request.contextPath}/index.xhtml" class="PFTopLinks floatRight boldFont marginRight20"><h:graphicImage name="img/album/sm-img-1.png" /><span class="PFRedText">Trac</span><span class="PFDarkText">king</span></a>
+                <a href="#{request.contextPath}/index.xhtml" class="PFTopLinks floatRight boldFont"><h:graphicImage name="img/album/sm-img-2.png" /><span class="PFRedText">Pay</span><span class="PFDarkText">Roll</span></a>
+                <span class="PFTopLinks floatRight boldFont cursorPointer" id="pushNav">
+                    <h:graphicImage name="main/images/student/Teacher.svg" /><span class="PFRedText">HR</span><span class="PFDarkText">Data</span>
+                    <div id="PushDemos" class="navOverlay">
+                        <a href="#{request.contextPath}/push/counter.xhtml"><span class="ui-text">Employees</span></a>
+                        <a href="#{request.contextPath}/push/chat.xhtml"><span class="ui-text">Contract</span></a>
+                        <a href="#{request.contextPath}/push/notify.xhtml"><span class="ui-text">Leaves</span></a>
+                        <a href="#{request.contextPath}/mobile/checkin.xhtml"><span class="ui-text">Recruitment</span></a>
+                        <a href="#{request.contextPath}/push/viewparam.xhtml"><span class="ui-text">Departments</span></a>
+                        <a href="#{request.contextPath}/push/chart.xhtml"><span class="ui-text">Reports</span></a>
+                    </div>
+                </span>
+                <a href="#{request.contextPath}/mobile/index.xhtml" class="PFTopLinks floatRight boldFont"><h:graphicImage name="main/images/report/pie.svg" /><span class="PFRedText">Re</span><span class="PFDarkText">ports</span></a>
+                <span class="PFTopLinks floatRight boldFont cursorPointer" id="themeSwitcher">
+                    <h:form>
+                        <h:graphicImage name="main/images/finance/finance.svg" /><span class="PFRedText">Fi</span><span class="PFDarkText">nance</span>
+                        <div id="GlobalThemeSwitcher" class="navOverlay">
+                            <ui:repeat value="#{themeSwitcherView.themes}" var="theme">
+                                <a href="#" data-theme="#{theme.name}"><span class="ui-theme ui-theme-#{theme}"></span><span class="ui-text">#{theme.displayName}</span></a>
+                            </ui:repeat>
+                        </div>
+                        <p:remoteCommand name="changeTheme" actionListener="#{guestPreferences.changeTheme}" />
+                    </h:form>
+                </span>
+                
+                <div class="mobileLogoCover">
+                    <h:graphicImage name="main/images/ducation.png" style="height:40px;" styleClass="floatLeft marginRight10"/>
+                    <span class="dispBlock logoDarkText fontSize16 floatLeft">School <span class="dispBlock logoBlueText fontSize18 mediumFont">Management</span></span> 
+                </div>
+                <h:form>
+         
+ 
+              
+                </h:form>
+            </div>
+            <!-- header bar end-->
+
+            <ui:insert name="content" id="cont">
+                 <ui:insert name="subsubmenu"></ui:insert>
+            
+                <div class="ContentSideSections Implementation" style=" background-image:url(#{resource['main/images/img/form_sheetbg.png']}); background-repeat:repeat;">
+                    <ui:insert name="implementation" />
+                </div>
+
+                       
+            </ui:insert>
+            
+            <!-- footer start-->
+            <div class="ContentSideSections">
+                <span class="floatLeft fontSize14 gray"><a href="#">e-Banking</a>, Copyright &copy; 2016<br />All rights reserved.</span>
+                
+                <span class="floatRight fontSize14 gray">Running .</span>
+                <div style="clear:both" />
+            </div>
+            <!-- footer end-->
+            
+        </div>
+    </div>
+    
+    </div>
+    <!-- PC CONTENT END-->
+    
+     <ui:insert name="status">
+            
+        <p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">
+            <f:facet name="start">
+                <p:graphicImage name="main/images/loader.gif" />
+            </f:facet>
+
+            <f:facet name="complete">
+                
+                <h:outputText value="" />
+            </f:facet>
+        </p:ajaxStatus>
+    </ui:insert>
+    
+    <ui:insert name="highlight">
+        <h:outputScript name="main/js/sh.js" target="body"/>
+    </ui:insert>
+    
+    <ui:insert name="body"></ui:insert>
+</h:body>
+</html>

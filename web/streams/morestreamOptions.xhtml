@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+        
+    <p:dialog  header="Edit Class " styleClass=" PFRedText fontSize18 mediumFont " widgetVar="editstreamOptionsdlg" modal="true" showEffect="fade" hideEffect="fade" closeOnEscape="true" closable="true">
+                <p:graphicImage height="50" width="70"  style="padding-left: 5%" />
+                <p:separator />
+                <h:form id="formeditstream"> 
+                    <p:outputPanel id="streamdisplay2"  >
+                        
+                            <h:panelGrid columns="2">
+                                <h:outputText value="Stream Code:" />
+                                <h:inputText size="30" value="#{streamBean.selected.streamCode}" disabled="true" />
+                                <h:outputText value="Stream Name:" />
+                                <h:inputText size="30" value="#{streamBean.selected.streamName}"   />
+                                <h:outputText value="Class:" />
+                                <h:selectOneMenu value="#{streamBean.selected.classCode}">
+                                    <f:selectItems value="#{comboBoxes.classes}"/>
+                                </h:selectOneMenu>
+                                
+                                <h:outputText value="Stream Capacity:" />
+                                <h:inputText size="10" value="#{streamBean.selected.capacity}"  />
+                            </h:panelGrid> 
+                            <p:separator />
+                            <h:panelGrid >   
+                                
+                                <h:outputText style="color:blue; font-style: italic; font-weight: bold; " value="Brief describe of your Stream" />
+                                <p:editor value="#{streamBean.selected.details}" height="180" width="500"  />
+                            </h:panelGrid>
+                        <p:separator/>
+                        <div align="right">
+                             
+                                <p:commandButton process="streamdisplay2" value="Save" update="@([id$= streamTable]), @([id$= messages])" actionListener="#{streamBean.edit}"  oncomplete="PF('editstreamOptionsdlg').hide();" icon="ui-icon-disk"/> 
+                                <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('editstreamOptionsdlg').hide();"/>
+                         </div>
+                       
+                    </p:outputPanel>
+                </h:form>
+     </p:dialog>    
+    <p:dialog     header="New Class Stream" styleClass=" PFRedText fontSize18 mediumFont " widgetVar="newstreamdlg" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:graphicImage height="50" width="70"  style="padding-left: 5%" />
+                <p:separator />
+                <h:form id="formstream">                 
+                            <h:panelGrid columns="2" cellpadding="5">                
+                                  <p:outputLabel for="streamnm" value="Name:" />
+                                  <h:inputText size="30" id="streamnm" value="#{streamBean.newStream.streamName}" required="true" requiredMessage="Stream name is required" />
+                        
+                                        
+                                <h:outputText value="Parent Class:" />
+                                <h:selectOneMenu value="#{streamBean.newStream.classCode}">
+                                    <f:selectItem itemLabel="Select class" itemValue="" />
+                                    <f:selectItems value="#{comboBoxes.classes}"/>
+                                </h:selectOneMenu>
+                            <p:outputLabel for="streamcapacity" value="Capacity:" />
+                            <h:inputText size="10" id="streamcapacity" value="#{streamBean.newStream.capacity}"  />   
+                        </h:panelGrid>
+                                
+                                          
+                        <p:separator />
+                        <h:outputText style="color:blue; font-style: italic; font-weight: bold; " value="Brief describe of your Stream" />
+                        <p:editor value="#{streamBean.newStream.details}" height="150" width="500"  />
+                        
+                        <p:separator/>
+                        <div align="right">
+                            <p:commandButton process="@form" value="Save" update="@([id$= streamTable]), @([id$= messages])"  actionListener="#{streamBean.addNew}" oncomplete="PF('newstreamdlg').hide();" icon="ui-icon-disk"/> 
+                            <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('newstreamdlg').hide();"/>
+                        </div>
+                </h:form>
+        </p:dialog>
+    
+       
+
+</html>

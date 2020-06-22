@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Example of using p:graphicImage and p:dataTable in JSF
+		Primefaces</title>
+</h:head>
+<h:body>
+	<h3>List of Products with Image using p:graphicImage and
+		p:dataTable</h3>
+	<h:form id="productListForm" prependId="false">
+
+		<p:outputPanel id="testContainer">
+
+			<p:dataTable id="docId" var="row" value="#{productBean.productList}"
+				editable="false" widgetVar="documentTable">
+
+				<p:column headerText="Product Id" style="width:10%">
+					<h:outputText value="#{row.productId}" title="Id" />
+				</p:column>
+
+				<p:column headerText="Name" style="width:10%">
+					<h:outputText value="#{row.productName}" title="Name" />
+				</p:column>
+
+				<p:column headerText="Image" style="width:30%">
+					<p:graphicImage value="#{productBean.productImage}">
+						<f:param name="pid" value="#{row.productId}" />
+					</p:graphicImage>
+				</p:column>
+			</p:dataTable>
+		</p:outputPanel>
+
+	</h:form>
+
+</h:body>
+</html>

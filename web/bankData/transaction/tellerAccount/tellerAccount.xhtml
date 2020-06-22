@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+        <style type="text/css">
+                .ui-widget,
+                .ui-widget .ui-widget {
+                       font-size: 12px !important;
+                 }
+       
+            
+            .ui-lable{
+                font-weight:bold;
+            }
+        </style>
+        <div  class="Content100">
+            
+            <div class="ContentSideSectionsx2 overHidden">
+                <p:outputPanel class="Content27 floatLeft overHidden"  style="height:auto;"  >
+                    
+                <p:panel  >
+                    <h:form id="branchTellerUsersFrm">
+                        <p:dataTable paginatorAlwaysVisible="false"  var="tellerUsersData" value="#{dtTellerAccountBean.tellerUserList}" resizableColumns="true" id="tellerUsersDataTable" paginator="true" rows="5" style="height: 200px"
+                                            paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                                            rowsPerPageTemplate="5,10,15"  widgetVar="tellerUsersVarTable"  lazy="true" >
+                                           <!-- <p:ajax event="rowSelect" listener="#{dtBranchBean.onRowBranchSelect}" update=":main1:msgFrm:messages"   /> -->
+                                           <f:facet name="header">  
+                                                   <p:outputPanel>
+                                                       <h:outputText  styleClass=" PFRedText fontSize12 mediumFont " value="Teller Users" /> 
+                                                           <p:separator />
+                                                           <div align="right">
+                                                               <!-- <p:commandButton  update=":main1:main2:personalAccRegFrm:regNextOfKinTabId:newNextOfKinFrm:newNextOfKinPl" oncomplete="PF('newNextOfKinDlg').show(); " icon="ui-icon-document" value="Add New"/>  -->
+                                                           </div>
+                                                   </p:outputPanel>
+                                           </f:facet> 
+
+                                        <p:column  sortBy="#{tellerUsersData.fullName} "  headerText="Name " width="20%">
+                                            <h:outputText value="#{tellerUsersData.fullName}"  />
+                                        </p:column>
+                                        
+                            </p:dataTable>
+                
+                    </h:form>
+                                    
+                </p:panel>
+                    <p:spacer height="3px;"/>
+                <p:panel  header="Branch Cash Account" style="height: 100%;"  >
+                    <h:form id="branchCashAccountFrm">
+                          ggggg
+                    </h:form>
+                      
+                </p:panel>
+                </p:outputPanel>
+                
+                <p:panel class="Content68 floatNone overHidden" style="height: 70%;"  >
+                    <h:form id="branchTellerTranstFrm">
+                        <p:outputPanel >
+                                    <div class='fluid'>
+                                            <header class='header clearfix'>
+                                                    <span class='logo'></span>
+                                                    
+                                                    <section class='top-nav last'>
+                                                            <li>Deposit<span class='rednum'><h:outputText id="neworderid" value="40,000,000" /></span></li>
+                                                            <li>Withdrawal<span class='rednum'><h:outputText id="acceptedid" value="20,000,000" /></span></li>
+                                                            <li>Float<span class='rednum'><h:outputText id="rejectedid" value="100,000,000" /></span></li>
+                                                            
+                                                    </section>
+                                            </header>
+                                    </div>
+                             </p:outputPanel>
+                    <p:dataGrid var="teller" value="#{dtTellerAccountBean.tellerTransList}" columns="3" layout="grid"
+                            rows="1" paginator="true" id="tellerTransTable"
+                            paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                            rowsPerPageTemplate="6,12,16" paginatorAlwaysVisible="false">
+
+                            <f:facet name="header">
+                               <h:outputText  styleClass=" PFRedText fontSize12 mediumFont " value="Available Teller" /> 
+                            </f:facet>
+
+                        <p:panel class=" fluid"  style="text-align:center; ">
+                                <p:outputPanel  class="Content100 dispBlock OrangeBtn  floatNone " >
+                                    <h:outputText value="#{teller.tellerName}" class="defaultText" />
+                                </p:outputPanel>
+                                <p:outputPanel  class="PropertyBoxTeller2 TextShadow floatLeft " >
+                                    <p:graphicImage name="main/images/student/student.png" /> 
+                                    <!-- <h:outputText value="#{teller.userName}" class= "PropertyText"  /> -->
+
+                                </p:outputPanel>
+                                
+                                <p:outputPanel  class="PropertyBoxTeller TextShadow floatRight " style=" text-align:left" >
+                                    <h:panelGrid columns="2">
+                                        
+                                            <h:outputText value="Start:" class= "PropertyText1"  /> 
+                                            <h:outputText value="#{teller.initialFloat}/=" class="PropertyTopicx boldFont" />
+                                            <h:outputText value="Now:" class="PropertyText1" />
+                                            <h:outputText value="#{teller.totalFloat}/=" class="PropertyTopicx boldFont" />
+                                    </h:panelGrid>
+                                    
+                                </p:outputPanel>
+                            <p:outputPanel class="PropertyBoxTeller3 TextShadow " style=" text-align:center">
+                                <p:commandLink  title="View Transaction">
+                                    <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
+                                    <f:setPropertyActionListener value="#{teller}" target="#{dtTellerAccountBean.selectedTellerTrans}" />
+                                </p:commandLink>
+                                </p:outputPanel>
+                            
+                            </p:panel>
+
+                        </p:dataGrid>
+                    </h:form>
+                    
+                </p:panel>
+                <p:spacer height="3;"/>
+                <p:panel class="Content68 floatNone overHidden"   >
+                        <h:form id="frmTellerFloat" >
+                             
+                            <p:dataTable paginatorAlwaysVisible="false"  var="floatData" value="#{dtTellerAccountBean.floatList}" resizableColumns="true" id="floatDataTable" paginator="true" rows="3" scrollHeight="true" 
+                                            paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                                            rowsPerPageTemplate="3,5,10,15"  widgetVar="tellerUsersVarTable"  lazy="true" >
+                                           <!-- <p:ajax event="rowSelect" listener="#{dtBranchBean.onRowBranchSelect}" update=":main1:msgFrm:messages"   /> -->
+                                           <f:facet name="header">  
+                                                   <p:outputPanel>
+                                                       <h:outputText  styleClass=" PFRedText fontSize12 mediumFont " value="Teller Float Record" /> 
+                                                           <p:separator />
+                                                           <div align="right">
+                                                               <p:commandButton  update=":main1:main2:manageFloatFrm:manageFloatPl" oncomplete="PF('manageFloatdlg5').show(); " icon="ui-icon-document" value="Manage Float"/> 
+                                                           </div>
+                                                   </p:outputPanel>
+                                           </f:facet> 
+
+                                    <p:column  sortBy="#{floatData.dateString} "  headerText="Date " width="10%">
+                                                <h:outputText value="#{floatData.createdDate}"  />
+                                    </p:column>
+                                    <p:column  sortBy="#{floatData.tellerName} "  headerText="Teller " width="10%">
+                                                <h:outputText value="#{floatData.tellerName}"  />
+                                    </p:column>
+                                    <p:column  sortBy="#{floatData.isTopup} "  headerText="Topup " width="10%">
+                                                <h:outputText value="#{floatData.isTopup}"  />
+                                    </p:column>
+                                    <p:column  sortBy="#{floatData.isWithdrawal} "  headerText="Withdrawal " width="10%">
+                                                <h:outputText value="#{floatData.isWithdrawal}"  />
+                                    </p:column>
+                                    <p:column  sortBy="#{floatData.floatAmount} "  headerText="Amount " width="10%">
+                                                <h:outputText value="#{floatData.floatAmount}"  />
+                                    </p:column>
+                                        
+                            </p:dataTable>
+                        </h:form>
+                    <ui:include src="/bankData/transaction/tellerAccount/floatAccDialogs.xhtml" /> 
+                </p:panel>
+            
+            
+            </div> 
+        </div>
+        
+        
+</html>

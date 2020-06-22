@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+   
+    <div class="ContentSideSections overHidden">
+        
+        
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+ <div class="ContentSideSections overHidden">
+   <div class="Content21 floatLeft overHidden TextShadow">
+ 
+                                
+    <p:fieldset legend="Basic"  styleClass=" PFRedText fontSize18 mediumFont " style="margin-bottom:20px">
+        <h:panelGrid columns="1">
+        <p:selectOneListbox id="advancedxs" value="#{subjectTeacherBean.selectedTeacher}" converter="teacherConverter"   var="t" filter="true" filterMatchMode="contains">
+                    
+        <f:selectItems value="#{subjectTeacherBean.teachers}" var="teacher"  itemLabel="#{teacher.firstName}--#{teacher.lastName}" itemValue="#{teacher}" />
+             
+            <p:column>
+                <h:outputText value="#{t.stakeholderCode}" />
+            </p:column>
+ 
+            <p:column>
+                <h:outputText value="#{t.firstName} -#{t.lastName}" />
+            </p:column>
+        </p:selectOneListbox>
+    <p:commandButton value="Submit" process="advancedxs" update=":main1:main2:teacherSujct" oncomplete="PF('dlgxd').show()" icon="ui-icon-check" />
+    <h:outputText value="Select Teacher:" />
+    <h:selectOneMenu value="#{subjectTeacherBean.selectedTeacher.stakeholderCode}" onselect="true" >
+        <f:selectItem itemLabel="Select One" itemValue=""  />
+        <f:selectItems value="#{subjectTeacherBean.schoolTeachers}" actionListener="#{subjectTeacherBean.searchTeacherWithId}"/>
+        <p:ajax  oncomplete="true" listener="#{subjectTeacherBean.searchTeacherWithId}"  update=":main1:main2:teacherInfoDtl"/>
+    </h:selectOneMenu>
+    
+   </h:panelGrid>
+    </p:fieldset>  
+    
+    
+    <p:dialog header="Selected Values" modal="true" showEffect="fade" widgetVar="dlgxd" resizable="false">
+        <p:panelGrid columns="2" id="teacherSujct" columnClasses="label,output">
+            <h:outputText value="Advanced:" />
+            <h:outputText value="#{subjectTeacherBean.selectedTeacher.firstName}" />
+        </p:panelGrid>
+    </p:dialog>
+   
+</div>
+    <div class="Content78 floatRight overHidden" >
+        <div class="Content100 floatLeft overHidden">
+            <p:outputPanel>
+                <p:fieldset legend="Basic Info" styleClass=" PFBlackText fontSize16 mediumFont " style="margin-bottom:20px" >
+                    <p:outputPanel >
+                        
+                        <h:panelGrid id="teacherInfoDtl" columns="3" cellpadding="5">
+                            <p:outputPanel >
+                                <h:panelGrid  columns="1" cellpadding="5">
+                                      <p:graphicImage name="demo/images/godfather/godfather1.jpg" />  
+                                </h:panelGrid>
+                            </p:outputPanel>
+                            <p:outputPanel >
+                                <h:panelGrid  columns="2" cellpadding="5">
+                                        <h:outputText value="Employee No:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.TAC_ID}" />
+                                        <h:outputText value="SurName:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.lastName}" />
+                                        <h:outputText value="FirstName:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.firstName}" />
+                                        <h:outputText value="MiddleName:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.middleName}" />
+                                        <h:outputText value="Title.:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.email}" />
+                                </h:panelGrid>
+                            </p:outputPanel>
+                            <p:outputPanel >
+                                <h:panelGrid  columns="2" cellpadding="5">
+                                        <h:outputText value="ID Number:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.idno }" />
+                                        <h:outputText value="PassportNumber:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.passportno}" />
+                                        <h:outputText value="Gender:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.gender}" />
+                                        <h:outputText value="Marital Status:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.maritalstatus}" />
+                                        <h:outputText value="Religion:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.religion}" />
+                                </h:panelGrid>
+                            </p:outputPanel>
+                            
+                            
+                        </h:panelGrid> 
+                        </p:outputPanel>
+                        </p:fieldset>
+                        
+                        <p:outputPanel>
+                        <p:tabView>
+                            <p:tab  titleStyleClass=" PFRedText fontSize18 mediumFont "  title="Contact Details">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <p:graphicImage name="demo/images/godfather/godfather1.jpg" />
+                                    <h:outputText
+                                        value="The story begins as Don Vito Corleone..." />
+                                </h:panelGrid>
+                             </p:tab>
+                            <p:tab  titleStyleClass=" PFRedText fontSize18 mediumFont " title="Job information">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <p:graphicImage name="demo/images/godfather/godfather1.jpg" />
+                                    <h:outputText
+                                        value="The story begins as Don Vito Corleone..." />
+                                </h:panelGrid>
+                             </p:tab>
+                            <p:tab  titleStyleClass=" PFRedText fontSize18 mediumFont " title="Class Details">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <p:graphicImage name="demo/images/godfather/godfather1.jpg" />
+                                    <h:outputText
+                                        value="The story begins as Don Vito Corleone..." />
+                                </h:panelGrid>
+                             </p:tab>
+                            
+                        </p:tabView>
+                        
+                    </p:outputPanel>
+                 </p:outputPanel>
+        </div>
+    
+     
+    
+    </div>
+ </div>
+</html>

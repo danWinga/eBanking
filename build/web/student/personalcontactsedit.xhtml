@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+       <h:form id="editcont" >
+    
+                    <h:panelGrid columns="3" cellspacing="2">
+                    <p:panel  >
+                        
+                        <h:panelGrid  columns="2" cellpadding="2"   > 
+                                <h:outputText value="Address1:" />
+                                <p:inputText id="editstudaddress1" size="25" value="#{stakeholdersBean.selectedStakeholder.address1}" />
+                                <h:outputText value="Address2:" />
+                                <p:inputText id="editstudaddress2" size="25" value="#{stakeholdersBean.selectedStakeholder.address2}" />
+                                <h:outputText value="Postal Code:" />
+                                <p:inputText id="editstudpostalcode"  size="25" value="#{stakeholdersBean.selectedStakeholder.postalCode}" onchange="true" >
+                                    <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudpostalcode,:main1:main2:studentTable"/>
+                                </p:inputText>
+                                <h:outputText value="Mobile No:" />
+                                <p:inputText id="editstudcontact1" size="25" value="#{stakeholdersBean.selectedStakeholder.contact1}" onchange="true">
+                                    <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudcontact1,:main1:main2:studentTable"/>
+                                </p:inputText>
+                                <h:outputText value="Tel No:" />
+                                <p:inputText id="editstudcontact2" size="25" value="#{stakeholdersBean.selectedStakeholder.contact2}" onchange="true">
+                                    <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudcontact2,:main1:main2:studentTable"/>
+                                </p:inputText>
+                        </h:panelGrid>
+                       
+                    </p:panel>
+                   
+                
+                    <p:panel >
+                        <h:panelGrid  columns="2" cellpadding="2">
+                        <h:outputText value="Email:" />
+                        <p:inputText id="editstudemail" size="25" value="#{stakeholdersBean.selectedStakeholder.email}"/>
+                        <h:outputText value="Other Email:" />
+                        <p:inputText id="editstudotheremail"  size="25" value="#{stakeholdersBean.selectedStakeholder.otherMail}">
+                                <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudotheremail,:main1:main2:studentTable"/>
+                        </p:inputText>
+                        <h:outputText value="Fax no:" />
+                        <p:inputText id="editstudfaxno" size="25"  value="#{stakeholdersBean.selectedStakeholder.faxNumber}" onchange="true">
+                            <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudfaxno,:main1:main2:studentTable"/>
+                        </p:inputText>
+                        <p:selectOneRadio id="editstudiscanemail" value="#{stakeholdersBean.selectedStakeholder.isCanEmail}"    >
+                            <f:selectItem itemLabel="Yes" itemValue="true" />
+                            <f:selectItem itemLabel="No" itemValue="false" />
+                        </p:selectOneRadio> 
+                        <h:outputText value="Can Login:" />
+                        <p:selectOneRadio id="editstudcanlogin" value="#{stakeholdersBean.selectedStakeholder.canLogin}"    >
+                            <f:selectItem itemLabel="Yes" itemValue="true" />
+                            <f:selectItem itemLabel="No" itemValue="false" />
+                        </p:selectOneRadio>
+                        
+                        </h:panelGrid>
+                      </p:panel>
+                        
+                     <p:panel >
+                        <h:panelGrid  columns="1" cellpadding="2">
+                           <h:outputText  style="color:blue; font-style: italic; font-weight: bold; " value="Notes:" />
+                        <p:inputTextarea id="editstudnotes" value="#{stakeholdersBean.selectedStakeholder.notes}" rows="9" autoResize="true"  /> 
+                            
+                        </h:panelGrid>
+                      </p:panel>
+                   
+                  
+                    
+                       
+    </h:panelGrid>          
+                       
+                    
+       </h:form>   
+  
+</html>

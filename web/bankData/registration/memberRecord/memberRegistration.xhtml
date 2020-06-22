@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+        <style type="text/css">
+    
+            
+            .ui-widget,
+                .ui-widget .ui-widget {
+                       font-size: 12px !important;
+                 }
+        </style>
+       
+           <h:form id="personalAccRegFrm">
+                    
+         
+     <!-- <div class="openerp oe_form_sheetbg">
+       <div class=" oe_form_sheet "> -->
+                  
+               <!-- cellpadding="2" -->
+               <div class="Content100  floatNone overHidden" > 
+               
+               
+                            <p:panel class="Content69  floatLeft overHidden "  >
+
+                                         <ui:include src="/bankData/registration/personalAccount/personalMemberRegistrationList.xhtml"/> 
+
+                              <p:spacer />
+
+                             </p:panel>
+               
+                            <p:panel class="Content30 floatRight  TextShadow" header="Photo and Signature">
+                                <div class="openerp oe_form_sheetbg">
+
+                              <div class="ui-g">
+
+                              <div class="ui-grid-row ">                  
+                             <p:outputPanel styleClass="floatLeft">
+                              <span title="" data-original-title="" class=" oe_form_field oe_form_field_image oe_avatar oe_right">
+                                      <p:graphicImage name="/main/images/admission/Admin.png" alt="Image Description for"  title=" System" height="100" width="auto" style="border: 1px;"> 
+
+                                     </p:graphicImage>
+                              </span>
+                             </p:outputPanel> 
+
+                             <p:outputPanel styleClass="floatRight">
+                              <span title="" data-original-title="" class=" oe_form_field oe_form_field_image oe_avatar oe_right">
+                                      <p:graphicImage name="/main/images/admission/Admin.png" alt="Image Description for"  title=" System" height="100" width="auto" style="border: 1px;"> 
+
+                                     </p:graphicImage>
+                              </span>
+                             </p:outputPanel> 
+                               </div>
+                         </div>
+
+                                </div>
+                       </p:panel>
+
+                    <p:panel class="Content30 floatRight  TextShadow" header="Accounts " >
+                 
+                              <p:outputPanel styleClass="floatRight">
+                                  <ui:include src="/bankData/registration/personalAccount/memberAccountsExist.xhtml"/>  
+                              </p:outputPanel> 
+                            
+
+                    </p:panel>
+               
+      
+               </div>
+ <!-- </div>
+    
+     </div> -->
+     </h:form>
+
+   
+
+</html>

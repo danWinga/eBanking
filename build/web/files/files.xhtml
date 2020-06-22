@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+       
+        
+
+        <p:dataTable var="file" value="#{fileBean.filetList}" resizableColumns="true" id="fileTable" paginator="true" rows="5"
+                 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                 rowsPerPageTemplate="5,10,15"   selectionMode="single" selection="#{fileBean.selectedFile}" rowKey="#{file.fileCode}"  lazy="true" >
+            <p:ajax event="rowSelect" listener="#{fileBean.onRowSelect}" update="@([id$= display2])" oncomplete="PF('editfileOptionsdlg').show()" />
+                <f:facet name="header">  
+                   <p:outputPanel>
+                                <h:outputText styleClass=" PFRedText fontSize18 mediumFont " value="School Files" />
+                                <p:separator />
+                                <div align="right">
+                                    <p:commandButton  update="@([id$= formfile])" oncomplete="PF('newfiledlg').show(); " icon="ui-icon-document" value="New Folder"/> 
+                                </div>
+                 </p:outputPanel>
+                </f:facet> 
+            <p:column sortBy="#{file.fileCode}"  >
+                      <h:outputText value="#{file.fileCode}" />
+            </p:column>  
+            <p:column  sortBy="#{file.accCode}" headerText="Folder Code">
+                     <h:outputText    value=" #{file.accCode}" /> 
+            </p:column>  
+            <p:column  sortBy="#{file.flname}" headerText="Name">
+                <h:outputText value="#{file.flname}" />  
+            </p:column>  
+            <p:column  sortBy="#{file.description}" headerText="Description">
+                <h:outputText value="#{file.description}" /> 
+            </p:column> 
+             <p:column style="width:80px;text-align: center" headerText="More Options">
+               
+                 <p:menuButton style="width:auto" value="option" >
+                            <p:menuitem value="Edit Files " icon="ui-icon-pencil" process=":main1:main2:folderTabId:fileTable"  update=":main1:main2:folderTabId:formeditfile:filedisplay2" oncomplete="PF('editfileOptionsdlg').show()">
+                                <f:setPropertyActionListener   value="#{file}"  target="#{fileBean.selectedFile}" />
+                            </p:menuitem>
+                                <p:separator/>
+                                <p:menuitem value="Delete Folder" icon="ui-icon-circle-plus" style="margin:0 auto;"  title="Delete" >
+                                </p:menuitem>
+                              <p:separator />
+                       </p:menuButton> 
+             </p:column>
+        </p:dataTable>
+        <ui:include src="/files/moreFileOptions.xhtml"/>
+        
+</html>

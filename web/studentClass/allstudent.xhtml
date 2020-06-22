@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+    <div align="right">
+           <p:commandButton  update="@([id$= frmplstudentclass])" oncomplete="PF('PlStStudentClass').show(); " icon="ui-icon-document" value="Un Assigned Student"/> 
+     </div>						
+    <p:treeTable value="#{allStudentBean.root}" var="nodex" selectionMode="single" selection="#{allStudentBean.selectedNode}" resizableColumns="true" >
+        <p:ajax event="select" listener="#{allStudentBean.onNodeSelect}"  id="allstudentdata" />
+		<p:column>
+			<f:facet name="header">
+				code
+			</f:facet>
+			<h:outputText value="#{nodex.studentId}"></h:outputText>
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				name
+			</f:facet>
+			<h:outputText value="#{nodex.firstname}"></h:outputText>
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				period
+			</f:facet>
+			<h:outputText value="#{nodex.lastname}"></h:outputText>
+		</p:column>
+                <p:column>
+			<f:facet name="header">
+				status
+			</f:facet>
+			<h:outputText value="#{nodex.contact1}"></h:outputText>
+		</p:column>
+                            
+                
+	</p:treeTable>
+       <ui:include src="/studentClass/studentClass.xhtml"/>
+
+</html>

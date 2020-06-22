@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+              
+            <span class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);"><h:graphicImage name="main/images/academic/icon_whatIsAcademicReading.svg" /><h:graphicImage styleClass="hiddenIcons" name="main/images/academic/icon_whatIsAcademicReading.svg" /><span class="MainLinkText">Account Opening</span></span>
+            
+            <div class="SubMenuLinkContainer">
+               
+                 <p:commandLink  id="studrec1" actionListener="#{navigation.setPageName('/studentClass/allstudent')}" update="@([id$=main2])" >
+                         <h:outputText class="SubMenuLink" value="Fosa Account"  /> 
+                 </p:commandLink>
+                
+                 
+                   
+                <p:commandLink  id="clareg" actionListener="#{navigation.setPageName('/studentClass/studentClass')}" update="@([id$=main2])" >
+                    <h:outputText class="SubMenuLink" value="Business Account"  />
+                 </p:commandLink>
+                 
+                 <p:commandLink  id="clasrec2" actionListener="#{navigation.setPageName('/bankData/registration/memberRecord/memberRegistration')}" update="@([id$=main2])" >
+                     <h:outputText class="SubMenuLink"   value="Personal Account"  />
+                 </p:commandLink>
+                   
+                 <p:commandLink  id="curee1less" actionListener="#{navigation.setPageName('/bankData/registration/memberRecord/responsive')}" update="@([id$=main2])" >
+                      <h:outputText class="SubMenuLink"  value="responsive"  />
+                 </p:commandLink>
+                   
+                 <p:commandLink   id="clalltimtb" actionListener="#{navigation.setPageName('/test/geocode/geocode')}" update="@([id$=main2])" >
+                      <h:outputText class="SubMenuLink" value="Geocode" />   
+                 </p:commandLink>
+               
+                
+                           
+            </div>
+                 
+            
+            
+            <span class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);"><h:graphicImage name="main/images/settings/system1.svg" /><h:graphicImage styleClass="hiddenIcons" name="main/images/settings/system1.svg" /><span class="MainLinkText">General Settings</span></span>
+            <div class="SubMenuLinkContainer">
+                            <p:commandLink  id="ex1" actionListener="#{navigation.setPageName('/bankData/accountSettings/customerAccSettings/customerAccSettings')}" update="@([id$=main2])" >
+                            <h:outputText  class="SubMenuLink" value="Customer Account"  />
+                            </p:commandLink>
+                   
+                            <p:commandLink  id="ass1" actionListener="#{navigation.setPageName('/bankData/accountSettings/branchData/countyData')}" update="@([id$=main2])" >
+                                 <h:outputText class="SubMenuLink"  value="Branch "  />
+                            </p:commandLink>
+                            
+                            <p:commandLink  id="ass12" actionListener="#{navigation.setPageName('/bankData/loans/loanType/loanTypes')}" update="@([id$=main2])" >
+                                 <h:outputText class="SubMenuLink" value="LoanTypes"  />
+                            </p:commandLink> 
+                
+                            <p:commandLink  id="ass123"  actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main2])" >
+                                 <h:outputText class="SubMenuLink" value="Penalties"  />
+                            </p:commandLink>
+                
+                                               
+                            
+                   
+            </div>
+           
+            
+            <span class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);"><h:graphicImage name="main/images/mono/data.svg" /><h:graphicImage styleClass="hiddenIcons" name="main/images/mono/dataBlue.svg" /><span class="MainLinkText">Transaction</span></span>
+            <div class="SubMenuLinkContainer">
+                <p:commandLink   id="acc1" actionListener="#{navigation.setPageName('/bankData/transaction/tellerAccount/tellerAccount')}" update="@([id$=main2])" >
+                  <h:outputText  class="SubMenuLink" value="Branch Account"  />
+                </p:commandLink>
+                   
+                 <p:commandLink   id="exp1" actionListener="#{navigation.setPageName('/bankData/transaction/transact/deposite')}" update="@([id$=main2])" >
+                    <h:outputText class="SubMenuLink" value="Deposite/Withdrawals"  />
+                  </p:commandLink>
+                
+                 <p:commandLink   id="invet1" actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main2])" >
+                    <h:outputText class="SubMenuLink" value="E-mpesa"  />
+                 </p:commandLink>
+                 <p:commandLink   id="invet12" actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main2])" >
+                    <h:outputText class="SubMenuLink" value="Loan"  />
+                 </p:commandLink>
+                 <p:commandLink   id="invet13" actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main2])" >
+                    <h:outputText class="SubMenuLink" value="Shares"  />
+                 </p:commandLink>
+                   
+                   
+                   
+                                
+            </div>
+            
+            
+             
+            <span class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);"><h:graphicImage name="main/images/finance/finance.svg" /><h:graphicImage styleClass="hiddenIcons" name="main/images/finance/finance.svg" /><span class="MainLinkText">Loans</span></span>
+            <div class="SubMenuLinkContainer">
+                 <p:commandLink   actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main2])" >
+                  <h:outputText class="SubMenuLink"  value="Loan Application"  />
+                 </p:commandLink>
+                   
+                 <p:commandLink    actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main2])" >
+                    <h:outputText  class="SubMenuLink" value="Appraisal"  />
+                  </p:commandLink>
+                
+                 <p:commandLink  actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main2])" >
+                    <h:outputText class="SubMenuLink"  value="Endorsement"  />
+                 </p:commandLink>
+                   
+                 <p:commandLink  actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main2])" >
+                      <h:outputText class="SubMenuLink" value="Awarded"  />
+                 </p:commandLink>
+                <p:commandLink    actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main2])" >
+                    <h:outputText class="SubMenuLink" value="Loan Recovery"  />
+                 </p:commandLink>
+                
+                <p:commandLink    actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main2])" >
+                    <h:outputText class="SubMenuLink" value="Reports"  />
+                </p:commandLink>
+            	
+            </div>
+             
+     
+</html>

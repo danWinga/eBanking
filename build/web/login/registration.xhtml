@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    
+    
+    <center>
+            
+            <form id="regform" >
+            <p:separator/>
+            
+                 <p:graphicImage width="auto" height="50" value="main/images/student/elementary_school.png" alt="Image Description for" title="School Management System" /> 
+                    <h:outputLabel  value="Register" styleClass="fontSize30 TextShadow orange mediumFont marginBottom20 dispBlock texAliCenter"  />
+                <h:panelGrid id="grid_new_registration" columns="2" cellpadding="2"> 
+                    <p:panel  >
+                        <h:panelGrid  columns="2" cellpadding="2" id="newreg"  > 
+                        <h:outputText value="Membership Code:"   />
+                        <p:inputText id="nwregstakeholdercodeccc" value="#{newUser.role.userCode}"   required="true" requiredMessage="user code  is required."  >
+                            <p:ajax   process="nwregstakeholdercodeccc" oncomplete="true" listener="#{newUser.searchCode}" update=" @([id$= roleFirstname]),@([id$= roleLastname])"  />
+                        </p:inputText>
+                        <h:outputText value="First Name:" />
+                        <p:inputText id="roleFirstname" value="#{newUser.stakeholder.firstName}" disabled="true" rendered="true" requiredMessage="Sorry! you are a stranger!! " />
+                        <h:outputText value="Last Name:" />
+                        <p:inputText id="roleLastname" value="#{newUser.stakeholder.middleName}" disabled="true" />
+                        <h:outputText value="User Name:" />
+                        <p:inputText id="roleUserName" value="#{newUser.role.userName}">
+                            <p:ajax   process="roleUserName" oncomplete="true" listener="#{newUser.checkUserNameExist}" update=" @([id$= messages])"  />
+                        </p:inputText>
+                        <h:outputText value="Password:" />
+                        <p:password id="rolePassword" value="#{newUser.role.currentpassword}" match="roleConfrmPassword" label="Password " required="true" requiredMessage="Password required" feedback="true" />
+                        <h:outputText value="Confirm password:" />
+                        <p:password id="roleConfrmPassword" value="#{newUser.role.currentpassword}" label="Confirm password" required="true" feedback="true"   >
+                            <p:ajax  process="rolePassword, roleConfrmPassword" update="@([id$= messages])"  />
+                        </p:password>                                         
+                        </h:panelGrid>
+                    </p:panel>
+                    <f:facet name="footer">
+                    
+                        <p:commandButton value="Save"  process="@form" icon="ui-icon-close" update="@([id$= messages])" actionListener="#{newUser.saveData}"  id="rolepasswordbutton">
+                                  
+                     </p:commandButton>
+                     </f:facet>
+                        </h:panelGrid>
+                 
+           
+                 </form> 
+           
+          <p:dialog  id="dlg_edt_role" header="Edit role Record" showHeader="true" styleClass="fontSize30 TextShadow orange mediumFont marginBottom20 dispBlock" widgetVar="role_edit_dlg" dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false"  > <!-- width="300" height="150">  -->
+            <p:graphicImage width="auto" height="50" value="main/images/student/elementary_school.png" alt="Image Description for" title="School Management System" /> 
+            <p:separator/>
+             <h:form id="form_edit_role">
+                    <h:outputLabel  value="Edit role Record" styleClass="fontSize30 TextShadow orange mediumFont marginBottom20 dispBlock texAliCenter"  />
+                <h:panelGrid id="grid_edit_role" columns="3" cellpadding="2"> 
+                    <p:panel  >
+                        <h:panelGrid  columns="2" cellpadding="2" id="editgrdrole1"  > 
+                        <h:outputText value="code:"   />
+                        <p:inputText id="edtarolefname" value="#{newUser.role.roleCode}"  required="true" requiredMessage="role code  is required."/>
+                        <h:outputText value="Middle Name:" />
+                        <p:inputText id="edtadminmidname" value="#{newUser.role.userName}" required="true" requiredMessage="usermane  is required."/>
+                        <h:outputText value="Last Name:" />
+                        <p:inputText id="edtadminlname" value="#{newUser.role.mainPage}" />
+                                                              
+                        </h:panelGrid>
+                    </p:panel>
+                                     
+                        
+                            
+                        </h:panelGrid>
+                    </h:form>
+            </p:dialog>
+                    
+           
+            
+    </center>   
+     
+</html>

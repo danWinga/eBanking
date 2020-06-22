@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+        
+
+        <p:dataTable var="cls" value="#{viewClassesBean.classesList}" resizableColumns="true" id="clsTable" paginator="true" rows="10"
+                 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                 rowsPerPageTemplate="5,10,15"   selectionMode="single" selection="#{viewClassesBean.selectedClass}" rowKey="#{cls.classCode}"  lazy="true" >
+                <p:ajax event="rowSelect" listener="#{viewClassesBean.onRowSelect}" update="@([id$= clsdisplay2])" oncomplete="PF('editclsOptionsdlg').show()" />
+                <f:facet name="header">  
+                   <p:outputPanel>
+                                <h:outputText styleClass=" PFRedText fontSize18 mediumFont " value=" Classes" />
+                                <p:separator />
+                                <div align="right">
+                                    <p:commandButton  update="@([id$= frmplsubjectclass])" oncomplete="PF('PlStsubjectClass').show(); " icon="ui-icon-document" value="Add Subject To Class"/> 
+                                    <p:commandButton  update="@([id$= formclasses])" oncomplete="PF('newclassesdlg').show(); " icon="ui-icon-document" value="Add New"/> 
+                                </div>
+                 </p:outputPanel>
+                </f:facet> 
+            
+            <p:column sortBy="#{cls.classID}" style="width:50px;text-align: center"   headerText="Id">
+                      <h:outputText value="#{cls.classID}" />
+            </p:column>  
+            <p:column  sortBy="#{cls.classCode}"  headerText="class Code">
+                     <h:outputText value=" #{cls.classCode}" /> 
+            </p:column>  
+            <p:column  sortBy="#{cls.className}"  headerText="Name">
+                <h:outputText value="#{cls.className}" />  
+            </p:column>  
+            <p:column  sortBy="#{cls.details}"   headerText="Description">
+                <h:outputText value="#{cls.details}" /> 
+            </p:column> 
+            <p:column style="width:80px;text-align: center">
+               
+                        <p:menuButton style="width:auto" value="More"> 
+                            
+                            <p:menuitem value="Edit Class Details "  process=":main1:main2:clsTable" icon="ui-icon-pencil"  update=":main1:main2:formeditcls:clsdisplay2" oncomplete="PF('editclsOptionsdlg').show()">
+                                <f:setPropertyActionListener   value="#{cls}"  target="#{viewClassesBean.selectedClass}" />
+                                                                      
+                            </p:menuitem>
+                                <p:separator/>
+                                
+                                <p:separator/>
+                                <p:menuitem value="Delete Folder" icon="ui-icon-circle-plus" style="margin:0 auto;"  title="Delete" >
+                                        
+                                </p:menuitem>
+                            
+                                <p:separator />
+                                
+                                
+                      </p:menuButton> 
+                
+                </p:column>
+            
+
+        </p:dataTable>
+    
+    
+        
+        
+        <ui:include src="/classes/moreClassOptions.xhtml"/>
+         <ui:include src="/subjectClass/subjectClass.xhtml"/>
+        
+</html>

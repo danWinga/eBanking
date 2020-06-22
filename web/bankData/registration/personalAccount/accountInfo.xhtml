@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+        <style type="text/css">
+                .ui-widget,
+                .ui-widget .ui-widget {
+                       font-size: 12px !important;
+                 }
+       
+            /** Demo **/
+            .ui-grid-row .ui-grid-col-2,
+            .ui-grid-row .ui-grid-col-10 {
+                padding: 0.5em 0;
+            }
+            
+            .ui-outputLabel {
+                font-weight: bold;
+            }
+            
+            .ui-orderlist .ui-orderlist-list {
+                height: auto;
+            }
+            
+            .ui-orderlist .ui-grid-row .ui-grid-col-2, 
+            .ui-orderlist .ui-grid-row .ui-grid-col-10 {
+                padding: 0;
+            }
+            .label-padding-left ,.input-padding-left{
+                padding-left: 10px;
+                margin-bottom: 10px;
+            }
+            .label-padding-right ,.input-padding-right{
+                padding-right: 5px;
+                margin-bottom: 10px;
+            }
+            .ui-lable{
+                font-weight:bold;
+            }
+        </style>
+    <p:dialog header="Account Detals" widgetVar="newAccMemberdlg1"  style="width: 300px !important; " dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false"> <!-- width="300" height="150">  -->
+            <p:graphicImage width="32" height="32" name="/main/images/admission/Admin.png" alt="Image Description for" title="personal "/> 
+            <p:separator/>
+            
+                <h:form id="regAccInfoFrm"> 
+                    <p:panel  id="regAccInfoPl">
+                    <h:panelGrid columns="4"  >
+                              
+                                   <p:outputLabel for="accregSurname" value="Surname:" styleClass="ui-lable" style="padding-right: 10px; padding-bottom: 10px;"  /> 
+                                   <p:inputText id="accregSurname" disabled="true" value="#{memberRegistrationBean.selectedMember.title } .#{memberRegistrationBean.selectedMember.surname}"   />
+                                   <p:outputLabel for="accregOthername"  value="OthterNames:" styleClass="ui-lable"  style="padding-right: 10px; padding-bottom: 10px;"   /> 
+                                   <p:inputText id="accregOthername" disabled="true"  value="#{memberRegistrationBean.selectedMember.otherNames }"   />
+                                   <p:outputLabel for="accregIdno" value="IDNumber:" styleClass="ui-lable" style="padding-right: 10px; padding-bottom: 10px;"   /> 
+                                   <p:inputText id="accregIdno" disabled="true"  value="#{memberRegistrationBean.selectedMember.idNo}"   />
+                                   <p:outputLabel for="accregContact"  value="Contact" styleClass="ui-lable"  style="padding-right: 10px; padding-bottom: 10px;"  /> 
+                                   <p:inputText id="accregContact" disabled="true"   value="#{memberRegistrationBean.selectedMember.officeNo } /#{memberRegistrationBean.selectedMember.cellNo }"  />
+                                   <p:outputLabel for="reaAccCurrency" value="Currency:" styleClass="ui-lable" style="padding-right: 10px;" />
+                                   <h:selectOneMenu  id="reaAccCurrency" value="#{memberRegistrationBean.newMemberAccount.currencyCode }"     >
+                                       <f:selectItems value="#{dtOptions.currency}" />
+                                   </h:selectOneMenu> 
+                                   <p:outputLabel for="reaAccIncomelv" value="Income Level:" styleClass="ui-lable"   style="padding-right: 10px; padding-bottom: 10px;" />
+                                   <h:selectOneMenu  id="reaAccIncomelv" value="#{memberRegistrationBean.newMemberAccount.incomeCode }"    >
+                                       <f:selectItems value="#{dtOptions.incomeLevel}" />
+                                   </h:selectOneMenu> 
+                                   
+                                  <p:outputLabel for="reaAccCategory"  value="Category: " styleClass="ui-lable"  style="padding-right: 10px;"/>
+                                  <p:selectOneMenu id="reaAccCategory" value="#{memberRegistrationBean.newMemberAccount.groupCode}"  onchange="true"    >
+                                         <f:selectItem itemLabel="Individual" itemValue="I001"/>
+                                         <f:selectItem itemLabel="Joint" itemValue="J002"/>
+                                         <p:ajax  listener="#{memberRegistrationBean.checkProductGroup}"  update="reaAccProd"/>
+                                 </p:selectOneMenu>
+                                   
+                                   <p:outputLabel for="reaAccProd" value="Product:" styleClass="ui-lable"  style="padding-right: 10px;" />
+                                   <h:selectOneMenu  id="reaAccProd" value="#{memberRegistrationBean.newMemberAccount.productCode }"   >
+                                       <f:selectItems value="#{memberRegistrationBean.productTypes}" />
+                                        
+                                    </h:selectOneMenu>
+                                   
+                                   
+                          </h:panelGrid>
+                            <f:facet name="footer">
+                                
+                                 <p:outputPanel styleClass="floatRight">
+                                     <p:commandButton value="Save"  id="accAddMbRegSaveBt"  process="@form"   actionListener="#{memberRegistrationBean.testThis}" 
+                                                      update=":main1:main2:personalAccRegFrm:accRegMemeberDtFrm:memberAccountExitsTable, :main1:msgFrm:messages"  oncomplete="PF('newAccMemberdlg1').hide();"   icon="ui-icon-disk" >
+                                        <!--  <p:ajax   process="regPl1x,ProductTabId:regContTabId,ProductTabId:regIdentTabId"  /> -->
+                                     </p:commandButton>
+                                      <p:commandButton value="Close" icon="ui-icon-close" update=":main1:main2:personalAccRegFrm:accRegMemeberDtFrm:memberAccountExitsTable, :main1:msgFrm:messages"   oncomplete="PF('newAccMemberdlg1').hide();" />
+
+                                 </p:outputPanel>
+                            </f:facet>
+                    </p:panel>
+                </h:form>
+    </p:dialog>
+    
+   
+ 
+</html>

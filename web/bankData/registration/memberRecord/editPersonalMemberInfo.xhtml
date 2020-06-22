@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+        <style type="text/css">
+    
+           
+            .ui-widget,
+                .ui-widget .ui-widget {
+                       font-size: 12px !important;
+                 }
+        </style>
+   <!-- <div class="openerp oe_form_sheetbg">
+    <div class=" oe_form_sheet "> -->
+        <p:dialog header="Edit Member Info" widgetVar="editMemberdlg3"  style="width: 300px !important; " dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false"> <!-- width="300" height="150">  -->
+            <p:graphicImage width="32" height="32" name="/main/images/admission/Admin.png" alt="Image Description for" title="Blue Technologies"/> 
+            <p:separator/>
+            <p:outputPanel class="Content100  floatNone"  > 
+                    <h:form id="editpersonalAccRegFrm">
+        
+                        <p:panel class="Content100  floatNone overHidden "  id="editPersonalInfoPl" >
+
+                            <p:spacer height="10px;"/>
+                            <p:outputPanel class="Content100  floatNone TextShadow   " >
+                                <h:panelGrid columns="6" id="editregPl1x"  >
+
+                                 <p:outputLabel for="editregTitle" value="Title:"   />
+                                 <p:selectOneMenu id="editregTitle" value="#{memberRegistrationBean.selectedMember.title}"  style="width: 100px;" >
+                                     <f:selectItem itemLabel="Mr." itemValue="Mr" />
+                                     <f:selectItem itemLabel="Mrs." itemValue="Mrs" />
+                                     <f:selectItem itemLabel="Miss." itemValue="Miss" />   
+                                     <f:selectItem itemLabel="Dr." itemValue="Dr"  />
+                                     <f:selectItem itemLabel="Prof." itemValue="Prof"  />
+                                     <f:selectItem itemLabel="Eng." itemValue="Eng"  />
+                                 </p:selectOneMenu>
+                                 <p:outputLabel for="editregFirstname" value="Surname: "  style="padding-left: 10px; " />
+                                 <p:inputText id="editregFirstname"  value="#{memberRegistrationBean.selectedMember.surname}"  placeholder="surname" />
+
+                                 <p:outputLabel for="editregMiddleName" value="OtherNames:"  style="padding-left: 10px;padding-right: 10px; "/>
+                                 <p:inputText id="editregMiddleName" value="#{memberRegistrationBean.selectedMember.otherNames}" placeholder="other Names"   />
+
+                                 <p:outputLabel for="editregGender"  value="Gender: " />
+                                 <p:selectOneMenu id="editregGender" value="#{memberRegistrationBean.selectedMember.gender}" style="width: 100px;" >
+                                         <f:selectItem itemLabel="Select" itemValue="none"/>     
+                                         <f:selectItem itemLabel="Male" itemValue="male"/>
+                                         <f:selectItem itemLabel="Female" itemValue="female"/>
+                                 </p:selectOneMenu>
+
+                                 <p:outputLabel for="editregDob" value="DoB:" style="padding-left: 10px; "/>
+                                 <p:calendar id="editregDob" value="#{memberRegistrationBean.selectedMember.dateOfBirth}" pattern="MM/dd/yyyy" size="20" />
+
+                                 <p:outputLabel for="edtregMaritalStatus"  value="Status: " style="padding-left: 10px;padding-right: 10px; "/>
+                                 <p:selectOneMenu id="edtregMaritalStatus" value="#{memberRegistrationBean.selectedMember.maritalStatus}"  >
+                                         <f:selectItem itemLabel="Married" itemValue="Married"/>
+                                         <f:selectItem itemLabel="Single" itemValue="Single"/>
+                                 </p:selectOneMenu>
+
+                                 <p:outputLabel for="edtregCountryofOr" value="Country:" />
+                                 <p:inputText id="edtregCountryofOr"  value="#{memberRegistrationBean.selectedMember.nationality}" placeholder="country of Residence" style="width:120px;"/>
+
+                                 <p:outputLabel for="edtregOccupation" value="Occupation:" style="padding-left: 10px; " />
+                                 <p:inputText id="edtregOccupation"  value="#{memberRegistrationBean.selectedMember.occupation}" placeholder="Nature of Bussines"/>
+
+                                 <p:outputLabel for="edtregIdno"  value="IdNo: " style="padding-left: 10px;padding-right: 10px; "/>
+                                 <p:inputText id="edtregIdno"  value="#{memberRegistrationBean.selectedMember.idNo}" />   
+
+                             </h:panelGrid>
+
+                            </p:outputPanel>
+
+                        <p:spacer />
+
+                  </p:panel>
+
+
+                        <p:panel class="Content100  floatNone overHidden  " >
+
+
+                            <p:tabView orientation="horizontal" id="edtProductTabId" >
+                            <p:tab title=" Contact Address " titleStyleClass=" PFGrayText fontSize16 mediumFont overHidden" id="editregContTabId">
+                                    <!-- <ui:include src="/schoolFolder/schoolFolder.xhtml"/> -->
+                                 <h:panelGrid columns="4"   >
+                                 <p:outputLabel for="edtregTelNo" value="Telephone: "  style="padding-right: 10px; " />
+                                 <p:inputText id="edtregTelNo"  value="#{memberRegistrationBean.selectedMember.officeNo}"  placeholder="telephone No/ ffice No" style="margin-bottom: 5px;" size="25" />
+
+
+                                 <p:outputLabel for="edtregCellNo" value="MobileNo:"  style="padding-left: 10px;padding-right: 10px; "  />
+                                 <p:inputText id="edtregCellNo" value="#{memberRegistrationBean.selectedMember.cellNo}" placeholder="Mobile Number"  style="margin-bottom: 5px;" size="25"   />
+
+                                 <p:outputLabel for="edtregPhysicalAddress"  value="Physical Address: " style="padding-right: 10px; " />
+                                 <p:inputText id="edtregPhysicalAddress" value="#{memberRegistrationBean.selectedMember.physicalAddress}" placeholder="Current Physical Address" style="margin-bottom: 5px;" size="25"   />
+
+                                 <p:outputLabel for="edtregTown"  value="Town: " style="padding-left: 10px;padding-right: 10px; "  />
+                                 <p:inputText id="edtregTown" value="#{memberRegistrationBean.selectedMember.town}" placeholder="Town/City" style="margin-bottom: 5px;" size="25"     />
+
+                                 <p:outputLabel for="regStreet"  value="Street: " style="padding-right: 10px; " />
+                                 <p:inputText id="regStreet" value="#{memberRegistrationBean.selectedMember.street}" placeholder="Street/ building/Estate" style="margin-bottom: 5px;" size="25"   />
+
+
+                                 <p:outputLabel for="edtregPostalAddress"  value="Postal Address: " style="padding-left: 10px;padding-right: 10px; " />
+                                 <p:inputText id="edtregPostalAddress" value="#{memberRegistrationBean.selectedMember.homeAddr}" placeholder="Postal Address" style="margin-bottom: 5px;" size="25"   />
+
+                                 <p:outputLabel for="edtregEmail" value="Email:" style="padding-right: 10px; " />
+                                 <p:inputText id="edtregEmail"  value="#{memberRegistrationBean.selectedMember.email}" placeholder="Email Address" style="width:120px;"/>
+                                  
+                                 <p:outputLabel for="edtregPin" value="PIN:" style="padding-right: 10px; " />
+                                 <p:inputText id="edtregPin"  value="#{memberRegistrationBean.selectedMember.pinNo}" placeholder="PIN No" style="width:120px;"/>
+
+
+                             </h:panelGrid>
+
+                             </p:tab>
+                             <p:tab title="Identification " titleStyleClass=" PFGrayText fontSize16 mediumFont overHidden" id="editregIdentTabId">
+                                     <h:panelGrid columns="4"  >
+
+
+                                           <p:outputLabel for="edtregIdentNo" value="Number:"  style="padding-right: 10px; " />
+                                           <p:inputText id="edtregIdentNo" value="#{memberRegistrationBean.selectedMember.passportNo}" placeholder="Identification Number"  style="margin-bottom: 5px;" size="25" />
+
+                                           <p:outputLabel for="edtregIssuingAuthority"  value="Issuing Authority: " style="padding-left: 10px;padding-right: 10px; "  />
+                                           <p:inputText id="edtregIssuingAuthority" value="#{memberRegistrationBean.selectedMember.issuingAuthority}" placeholder="Issuing Authority" style="margin-bottom: 5px;" size="25"  />
+
+                                           <p:outputLabel for="edtregPlaceOfIsue"  value="PlaceOfIssue: " style="padding-right: 10px; "  />
+                                           <p:inputText id="edtregPlaceOfIsue" value="#{memberRegistrationBean.selectedMember.town}" placeholder="Place of Issue"  style="margin-bottom: 5px;" size="25"  />
+
+                                           <p:outputLabel for="edtregDateOfIssue"  value="DateOfIssue: " style="padding-left: 10px; padding-right: 10px;" />
+                                           <p:calendar id="edtregDateOfIssue" pattern="MM/dd/yyyy"  value="#{memberRegistrationBean.selectedMember.dateOfIssue}"  style="margin-bottom: 5px;"  />
+
+                                           <p:outputLabel for="edtregExpiry"  value="Expiry: " style="padding-right: 10px;" />
+                                           <p:calendar id="edtregExpiry" pattern="MM/dd/yyyy"  value="#{memberRegistrationBean.selectedMember.expDate}"  style="margin-bottom: 5px;"  />
+
+                                           <p:outputLabel for="edtregUtility" value="Utility:" style="padding-left: 10px;" />
+                                           <p:inputText id="edtregUtility"  value="#{memberRegistrationBean.selectedMember.utilityName}" placeholder="Electricity" style="padding-right: 10px;margin-bottom: 5px;" size="25"/>
+                                           <p:outputLabel for="edtregUtilityCompany" value="UtilityCompany:" style="padding-right: 10px;" />
+                                           <p:inputText id="edtregUtilityCompany"  value="#{memberRegistrationBean.selectedMember.utilityCompany}" placeholder="Utility : company Name" style="padding-right: 10px;margin-bottom: 5px;" size="25"/>
+                                           <p:outputLabel for="edtregUtilityAcc" value="Utility A/c No:" style="padding-left: 10px;" />
+                                           <p:inputText id="edtregUtilityAcc"  value="#{memberRegistrationBean.selectedMember.utilityAccNo}" placeholder="Utility :Account Number" style="padding-right: 10px;" size="25"/>
+
+
+                                   </h:panelGrid>
+                             </p:tab> 
+                             <p:tab title="Introducer " titleStyleClass="floatLeft PFGrayText fontSize16 mediumFont overHidden" id="editregIntrTabId">
+                                    <!--  <ui:include src="/upload/imageupload.xhtml"/> -->
+                             </p:tab>
+                             <!-- <p:tab title="Next Of Kin" titleStyleClass="floatLeft PFGrayText fontSize16 mediumFont overHidden" id="regNextOfKinTabId">
+                                <ui:include src="/bankData/registration/personalAccount/nextOfKinList.xhtml"/> 
+
+                             </p:tab> -->
+                             <p:tab title="Account Details" titleStyleClass="floatLeft PFGrayText fontSize16 mediumFont overHidden" id="editregAccountInfoTabId">
+                                <!-- <ui:include src="/bankData/registration/personalAccount/accountInfo.xhtml"/>  -->
+
+                             </p:tab>
+                       </p:tabView>
+                            <f:facet name="footer">
+                                 <p:outputPanel styleClass="floatRight">
+                                     <p:commandButton value="Save" id="editMbRegSaveBt"  process="@form" actionListener="#{memberRegistrationBean.updateMember()}"   update=":main1:main2:personalAccRegFrm:personalFrmlist:membersinfoTable, :main1:msgFrm:messages"  oncomplete="PF('editMemberdlg3').hide();"   icon="ui-icon-disk" >
+                                        <!--  <p:ajax   process="regPl1x,ProductTabId:regContTabId,ProductTabId:regIdentTabId"  /> -->
+                                     </p:commandButton>
+                                      <p:commandButton value="Close" icon="ui-icon-close" update=":main1:main2:personalAccRegFrm:personalFrmlist:membersinfoTable, :main1:msgFrm:messages"  oncomplete="PF('editMemberdlg3').hide();" />
+
+                                 </p:outputPanel>
+                            </f:facet>
+                        </p:panel>
+        
+     <!--   </div>
+    
+     </div>    -->
+ 
+     </h:form>
+            </p:outputPanel>
+         </p:dialog>
+
+
+</html>

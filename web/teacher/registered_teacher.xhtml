@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    
+<!-- highlight area start-->
+        <div class="ContentSideSections overHidden">
+        
+           
+            <p:dataTable var="teacherBean" value="#{stakeholdersBean.teachertList}" sortMode="multiple" id="teacherTable"   scrollRows="100000" scrollable="true" liveScroll="true"  resizableColumns="true" 
+                         rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'highlight' : 'highlight2'}"  rowKey="#{teacherBean.stakeholderCode}" paginator="true" rows="5"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
+                         rowsPerPageTemplate="10,20,30,40,50,60,70,80,100,"  widgetVar="studentBeanTable"  filteredValue="#{stakeholdersBean.filteredStakeholders}" selectionMode="single"
+                         selection="#{stakeholdersBean.selectedTeacher}"   lazy="true" emptyMessage="No Teacher found with given criteria"> 
+               
+                 <f:facet name="header">  
+                        <p:outputPanel>  
+                            <h:outputText value=" Teachers Registation Record" styleClass=" PFRedText fontSize18 mediumFont " />
+                                    <p:separator/>
+                                                            
+                                    <div align="right">
+                                        <!--  onclick="PF('student_new_dlg').show(); " onstart="rc(); -->
+                                        <h:outputText value="Search: " ></h:outputText><p:inputText id="globalFilter" onkeyup="PF('teacherTable').filter()"   style="width:150px" placeholder="Enter keyword"/>
+                                        <p:commandButton  id="newteacher" style="padding-left: 5px;" value="New"  update=":main1:main2:form_new_teacher:teacherTbViewId1" oncomplete="PF('teacher_new_dlg').show(); "> </p:commandButton>
+                                        
+                                        
+                                        <p:graphicImage width="16" height="16" value="/images/src/pdf.gif" alt="Download PDF File" title="Download PDF File"/> 
+                                        <p:graphicImage width="16" height="16" value="/images/src/xls.jpg" alt="Download Excel File" title="Download Excel File"/> 
+                                        <p:graphicImage width="16" height="16" value="/images/src/csv.jpg" alt="Download CSV File" title="Download CSV File"/> 
+                                        <p:graphicImage width="16" height="16" value="/images/src/xml.jpg" alt="Download XML File" title="Download XML File"/> 
+                                        
+                                    </div>
+                                </p:outputPanel>    
+                </f:facet> 
+                <p:column style="width:2%">  
+                        <h:outputText id="teachdragIcon" styleClass="ui-icon ui-icon-person" />  
+                </p:column> 
+                
+                <p:column id="teachBean_studid" style="width:8%" filterBy="#{teacherBean.TAC_ID}" sortBy="#{teacherBean.TAC_ID}" headerText="TeacherID"  filterMatchMode="contains">  
+                    <h:outputText value="#{teacherBean.TAC_ID}" />  
+                </p:column>
+                
+                <p:column id="teachBean_fname" style="width:15%" filterBy="#{teacherBean.firstName}" sortBy="#{teacherBean.firstName}" headerText=" Names"  filterMatchMode="contains">  
+                    <h:outputLabel>
+                        <h:outputText value="#{teacherBean.stakeTitle}. #{teacherBean.firstName}    #{teacherBean.middleName}   #{teacherBean.lastName} "  />  
+                    </h:outputLabel>
+                     
+                </p:column>
+               
+               
+                
+                <p:column id="teachBean_gender" style="width:8%" filterBy="#{teacherBean.gender}" sortBy="#{teacherBean.gender}" headerText="Gender"  filterMatchMode="contains">  
+                        <h:outputText value="#{teacherBean.gender}" />  
+                </p:column>
+                
+                    
+                                   
+                <p:column id="teachBean_nationality" style="width:10%" filterBy="#{teacherBean.nationality}" sortBy="#{teacherBean.nationality}" headerText="Nationality"  filterMatchMode="contains" >  
+                        <h:outputText value="#{teacherBean.nationality}" />  
+                </p:column>
+                <p:column id="teachBean_religion" style="width:10%" filterBy="#{teacherBean.religion}" sortBy="#{teacherBean.religion}" headerText="Religion"  filterMatchMode="contains">  
+                        <h:outputText value="#{teacherBean.religion}" />  
+                </p:column> 
+                <p:column id="teachBean_address1" style="width:20%" filterBy="#{teacherBean.address1}" sortBy="#{teacherBean.address1}" headerText="Address1"  filterMatchMode="contains">  
+                    
+                        <h:outputText value=" #{teacherBean.address1}" /> 
+                 
+                </p:column>
+                <p:column id="teachBean_cont1" style="width:10%" filterBy="#{teacherBean.contact1}" sortBy="#{teacherBean.contact1}" headerText="Mobile No"  filterMatchMode="contains">  
+                    
+                          <h:outputText value="#{teacherBean.contact1}" /> 
+                   
+                </p:column>
+                <p:column id="teachBean_cont2" style="width:10%" filterBy="#{teacherBean.contact2}" sortBy="#{teacherBean.contact2}" headerText="Phone No"  filterMatchMode="contains">  
+                                          
+                        <h:outputText value="#{teacherBean.contact2}" /> 
+                                           
+                </p:column>
+                    
+               
+                
+                 
+                    
+               <!-- <p:column id="studBean_note" style="width:4%"  filterBy="#{teacherBean.notes}" sortBy="#{teacherBean.notes}" headerText="Notes" footerText="Notes" filterMatchMode="contains">  
+                        <h:outputText value="#{teacherBean.notes}" />  
+                </p:column> -->
+                
+               
+               <p:column id="teachmenu" style="width:10%" headerText="Menu" >
+                   <!-- <h:form>
+                        
+                     -->  
+                </p:column> 
+                     
+                
+            
+       </p:dataTable> 
+       
+
+<ui:include src="/teacher/moreteacherOptions.xhtml"/> 
+
+            
+            
+           <!-- </h:form> -->
+        </div>
+        <!-- highlight area end-->
+</html>

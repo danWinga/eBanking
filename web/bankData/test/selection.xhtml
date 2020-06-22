@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+        <style type="text/css">
+            .value {
+                font-weight: bold;
+            }
+            
+            .ui-datatable {
+                margin-bottom: 25px
+            }
+            
+            .ui-datatable .ui-datatable-footer {
+                text-align:left;
+            }
+            
+            .ui-datalist ul {
+                padding: 0 0 0 10px;
+                margin: 5px 0;
+            }
+            
+            .ui-datatable .ui-button-icon-only .ui-button-text {
+                padding: 0;
+                line-height: 1.2;
+            }
+        </style>
+        <div  class="Content100 overHidden" >
+            
+        <h:form id="form">
+            <p:growl id="msgs" showDetail="true" />
+            <p:dataTable id="cars122" var="car22" value="#{dtEditView.cars1}" editable="true" style="margin-bottom:20px">
+       <f:facet name="header">
+           Row Editing
+       </f:facet>
+ 
+       <p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}" update=":main1:main2:form:msgs" />
+       <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":main1:main2:form:msgs" />
+ 
+       <p:column headerText="Id">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{car22.id}" /></f:facet>
+               <f:facet name="input"><p:inputText id="modelInput" value="#{car22.id}" style="width:100%"/></f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column headerText="Year">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{car22.year}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{car22.year}" style="width:100%" label="Year"/></f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column headerText="Brand">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{car22.brand}" /></f:facet>
+               <f:facet name="input">
+                   <h:selectOneMenu value="#{car22.brand}" style="width:100%">
+                       <f:selectItems value="#{dtEditView.brands}" var="man" itemLabel="#{man}" itemValue="#{man}" />
+                   </h:selectOneMenu>
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column headerText="Color">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{car22.color}" /></f:facet>
+               <f:facet name="input">
+                   <h:selectOneMenu value="#{car22.color}" style="width:100%">
+                       <f:selectItems value="#{dtEditView.colors}" var="color" itemLabel="#{color}" itemValue="#{color}" />
+                   </h:selectOneMenu>
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column style="width:32px">
+           <p:rowEditor />
+       </p:column>
+   </p:dataTable>
+ 
+   <p:contextMenu for="cars222" widgetVar="cMenu">   
+       <p:menuitem value="Edit Cell" icon="ui-icon-search" onclick="PF('cellCars').showCellEditor();return false;"/>  
+       <p:menuitem value="Hide Menu" icon="ui-icon-close" onclick="PF('cMenu').hide()"/>  
+   </p:contextMenu> 
+ 
+   <p:dataTable id="cars222" var="carx" value="#{dtEditView.cars2}" editable="true" editMode="cell" widgetVar="cellCars">
+       <f:facet name="header">
+           Cell Editing with Click and RightClick
+       </f:facet>
+ 
+       <p:ajax event="cellEdit" listener="#{dtEditView.onCellEdit}" update=":main1:main2:form:msgs" />
+ 
+       <p:column headerText="Id">
+              <p:cellEditor>
+                  <f:facet name="output"><h:outputText value="#{carx.id}" /></f:facet>
+                  <f:facet name="input"><p:inputText id="modelInput" value="#{carx.id}" style="width:96%"/></f:facet>
+              </p:cellEditor>
+          </p:column>
+ 
+          <p:column headerText="Year">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{carx.year}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{carx.year}" style="width:96%" label="Year"/></f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column headerText="Brand">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{carx.brand}" /></f:facet>
+               <f:facet name="input">
+                   <h:selectOneMenu value="#{carx.brand}" style="width:100%">
+                       <f:selectItems value="#{dtEditView.brands}" var="man" itemLabel="#{man}" itemValue="#{man}" />
+                   </h:selectOneMenu>
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column headerText="Color">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{carx.color}" /></f:facet>
+               <f:facet name="input">
+                   <h:selectOneMenu value="#{carx.color}" style="width:100%">
+                       <f:selectItems value="#{dtEditView.colors}" var="color" itemLabel="#{color}" itemValue="#{color}" />
+                   </h:selectOneMenu>
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+   </p:dataTable>
+
+            <p:dataTable id="basicDT" var="car" value="#{dtSelectionView.cars1}">
+                <f:facet name="header">
+                    Basic
+                </f:facet>
+                <p:column headerText="Id">
+                    <h:outputText value="#{car.id}" />
+                </p:column>
+                <p:column headerText="Year">
+                    <h:outputText value="#{car.year}" />
+                </p:column>
+                <p:column headerText="Brand">
+                    <h:outputText value="#{car.brand}" />
+                </p:column>
+                <p:column headerText="Color">
+                    <h:outputText value="#{car.color}" />
+                </p:column>
+                <p:column style="width:32px;text-align: center">
+                     <p:commandButton update=":main1:main2:form:carDetail" oncomplete="PF('carDialog').show()" icon="ui-icon-search" title="View">
+                        <f:setPropertyActionListener value="#{car}" target="#{dtSelectionView.selectedCar}" />
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+            
+            <p:dataTable id="singleDT" var="car" value="#{dtSelectionView.cars2}" selectionMode="single" selection="#{dtSelectionView.selectedCar}" rowKey="#{car.id}">
+                <f:facet name="header">
+                    Single with Row Click
+                </f:facet>
+                <p:column headerText="Id">
+                    <h:outputText value="#{car.id}" />
+                </p:column>
+                <p:column headerText="Year">
+                    <h:outputText value="#{car.year}" />
+                </p:column>
+                <p:column headerText="Brand">
+                    <h:outputText value="#{car.brand}" />
+                </p:column>
+                <p:column headerText="Color">
+                    <h:outputText value="#{car.color}" />
+                </p:column>
+                <f:facet name="footer">
+                    <p:commandButton process="singleDT" update=":main1:main2:form:carDetail" icon="ui-icon-search" value="View" oncomplete="PF('carDialog').show()" />
+                </f:facet>
+            </p:dataTable>
+            
+            <p:dataTable id="eventsDT" var="car" value="#{dtSelectionView.cars3}" selectionMode="single" selection="#{dtSelectionView.selectedCar}" rowKey="#{car.id}">
+                <f:facet name="header">
+                    Select Events
+                </f:facet>
+                <p:ajax event="rowSelect" listener="#{dtSelectionView.onRowSelect}" update=":main1:main2:form:msgs" />
+                <p:ajax event="rowUnselect" listener="#{dtSelectionView.onRowUnselect}" update=":main1:main2:form:msgs" />
+                <p:column headerText="Id">
+                    <h:outputText value="#{car.id}" />
+                </p:column>
+                <p:column headerText="Year">
+                    <h:outputText value="#{car.year}" />
+                </p:column>
+                <p:column headerText="Brand">
+                    <h:outputText value="#{car.brand}" />
+                </p:column>
+                <p:column headerText="Color">
+                    <h:outputText value="#{car.color}" />
+                </p:column>
+            </p:dataTable>
+            
+            <p:dataTable id="multipleDT" var="car" value="#{dtSelectionView.cars4}" selectionMode="multiple" selection="#{dtSelectionView.selectedCars}" rowKey="#{car.id}">
+                <f:facet name="header">
+                    Multiple with Meta and Shift keys
+                </f:facet>
+                <p:column headerText="Id">
+                    <h:outputText value="#{car.id}" />
+                </p:column>
+                <p:column headerText="Year">
+                    <h:outputText value="#{car.year}" />
+                </p:column>
+                <p:column headerText="Brand">
+                    <h:outputText value="#{car.brand}" />
+                </p:column>
+                <p:column headerText="Color">
+                    <h:outputText value="#{car.color}" />
+                </p:column>
+                <f:facet name="footer">
+                    <p:commandButton process="multipleDT" update=":main1:main2:form:multiCarDetail" icon="ui-icon-search" value="View" oncomplete="PF('multiCarDialog').show()" />
+                </f:facet>
+            </p:dataTable>
+            
+            <p:dataTable id="radioDT" var="car" value="#{dtSelectionView.cars5}" selection="#{dtSelectionView.selectedCar}" rowKey="#{car.id}">
+                <f:facet name="header">
+                    RadioButton
+                </f:facet>
+                <p:column selectionMode="single" style="width:16px;text-align:center"/>
+                <p:column headerText="Id">
+                    <h:outputText value="#{car.id}" />
+                </p:column>
+                <p:column headerText="Year">
+                    <h:outputText value="#{car.year}" />
+                </p:column>
+                <p:column headerText="Brand">
+                    <h:outputText value="#{car.brand}" />
+                </p:column>
+                <p:column headerText="Color">
+                    <h:outputText value="#{car.color}" />
+                </p:column>
+                <f:facet name="footer">
+                    <p:commandButton process="radioDT" update=":main1:main2:form:carDetail" icon="ui-icon-search" value="View" oncomplete="PF('carDialog').show()" />
+                </f:facet>
+            </p:dataTable>
+            
+            <p:dataTable id="checkboxDT" var="car" value="#{dtSelectionView.cars6}" selection="#{dtSelectionView.selectedCars}" rowKey="#{car.id}" style="margin-bottom:0">
+                <f:facet name="header">
+                    Checkbox
+                </f:facet>
+                <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                <p:column headerText="Id">
+                    <h:outputText value="#{car.id}" />
+                </p:column>
+                <p:column headerText="Year">
+                    <h:outputText value="#{car.year}" />
+                </p:column>
+                <p:column headerText="Brand">
+                    <h:outputText value="#{car.brand}" />
+                </p:column>
+                <p:column headerText="Color">
+                    <h:outputText value="#{car.color}" />
+                </p:column>
+                <f:facet name="footer">
+                    <p:commandButton process="checkboxDT" update=":main1:main2:form:multiCarDetail" icon="ui-icon-search" value="View" oncomplete="PF('multiCarDialog').show()" />
+                </f:facet>
+            </p:dataTable>
+            
+            <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:outputPanel id="carDetail" style="text-align:center;">
+                    <p:panelGrid  columns="2" rendered="#{not empty dtSelectionView.selectedCar}" columnClasses="label,value">
+                        <f:facet name="header">
+                            <p:graphicImage name="demo/images/car/#{dtSelectionView.selectedCar.brand}-big.gif"/> 
+                        </f:facet>
+                        
+                        <h:outputText value="Id:" />
+                        <h:outputText value="#{dtSelectionView.selectedCar.id}" />
+
+                        <h:outputText value="Year" />
+                        <h:outputText value="#{dtSelectionView.selectedCar.year}" />
+
+                        <h:outputText value="Color:" />
+                        <h:outputText value="#{dtSelectionView.selectedCar.color}" style="color:#{dtSelectionView.selectedCar.color}"/>
+                    
+                        <h:outputText value="Price" />
+                        <h:outputText value="\$#{dtSelectionView.selectedCar.price}" />
+                    </p:panelGrid>
+                </p:outputPanel>
+            </p:dialog>
+            
+            <p:dialog header="Selected Cars" widgetVar="multiCarDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" width="200">
+                <p:outputPanel id="multiCarDetail" style="text-align:center;">
+                    <ui:repeat value="#{dtSelectionView.selectedCars}" var="car">
+                        <h:outputText value="#{car.id} - #{car.brand}" style="display:block"/>
+                    </ui:repeat>
+                </p:outputPanel>
+            </p:dialog>
+        </h:form>  
+        </div>    
+    
+   
+ 
+</html>

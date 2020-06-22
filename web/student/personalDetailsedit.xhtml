@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    <h:form id="editpersonD" >
+                    <h:panelGrid columns="3" cellspacing="2">
+                    <p:panel  >
+                        
+                        <h:panelGrid  columns="2" cellpadding="2"   > 
+                                <h:outputText value="First Name:"   />
+                                <p:inputText id="edit1studfname" size="25" value="#{stakeholdersBean.selectedStakeholder.firstName}"  required="true" requiredMessage="First name  is required." onchange="true">
+                                    <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="edit1studfname,:main1:main2:studentTable"/>
+                                </p:inputText>
+                                <h:outputText value="Middle Name:" />
+                                <p:inputText id="editstudmidname" size="25" value="#{stakeholdersBean.selectedStakeholder.middleName}" required="true" requiredMessage="Middle name  is required." onchange="true">
+                                     <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudmidname,:main1:main2:studentTable"/>
+                                 </p:inputText>
+                                <h:outputText value="Last Name:" />
+                                <p:inputText id="editstudlname"  size="25" value="#{stakeholdersBean.selectedStakeholder.lastName}"  onchange="true">
+                                    <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudlname,:main1:main2:studentTable"/>
+                                 </p:inputText>
+                                <h:outputText value="Others Names:" />
+                                <p:inputText id="editstudothers" size="25" value="#{stakeholdersBean.selectedStakeholder.otherNames}" onchange="true">
+                                    <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudmidname,:main1:main2:studentTable"/>
+                                </p:inputText>
+                                <p:outputLabel for="button" value="DOB:"   />
+                                <p:calendar id="button"  value="#{stakeholdersBean.selectedStakeholder.dateOfBirth}" showOn="button" required="true"  requiredMessage="Date of birth : is required" onchange="true">
+                                    <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudmidname,:main1:main2:studentTable"/>
+                                </p:calendar>
+                                <h:outputText value="Birth Place:" />
+                                <p:inputText id="editstudbirthplace" size="25" value="#{stakeholdersBean.selectedStakeholder.birthPlace}" onchange="true">
+                                    <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudmidname,:main1:main2:studentTable"/>
+                                </p:inputText>
+
+                                <h:outputText value="Gender:" />
+                                <p:selectOneRadio id="editstudgender" value="#{stakeholdersBean.selectedStakeholder.isGendarz}" required="true" requiredMessage="gender is required" onchange="true"    >
+                                    <f:selectItem itemLabel="Male" itemValue="true" />
+                                    <f:selectItem itemLabel="Female" itemValue="false" />
+                                    <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudmidname,:main1:main2:studentTable"/>
+                                </p:selectOneRadio>      
+                                
+                        </h:panelGrid>
+                       
+                    </p:panel>
+                   
+                
+                    <p:panel >
+                        <h:panelGrid  columns="2" cellpadding="2">
+                        <h:outputText value="Marital Status:" />
+                        <p:inputText id="editstudmaritalstatus" size="25" value="#{stakeholdersBean.selectedStakeholder.maritalstatus}" onchange="true">
+                            <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudmaritalstatus,:main1:main2:studentTable"/>
+                        </p:inputText>
+                        <h:outputText value="Blood Group:" />
+                        <p:inputText id="editstudbloodgroup"  size="25" value="#{stakeholdersBean.selectedStakeholder.bloodGroup}" onchange="true">
+                             <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudbloodgroup,:main1:main2:studentTable"/>
+                        </p:inputText>
+                        <h:outputText value="Religion:" />
+                        <p:inputText id="editstudreligion" size="25"  value="#{stakeholdersBean.selectedStakeholder.religion}" onchange="true">
+                            <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudreligion,:main1:main2:studentTable"/>
+                        </p:inputText>
+                        <h:outputText value="IDNO:" />
+                        <p:inputText id="nwstudIDNO" size="25" value="#{stakeholdersBean.selectedStakeholder.idno}" onchange="true">
+                            <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="nwstudIDNO,:main1:main2:studentTable"/>
+                        </p:inputText>
+                        <h:outputText value="Father's Name:" />
+                        <p:inputText id="editstudfathername" size="25" value="#{stakeholdersBean.selectedStakeholder.fatherName}"  onchange="true"> 
+                             <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudfathername,:main1:main2:studentTable"/>
+                        </p:inputText>
+                        <h:outputText value="Mother's Name:" />
+                        <p:inputText id="editstudmothername" size="25" value="#{stakeholdersBean.selectedStakeholder.motherName}" onchange="true">
+                         <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudmothername,:main1:main2:studentTable"/>
+                        </p:inputText>
+                        <h:outputText value="Guardian Name:" />
+                        <p:inputText id="editstudguardian"  size="25" value="#{stakeholdersBean.selectedStakeholder.gadianName}" />   
+                        
+                        </h:panelGrid>
+                      </p:panel> 
+                   
+                  
+                    <p:panel>
+                        <h:panelGrid  columns="1" cellpadding="2"  >
+                            <h:panelGrid  columns="2" cellpadding="2"  >
+                                <h:outputText value="Title:" />
+                                    <p:inputText id="editTitle"   value="#{stakeholdersBean.selectedStakeholder.stakeTitle}" >   
+                                        <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editTitle,:main1:main2:studentTable"/>
+                                    </p:inputText>
+                                    <h:outputText value="Passport No:" />
+                                    <p:inputText id="editPassportno"   value="#{stakeholdersBean.selectedStakeholder.passportno}" >   
+                                        <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editPassportno,:main1:main2:studentTable"/>
+                                    </p:inputText>
+                                    <h:outputText value="Nationality:" />
+                                    <p:inputText id="editstudnationality" value="#{stakeholdersBean.selectedStakeholder.nationality}">
+                                        <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudnationality,:main1:main2:studentTable"/>
+                                    </p:inputText>
+                                    <h:outputText value="County:" />
+                                    <p:inputText id="editstudcounty" value="#{stakeholdersBean.selectedStakeholder.county}">
+                                        <p:ajax  oncomplete="true" listener="#{stakeholdersBean.update}" update="editstudcounty,:main1:main2:studentTable"/>
+                                    </p:inputText>
+                                    <h:outputText value="empty1:" />
+                                    <p:inputText  value="#"/>
+                                    <h:outputText value="empty2:" />
+                                    <p:inputText  value="#"/>
+                                    <p:spacer height="5"/>
+
+                            </h:panelGrid>
+                            
+                               
+                        
+             
+                             
+                                
+                           
+                        </h:panelGrid>
+                        
+                    </p:panel>
+                       
+    </h:panelGrid>          
+                       
+                    
+    </h:form>     
+  
+</html>

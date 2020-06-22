@@ -1,0 +1,410 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#160;">
+    <!ENTITY bull "&#8226;">
+    <!ENTITY copy "&#169;">
+]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <f:facet name="first">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="shortcut icon" type="image/png" href="#{request.contextPath}/resources/main/images/ducation.png" />
+    </f:facet>
+
+    <title>School Management System</title>
+    <h:outputStylesheet name="main/css/showcase.css" />
+    <h:outputStylesheet name="main/css/perfect-scrollbar.css" />
+    <h:outputStylesheet name="main/css/sh.css" />
+    <h:outputScript name="jquery/jquery.js" library="primefaces" />
+    <h:outputScript name="jquery/jquery-plugins.js" library="primefaces" />
+    <h:outputScript name="main/js/perfect-scrollbar.js" />
+    <h:outputScript name="main/js/showcase.js" />
+    <ui:insert name="head" />
+</h:head>
+
+<h:body>
+
+    <!-- PC CONTENT STARTS HERE-->
+    <div class="PC">
+         <h:form>
+	<div id="MENUSIDE">
+    	<div id="MENUSIDEindent">
+            <span id="LOGO" class="bordersOfMenuSide">
+                <h:graphicImage name="main/images/ducation.png" />
+                <h:graphicImage styleClass="hiddenIcons" name="main/images/graduation_cap.svg" />
+                <div id="hiddenLogoTextEl" class="hiddenLogoText">
+                    <span class="dispBlock logoDarkText fontSize30">School</span> <span class="dispBlock logoBlueText fontSize30 mediumFont">Management</span>
+                </div>
+            </span>
+            <span class="emptyBox"></span>
+            <div class="MenuSideMainLink bordersOfMenuSide"><h:graphicImage name="main/images/zoom.svg" class="zoomIcon"/><input id="menuSearch" type="text" placeholder="Search Menu" class="mediumFont fontSize14 mustClose searchInput"/></div>
+            <h:form id="x23">
+             <p:menu >
+            <span class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);"><h:graphicImage name="main/images/admission/Admin.svg" /><h:graphicImage styleClass="hiddenIcons" name="main/images/admission/Admin.svg" /><span class="MainLinkText">Administration</span></span>
+            
+            <div class="SubMenuLinkContainer">
+                <span class="SubMenuLink" onclick="Showcase.openSubSubMenu(this);">&bull; Admin
+                    <div class="subsubMenuLinks">
+                        
+                            <p:commandLink class="SubMenuLink" id="adminadmnst1" actionListener="#{navigation.setPageName('/admin/Registared')}" update="@([id$=main2])" > <!-- '/student/Registared_student'-->
+                                <h:outputText value="Registration"  />
+                            </p:commandLink>
+                   
+                            <p:commandLink class="SubMenuLink" id="adminadmnst2" actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main12])" >
+                                 <h:outputText value="Rights"   />
+                            </p:commandLink>
+                       
+                         
+                    </div>
+                </span>
+                <span class="SubMenuLink" onclick="Showcase.openSubSubMenu(this);">&bull; Student
+                    <div class="subsubMenuLinks">
+                        
+                            <p:commandLink class="SubMenuLink" id="stdadmnst1" actionListener="#{navigation.setPageName('/student/Registared_student')}" update="@([id$=main2])" > <!-- '/student/Registared_student'-->
+                                <h:outputText value="Registration"  />
+                            </p:commandLink>
+                   
+                            <p:commandLink class="SubMenuLink" id="stdadmnst2" actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main12])" >
+                                 <h:outputText value="Class Assignment"   />
+                            </p:commandLink>
+                       
+                         
+                    </div>
+                </span>
+                <span class="SubMenuLink" onclick="Showcase.openSubSubMenu(this);">&bull; Teachers
+                    <div class="subsubMenuLinks">
+                       
+                            <p:commandLink class="SubMenuLink" id="applTech1" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main2])" >
+                                <h:outputText value="Registration"  />
+                            </p:commandLink>
+                   
+                            <p:commandLink class="SubMenuLink" id="applTech2" actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main12])" >
+                                 <h:outputText value="Subject Assignment"  />
+                            </p:commandLink>
+                   
+                    </div>
+                </span>
+                
+                <span class="SubMenuLink" onclick="Showcase.openSubSubMenu(this);">&bull; Subordinate Staffs
+                    <div class="subsubMenuLinks">
+                         <p:separator/> 
+                            <p:commandLink class="SubMenuLink" id="stdappsub1" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main2])" >
+                                <h:outputText value="Registration"  />
+                            </p:commandLink>
+                   
+                            <p:commandLink class="SubMenuLink" id="stdappsub2" actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main12])" >
+                                 <h:outputText value="Subject Assignment"  />
+                            </p:commandLink>
+                   
+                    </div>
+                </span>
+                
+                <span class="SubMenuLink" onclick="Showcase.openSubSubMenu(this);">&bull; Reports
+                    <div class="subsubMenuLinks">
+                        <p:separator/>
+                            <p:commandLink class="SubMenuLink" id="Admrepts1" actionListener="#{navigation.setPageName('chat/chat')}" update="@([id$=main2])" >
+                                <h:outputText value="chat "  /><!--Student Registration -->
+                            </p:commandLink>
+                   
+                            <p:commandLink class="SubMenuLink" id="admrept2" actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main12])" >
+                                 <h:outputText value="Teachers Registration"  />
+                            </p:commandLink>
+                            <p:commandLink class="SubMenuLink" id="admrept3" actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main12])" >
+                                 <h:outputText value="Workers Registration"  />
+                            </p:commandLink>
+                   
+                    </div>
+                </span>
+                
+                                           
+            </div>
+            
+                      
+            <span class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);"><h:graphicImage name="main/images/academic/icon_whatIsAcademicReading.svg" /><h:graphicImage styleClass="hiddenIcons" name="main/images/academic/icon_whatIsAcademicReading.svg" /><span class="MainLinkText">Academics</span></span>
+            
+            <div class="SubMenuLinkContainer">
+               
+                 <p:commandLink class="SubMenuLink" id="studrec1" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main2])" >
+                 <h:outputText value="Student Record"  />
+                 </p:commandLink>
+                   
+                 <p:commandLink class="SubMenuLink" id="clareg" actionListener="#{navigation.setPageName('/panel/wizard2')}" update="@([id$=main2])" >
+                 <h:outputText value="Class Register"  />
+                 </p:commandLink>
+                
+                 <p:commandLink class="SubMenuLink" id="clasrec2" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main2])" >
+                 <h:outputText value="Class Record"  />
+                 </p:commandLink>
+                   
+                 <p:commandLink class="SubMenuLink" id="curee1less" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main2])" >
+                 <h:outputText value="Lessions"  />
+                 </p:commandLink>
+                   
+                 <p:commandLink  class="SubMenuLink" id="clalltimtb" actionListener="#{navigation.setPageName('/panel/wizard2')}" update="@([id$=main2])" >
+                 <h:outputText value="Time Table" />
+                 </p:commandLink>
+               
+                
+                           
+            </div>
+                 
+            
+            
+            <span class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);"><h:graphicImage name="main/images/exams/result.png" /><h:graphicImage styleClass="hiddenIcons" name="main/images/exams/result.svg" /><span class="MainLinkText">Examination Evaluation</span></span>
+            <div class="SubMenuLinkContainer">
+                            <p:commandLink class="SubMenuLink" id="ex1" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main2])" >
+                            <h:outputText value="Subjects"  />
+                            </p:commandLink>
+                   
+                            <p:commandLink class="SubMenuLink" id="ass1" actionListener="#{navigation.setPageName('/panel/wizard2')}" update="@([id$=main2])" >
+                                 <h:outputText value="Assignments"  />
+                            </p:commandLink>
+                            
+                            <p:commandLink class="SubMenuLink" id="ass12" actionListener="#{navigation.setPageName('/panel/wizard2')}" update="@([id$=main2])" >
+                                 <h:outputText value="Exams"  />
+                            </p:commandLink>
+                
+                            <p:commandLink class="SubMenuLink" id="ass123" actionListener="#{navigation.setPageName('/panel/wizard2')}" update="@([id$=main2])" >
+                                 <h:outputText value="Exam time table"  />
+                            </p:commandLink>
+                
+                            <p:commandLink class="SubMenuLink" id="ass1234" actionListener="#{navigation.setPageName('/panel/wizard2')}" update="@([id$=main2])" >
+                                 <h:outputText value="Candidates"  />
+                            </p:commandLink>
+                   
+                            <p:commandLink class="SubMenuLink" id="rpt1" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main2])" >
+                                <h:outputText value="Reports"  />
+                            </p:commandLink>
+                   
+            </div>
+            <span class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);"><h:graphicImage name="main/images/mono/panel.svg" /><h:graphicImage styleClass="hiddenIcons" name="main/images/mono/panelBlue.svg" /><span class="MainLinkText">Disciplinary</span></span>
+            <div class="SubMenuLinkContainer">
+               <p:commandLink class="SubMenuLink" id="clst1" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main2])" >
+                 <h:outputText value="Duty Rostor"  />
+                 </p:commandLink>
+                   
+                   <p:commandLink class="SubMenuLink" id="dtyr1" actionListener="#{navigation.setPageName('/panel/wizard2')}" update="@([id$=main2])" >
+                 <h:outputText value="Prefects"  />
+                 </p:commandLink>
+                   
+                   <p:commandLink class="SubMenuLink" id="schcl1" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main2])" >
+                 <h:outputText value="School Calender"  />
+                 </p:commandLink>
+                   
+                
+            </div>
+            <span class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);"><h:graphicImage name="main/images/lib/book_library.svg" /><h:graphicImage styleClass="hiddenIcons" name="main/images/lib/book_library.svg" /><span class="MainLinkText">Library</span></span>
+            <div class="SubMenuLinkContainer">
+                                    
+                 <p:commandLink class="SubMenuLink" id="csh1" actionListener="#{navigation.setPageName('/panel/wizard2')}" update="@([id$=main1])" >
+                  <h:outputText value="Cash"  />
+                 </p:commandLink>
+                   
+                 <p:commandLink class="SubMenuLink" id="chq1" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1])" >
+                    <h:outputText value="Cheque Payment"  />
+                  </p:commandLink>
+                
+                 <p:commandLink class="SubMenuLink" id="inv1" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1])" >
+                    <h:outputText value="Invoice"  />
+                 </p:commandLink>
+                   
+                 <p:commandLink class="SubMenuLink" id="notf1" actionListener="#{navigation.setPageName('/panel/wizard2')}" update="@([id$=main1])" >
+                      <h:outputText value="Notification"  />
+                 </p:commandLink>
+                
+            </div>
+            <span class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);"><h:graphicImage name="main/images/mono/data.svg" /><h:graphicImage styleClass="hiddenIcons" name="main/images/mono/dataBlue.svg" /><span class="MainLinkText">Human Resource</span></span>
+            <div class="SubMenuLinkContainer">
+                <p:commandLink class="SubMenuLink" id="acc1" actionListener="#{navigation.setPageName('/panel/wizard2')}" update="@([id$=main1])" >
+                  <h:outputText value="Accounts"  />
+                 </p:commandLink>
+                   
+                 <p:commandLink class="SubMenuLink" id="exp1" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1])" >
+                    <h:outputText value="Expenditure"  />
+                  </p:commandLink>
+                
+                 <p:commandLink class="SubMenuLink" id="invet1" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1])" >
+                    <h:outputText value="Inventory"  />
+                 </p:commandLink>
+                   
+                                
+            </div>
+             <span class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);"><h:graphicImage name="main/images/settings/system1.svg" /><h:graphicImage styleClass="hiddenIcons" name="main/images/settings/system1.svg" /><span class="MainLinkText">General Settings</span></span>
+            <div class="SubMenuLinkContainer">
+                <p:commandLink class="SubMenuLink" id="clss1" actionListener="#{navigation.setPageName('/classes/classes')}" update="@([id$=main1])" >
+                  <h:outputText value="Classes"  />
+                 </p:commandLink>
+                   
+                 <p:commandLink class="SubMenuLink"  actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1])" >
+                    <h:outputText value="Subjects"  />
+                  </p:commandLink>
+                
+                 <p:commandLink class="SubMenuLink"  actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1])" >
+                    <h:outputText value="Activities"  />
+                 </p:commandLink>
+                   
+                 <p:commandLink class="SubMenuLink"  actionListener="#{navigation.setPageName('/panel/wizard2')}" update="@([id$=main1])" >
+                      <h:outputText value="Sections"  />
+                 </p:commandLink>
+                <p:commandLink class="SubMenuLink"  actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1])" >
+                    <h:outputText value="Departments"  />
+                 </p:commandLink>
+                
+                
+            </div>
+             <span class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);"><h:graphicImage name="main/images/finance/finance.svg" /><h:graphicImage styleClass="hiddenIcons" name="main/images/finance/finance.svg" /><span class="MainLinkText">Finance &amp; Account</span></span>
+            <div class="SubMenuLinkContainer">
+                 <p:commandLink class="SubMenuLink" actionListener="#{navigation.setPageName('/panel/wizard2')}" update="@([id$=main1])" >
+                  <h:outputText value="New Student"  />
+                 </p:commandLink>
+                   
+                 <p:commandLink class="SubMenuLink"  actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1])" >
+                    <h:outputText value="Library Records"  />
+                  </p:commandLink>
+                
+                 <p:commandLink class="SubMenuLink"  actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1])" >
+                    <h:outputText value="Borrowed Books"  />
+                 </p:commandLink>
+                   
+                 <p:commandLink class="SubMenuLink"  actionListener="#{navigation.setPageName('/panel/wizard2')}" update="@([id$=main1])" >
+                      <h:outputText value="Returned Books"  />
+                 </p:commandLink>
+                <p:commandLink class="SubMenuLink"  actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1])" >
+                    <h:outputText value="Books Inventory"  />
+                 </p:commandLink>
+            	
+            </div>
+             </p:menu >
+             </h:form>
+           
+        </div>    
+            
+    </div>
+    </h:form> 
+    <div id="CONTENTSIDE">
+    	<div id="CONTENTSIDEindent">
+            
+        	<!-- header bar start-->
+			<div class="ContentSideSections" id="PFTopLinksCover" style="height:60px;">
+                <a id="LOGOTEXTSIDE" href="#{request.contextPath}/index.xhtml">
+                    <span class="dispBlock logoDarkText fontSize30">School</span>
+                    <span class="dispBlock logoBlueText fontSize30 mediumFont">Management System</span>
+                </a>
+                
+                <a href="#{request.contextPath}/ui/misc/mockosx.xhtml" class="PFTopLinks floatRight boldFont marginRight20"><h:graphicImage name="main/images/admission/Admin.svg" /><span class="PFRedText">Ad</span><span class="PFDarkText">ministration</span></a>
+                <a href="http://www.primefaces.org/showcase-ext" class="PFTopLinks floatRight boldFont"><h:graphicImage name="main/images/academic/icon_whatIsAcademicReading.svg" /><span class="PFRedText">Aca</span><span class="PFDarkText">demic</span></a>
+                <span class="PFTopLinks floatRight boldFont cursorPointer" id="pushNav">
+                    <h:graphicImage name="main/images/student/Teacher.svg" /><span class="PFRedText">Stu</span><span class="PFDarkText">dent</span>
+                    <div id="PushDemos" class="navOverlay">
+                        <a href="#{request.contextPath}/push/counter.xhtml"><span class="ui-text">Registration</span></a>
+                        <a href="#{request.contextPath}/push/chat.xhtml"><span class="ui-text">General record</span></a>
+                        <a href="#{request.contextPath}/push/notify.xhtml"><span class="ui-text">Exam Record</span></a>
+                        <a href="#{request.contextPath}/mobile/checkin.xhtml"><span class="ui-text">Fee payment</span></a>
+                        <a href="#{request.contextPath}/push/viewparam.xhtml"><span class="ui-text">Graph</span></a>
+                        <a href="#{request.contextPath}/push/chart.xhtml"><span class="ui-text">Chart</span></a>
+                    </div>
+                </span>
+                <a href="#{request.contextPath}/mobile/index.xhtml" class="PFTopLinks floatRight boldFont"><h:graphicImage name="main/images/report/pie.svg" /><span class="PFRedText">Re</span><span class="PFDarkText">ports</span></a>
+                <span class="PFTopLinks floatRight boldFont cursorPointer" id="themeSwitcher">
+                    <h:form>
+                        <h:graphicImage name="main/images/finance/finance.svg" /><span class="PFRedText">Fi</span><span class="PFDarkText">nance</span>
+                        <div id="GlobalThemeSwitcher" class="navOverlay">
+                            <ui:repeat value="#{themeSwitcherView.themes}" var="theme">
+                                <a href="#" data-theme="#{theme.name}"><span class="ui-theme ui-theme-#{theme}"></span><span class="ui-text">#{theme.displayName}</span></a>
+                            </ui:repeat>
+                        </div>
+                        <p:remoteCommand name="changeTheme" actionListener="#{guestPreferences.changeTheme}" />
+                    </h:form>
+                </span>
+                
+                <div class="mobileLogoCover">
+                    <h:graphicImage name="main/images/ducation.png" style="height:40px;" styleClass="floatLeft marginRight10"/>
+                    <span class="dispBlock logoDarkText fontSize16 floatLeft">School <span class="dispBlock logoBlueText fontSize18 mediumFont">Management</span></span> 
+                </div>
+                <h:form>
+         <p:growl id="messages" showDetail="true" />
+ <div  id="mobilemenu" class="selectmenu mediumFont">
+    <p:splitButton  value="Menu" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1]),@([id$=messages])"  icon="ui-icon-disk"  >
+        
+        <p:menuitem class="LEVEL1" value="Home" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1]),@([id$=messages])" icon="ui-icon-arrowrefresh-1-w" />
+        <p:menuitem value="Delete" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1]),@([id$=messages])" ajax="false" icon="ui-icon-close" />
+        <p:separator />
+        
+        <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink" />
+        <p:menuitem value="Basic" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1]),@([id$=messages])" ajax="false" icon="ui-icon-close" />
+        <p:separator />
+        <p:menuitem value="Group"  ajax="false" icon="ui-icon-close"/>
+            <p:menuitem value="Group1" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1]),@([id$=messages])" ajax="false" icon="ui-icon-close" />
+            <p:menuitem value="Basic" actionListener="#{navigation.setPageName('/insert/dashboard_1')}" update="@([id$=main1]),@([id$=messages])" ajax="false" icon="ui-icon-close" />
+        
+    </p:splitButton>
+            
+ </div>
+              
+                </h:form>
+            </div>
+            <!-- header bar end-->
+
+            <ui:insert name="content" id="cont">
+                
+
+                <div class="ContentSideSections Implementation" style="background-color:#dfe4e6;">
+                    <ui:insert name="implementation" />
+                </div>
+
+                <div id="SourceContentSide" class="ContentSideSections Source">
+                    <div class="Content100 overHidden TextShadow">
+                        <span class="defaultText">
+                            <span class="fontSize18 logoBlueText">
+                                <ui:insert name="source" />
+                                <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+                            </span>
+                        </span>
+                    </div>
+                </div>
+           
+            </ui:insert>
+            
+            <!-- footer start-->
+            <div class="ContentSideSections">
+                <span class="floatLeft fontSize14 gray"><a href="http://www.primetek.com.tr">School Management</a>, Copyright &copy; 2014<br />All rights reserved.</span>
+                <span class="floatRight fontSize14 gray">Running #{build.primefacesVersion} on #{build.jsfVersion}.</span>
+                <div style="clear:both" />
+            </div>
+            <!-- footer end-->
+            
+        </div>
+    </div>
+    
+    </div>
+    <!-- PC CONTENT END-->
+    
+     <ui:insert name="status">
+            
+        <p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">
+            <f:facet name="start">
+                <p:graphicImage name="main/images/loader.gif" />
+            </f:facet>
+
+            <f:facet name="complete">
+                
+                <h:outputText value="" />
+            </f:facet>
+        </p:ajaxStatus>
+    </ui:insert>
+    
+    <ui:insert name="highlight">
+        <script language="javascript" src="#{request.contextPath}/resources/main/js/sh.js"></script>
+        <script language="javascript">
+            SyntaxHighlighter.all();
+        </script>
+    </ui:insert>
+    
+    <ui:insert name="body"></ui:insert>
+</h:body>
+</html>

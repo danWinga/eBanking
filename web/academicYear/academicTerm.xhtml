@@ -1,0 +1,94 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+        <style type="text/css">
+                .ui-widget,
+                .ui-widget .ui-widget {
+                       font-size: 12px !important;
+                }
+                .ui-panelgrid td, .ui-panelgrid tr {
+                        border-style: none !important;
+                        background-color: transparent !important; 
+                }
+               
+            .value {
+                font-weight: bold;
+            }
+            
+            .ui-datatable {
+                margin-bottom: 25px
+            }
+            
+            .ui-datatable .ui-datatable-footer {
+                text-align:left;
+            }
+            
+            .ui-datalist ul {
+                padding: 0 0 0 10px;
+                margin: 5px 0;
+            }
+            
+            .ui-datatable .ui-button-icon-only .ui-button-text {
+                padding: 0;
+                line-height: 1.2;
+            }
+            .titlex{
+               color:palevioletred ! important;
+               font-style:bold ! important;
+               font-weight: 2100 ! important ;
+               font-size: 20px ! important; 
+            }
+            
+        
+        </style>
+        
+
+	<script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
+                
+        <h:form id="academicTerm_frm"  >
+            <p:outputPanel id="pnlAccademicTerm"     > 
+                <h:outputText title="Academic Term" value="Academic Term : #{academicTermBean.strtYr}" styleClass="titlex" style="padding-left: 30%"/>
+                <p:separator/>
+                    <h:panelGrid columns="4" cellpadding="5"  > 
+                                                           
+                            <h:outputText value="Term Name:" />
+                            <h:inputText  value="#{academicTermBean.newTerm.termName}" required="true" requiredMessage="Academic Term name is required" />
+                            
+                            <p:outputLabel for="termsttd" value="Start Date:" />
+                            <p:calendar id="termsttd"   value="#{academicTermBean.newTerm.startDate}" pattern="dd-MM-yyyy"   />
+                            
+                            
+                            <p:outputLabel for="termendd" value="End Date:" />
+                            <p:calendar id="termendd"  value="#{academicTermBean.newTerm.endDate}" pattern="dd/MM/yyyy"/>
+                             <p:outputLabel for="termstatus" value="Current Status:" />
+                             <p:selectOneRadio id="termstatus"  value="#{academicTermBean.newTerm.isActive}" >
+                            <f:selectItem itemLabel="Open" itemValue="true" />
+                            <f:selectItem itemLabel="Closed" itemValue="false" />
+                            
+                            </p:selectOneRadio>
+                                                              
+                         </h:panelGrid>
+                        <p:separator />
+                        <h:outputText style="color:blue; font-style: italic; font-weight: bold; " value="Brief describe of academic Term" />
+                        <p:editor value="#{academicTermBean.newTerm.description}" height="100"  />
+                        
+                        <p:separator/>
+                        <div align="right">
+                            <h:panelGrid  columns="2" cellpadding="4"> 
+                                <p:commandButton process="@form" value="Save" update="@([id$= pnlAccademicTerm]), @([id$= messages])"  actionListener="#{academicTermBean.addNew}" icon="ui-icon-disk"/> 
+                                <p:commandButton value="Close" icon="ui-icon-close" />
+                             </h:panelGrid>
+        
+                        </div>
+        </p:outputPanel>
+        </h:form>
+        
+        
+  
+        
+</html>

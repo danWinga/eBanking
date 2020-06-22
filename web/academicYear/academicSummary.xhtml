@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+							
+    <p:treeTable value="#{academicSummaryBean.root}" var="node" selectionMode="single" selection="#{academicSummaryBean.selectedNode}" resizableColumns="true">
+        <p:ajax event="select" listener="#{academicSummaryBean.onNodeSelect}" update="@([id$= documentPanel]),@([id$= messages])" oncomplete="PF('documentDialog').show()" />
+		<p:column>
+			<f:facet name="header">
+				code
+			</f:facet>
+			<h:outputText value="#{node.code}"></h:outputText>
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				name
+			</f:facet>
+			<h:outputText value="#{node.name}"></h:outputText>
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				period
+			</f:facet>
+			<h:outputText value="#{node.period}"></h:outputText>
+		</p:column>
+                <p:column>
+			<f:facet name="header">
+				status
+			</f:facet>
+			<h:outputText value="#{node.isActive}"></h:outputText>
+		</p:column>
+                
+                <p:column style="width:24px">
+                    <p:commandLink update="@([id$= documentPanel]),@([id$= messages])" oncomplete="PF('documentDialog').show()" title="View Detail" styleClass="ui-icon ui-icon-search">
+                        <f:setPropertyActionListener value="#{node}" target="#{academicSummaryBean.selectedNode}" />
+                         <f:setPropertyActionListener value="#{node}" target="#{academicSummaryBean.selectedAcademic}" />
+                </p:commandLink>
+                </p:column>
+                
+	</p:treeTable>
+      <p:commandButton value="Display" update="@([id$= documentPanel])" icon="ui-icon-newwin"
+                        actionListener="#{academicSummaryBean.displaySelectedSingle}"/>
+    <p:dialog id="dialog" header="Document Detail" showEffect="fade" widgetVar="documentDialog" modal="true" resizable="false">
+        <p:outputPanel id="documentPanel">
+            <p:panelGrid  columns="2" columnClasses="label,value" rendered="#{not empty academicSummaryBean.selectedAcademic}">
+                <h:outputLabel for="code" value="Name: " />
+                <h:outputText id="code" value="#{academicSummaryBean.selectedAcademic.code }" style="font-weight:bold" />
+ 
+                <h:outputLabel for="name" value="name: " />
+                <h:outputText id="name" value="#{academicSummaryBean.selectedAcademic.name}" style="font-weight:bold" />
+ 
+                <h:outputLabel for="type" value="Type " />
+                <h:outputText id="type" value="#{academicSummaryBean.selectedAcademic.period}" style="font-weight:bold" />
+            </p:panelGrid>
+        </p:outputPanel>
+    </p:dialog>
+
+</html>

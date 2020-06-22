@@ -1,0 +1,382 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+     <style type="text/css">
+        .ui-widget,
+        .ui-widget .ui-widget {
+               font-size: 12px !important;
+         }
+            .highlight {
+               background:whitesmoke !important; 
+         }
+            .highlight2 {
+             background: background  !important ; 
+         }
+         .highlight3 {
+             background:  graytext !important ; 
+         }
+         .studMain{
+             width: 100% ! important;
+         }
+         .studcont1{
+             width: 45% ! important;
+             
+         }
+    </style>
+<!-- highlight area start-->
+        <div class="ContentSideSections overHidden">
+        
+           <!-- <h:form id="dtb">   selection="#{dtStakeholderFilterView.selectedStakeholder}"  selectionMode="single" 
+           -->
+            
+           <p:dataTable  id="adminbeantable" var="adminBean" value="#{dtStakeholderFilterView.stakeholders}" sortMode="multiple"   scrollRows="100000" scrollable="true" liveScroll="true"  resizableColumns="true" 
+                         rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'highlight' : 'highlight2'}"  rowIndexVar="rowIndex" rowKey="#{adminBean.id}" paginator="true" rows="5" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
+            rowsPerPageTemplate="10,20,30,40,50,60,70,80,100,"  widgetVar="adminTable"  filteredValue="#{dtStakeholderFilterView.filteredStakeholders}" emptyMessage="No student found with given criteria"> 
+
+                 <f:facet name="header">  
+                        <p:outputPanel>  
+                            <h:outputText value="Registered Admin Record" style="color:palevioletred ! important; font-style:bold; font-weight: 2200; font-size: 20px; " />
+                                    <p:separator/>
+                                                            
+                                    <div align="right">
+                                        
+                                        <h:outputText value="Search: " ></h:outputText><p:inputText id="globalFilter" onkeyup="PF('adminTable').filter()"   style="width:150px" placeholder="Enter keyword"/>
+                                        <p:commandButton  id="newscAdmin" style="padding-left: 5px;" value="New" onclick="PF('admin_new_dlg').show(); " onstart="rc();"> </p:commandButton>
+                                        
+                                        <p:graphicImage width="16" height="16" value="/images/src/pdf.gif" alt="Download PDF File" title="Download PDF File"/> 
+                                        <p:graphicImage width="16" height="16" value="/images/src/xls.jpg" alt="Download Excel File" title="Download Excel File"/> 
+                                        <p:graphicImage width="16" height="16" value="/images/src/csv.jpg" alt="Download CSV File" title="Download CSV File"/> 
+                                        <p:graphicImage width="16" height="16" value="/images/src/xml.jpg" alt="Download XML File" title="Download XML File"/> 
+                                        
+                                    </div>
+                                </p:outputPanel>    
+                </f:facet> 
+                <p:column style="width:2%">  
+                        <h:outputText id="AdmindragIcon" styleClass="ui-icon ui-icon-person" />  
+                </p:column> 
+                <p:column id="adminBean_Id" style="width:3%" filterBy="#{adminBean.id}" sortBy="#{adminBean.id}" headerText="Index" footerText="Index" filterMatchMode="contains">  
+                        <h:outputText value="#{adminBean.id}" /> 
+                </p:column> 
+                <p:column id="adminBean_adminid" style="width:8%" filterBy="#{adminBean.stakeholderCode}" sortBy="#{adminBean.stakeholderCode}" headerText="MemberCode" footerText="MemberCode" filterMatchMode="contains">  
+                        <h:outputText value="#{adminBean.stakeholderCode}" />  
+                </p:column>
+                
+                <p:column id="adminBean_fname" style="width:8%" filterBy="#{adminBean.firstName}" sortBy="#{adminBean.firstName}" headerText="First Names" footerText="Names" filterMatchMode="contains">  
+                    <h:outputText value="#{adminBean.firstName}" />  
+                </p:column>
+                <p:column id="adminBeam_lname" style="width:8%" filterBy="#{adminBean.lastName}" sortBy="#{adminBean.lastName}" headerText=" Last Names" footerText="Names" filterMatchMode="contains">  
+                        <h:outputText value="#{adminBean.lastName}" />  
+                </p:column>
+               
+                
+                <p:column id="adminBean_gender" style="width:8%" filterBy="#{adminBean.gender}" sortBy="#{adminBean.gender}" headerText="Gender" footerText="Gender" filterMatchMode="contains">  
+                        <h:outputText value="#{adminBean.gender}" />  
+                </p:column>
+                <p:column id="adminBean_DateOfbirth" style="width:8%" filterBy="#{adminBean.dateOfBirth}" sortBy="#{adminBean.dateOfBirth}" headerText="Date Of Birth" footerText="DateOfBirth" filterMatchMode="contains">  
+                        <h:outputText value="#{adminBean.dateOfBirth}" />  
+                </p:column>
+                    
+                                   
+                <p:column id="adminBean_nationality" style="width:8%" filterBy="#{adminBean.nationality}" sortBy="#{adminBean.nationality}" headerText="Nationality" footerText="Nationality" filterMatchMode="contains" >  
+                        <h:outputText value="#{adminBean.nationality}" />  
+                </p:column>
+                
+                <p:column id="adminBean_address1" style="width:8%" filterBy="#{adminBean.address1}" sortBy="#{adminBean.address1}" headerText="Address1" footerText="Address1" filterMatchMode="contains">  
+                    <h:outputText value="#{adminBean.address1}" />  
+                </p:column>
+                    
+               
+                <p:column id="adminBean_contact1" style="width:8%" filterBy="#{adminBean.contact1}" sortBy="#{adminBean.contact1}" headerText="Contact1" footerText="Contact1" filterMatchMode="contains">  
+                        <h:outputText value="#{adminBean.contact1}" />  
+               <!-- </p:column> 
+                <p:column id="studBean_contact2" style="width:4%" filterBy="#{adminBean.contact2}" sortBy="#{studBean.contact2}" headerText="Contact2" footerText="Contact2" filterMatchMode="contains">  
+                        <h:outputText value="#{adminBean.contact2}" />  -->
+                </p:column>
+              
+                
+                 
+                    
+               <!-- <p:column id="studBean_note" style="width:4%"  filterBy="#{studBean.notes}" sortBy="#{studBean.notes}" headerText="Notes" footerText="Notes" filterMatchMode="contains">  
+                        <h:outputText value="#{studBean.notes}" />  
+                </p:column> -->
+                <p:column id="adminBean_regdate" style="width:4%" filterBy="#{adminBean.registrationDate}" sortBy="#{adminBean.registrationDate}" headerText="Registration Date" footerText="Registration Date" filterMatchMode="contains">  
+                        <h:outputText value="#{adminBean.registrationDate}" />  
+                </p:column> 
+                <!--<p:column id="studmenu" style="width:10%" headerText="Menu" >
+                    <h:form>
+                        
+                    <p:menuButton value="Actions">
+                        
+                        <p:menuitem value="Update"  onclick="PF('student_edit_dlg').show();"  icon="ui-icon-arrowrefresh-1-w">
+                            <f:setPropertyActionListener value="#{adminBean}" target="#{stakeholdersBean.selectedStakeholder}" />
+                        </p:menuitem>
+                        <p:menuitem value="Delete" actionListener="#{stakeholdersBean.delete}" ajax="false" icon="ui-icon-close"/>
+                        <p:menuitem value="Save" actionListener="#{stakeholdersBean.save}" update="@([id$= messages])" icon="ui-icon-disk"/>
+                     <p:separator />
+                     <p:menuitem value="Homepage" icon="ui-icon-extlink"  actionListener="#{navigation.setPageName('/chat/chat')}" update="@([id$=main2])" />
+                     </p:menuButton> 
+                    </h:form>   
+                </p:column> -->
+                <p:column id="adminstfedit" headerText="Edit" style="width:4%" footerText="Edit"   > 
+                    <p:commandButton id="stdselectadminButton4" update=":main1:main2:form_edit_admin:grid_edit_admin,@([id$= messages])" icon="ui-icon-person" oncomplete="PF('admin_edit_dlg').show();">
+                    <f:setPropertyActionListener value="#{adminBean}" target="#{dtStakeholderFilterView.selectedStakeholder}" />
+                    </p:commandButton>
+                </p:column>
+                <p:column style="width:32px;text-align: center">
+             <p:commandButton update="@([id$= carDetail])" oncomplete="PF('carDialog').show()" icon="ui-icon-search" title="View">
+                <f:setPropertyActionListener value="#{adminBean}" target="#{dtStakeholderFilterView.selectedStakeholder}" />
+            </p:commandButton>
+        </p:column>
+                    
+                
+            
+       </p:dataTable> 
+       
+
+           <p:dialog  id="dlg_edt_admin" header="Edit Admin Record" showHeader="true" styleClass="fontSize30 TextShadow orange mediumFont marginBottom20 dispBlock" widgetVar="admin_edit_dlg" dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false"  > <!-- width="300" height="150">  -->
+            <p:graphicImage width="auto" height="50" value="main/images/student/elementary_school.png" alt="Image Description for" title="School Management System" /> 
+            <p:separator/>
+             <h:form id="form_edit_admin">
+                    <h:outputLabel  value="Edit Student Record" styleClass="fontSize30 TextShadow orange mediumFont marginBottom20 dispBlock texAliCenter"  />
+                <h:panelGrid id="grid_edit_admin" columns="3" cellpadding="2"> 
+                    <p:panel  >
+                        <h:panelGrid  columns="2" cellpadding="2" id="editgrdadmin1"  > 
+                        <h:outputText value="First Name:"   />
+                        <p:inputText id="edtadminfname" value="#{dtStakeholderFilterView.selectedStakeholder.firstName}"  required="true" requiredMessage="First name  is required."/>
+                        <h:outputText value="Middle Name:" />
+                        <p:inputText id="edtadminmidname" value="#{dtStakeholderFilterView.selectedStakeholder.middleName}" required="true" requiredMessage="Middle name  is required."/>
+                        <h:outputText value="Last Name:" />
+                        <p:inputText id="edtadminlname" value="#{dtStakeholderFilterView.selectedStakeholder.lastName}" />
+                        <h:outputText value="Others Names:" />
+                        <p:inputText id="edtadminothers" value="#{dtStakeholderFilterView.selectedStakeholder.otherNames}"/>
+                        
+                        <h:outputText value="Birth Place:" />
+                        <p:inputText id="edtadminbirthplace" value="#{stakeholdersBean.selectedStakeholder.birthPlace}"/>
+                        
+                        <h:outputText value="Gender:" />
+                        <p:selectOneRadio id="edtadmingender" value="#{stakeholdersBean.selectedStakeholder.gender}" required="true" requiredMessage="gender is required"    >
+                            <f:selectItem itemLabel="Male" itemValue="Male" />
+                            <f:selectItem itemLabel="Female" itemValue="Female" />
+                        </p:selectOneRadio>                    
+                        </h:panelGrid>
+                    </p:panel>
+                    <p:panel >
+                        <h:panelGrid  columns="2" cellpadding="2"> 
+                        <h:outputText value="Blood Group:" />
+                        <p:inputText id="edtadminbloodgroup" value="#{stakeholdersBean.selectedStakeholder.bloodGroup}"/>
+                        <h:outputText value="Religion:" />
+                        <p:inputText id="edtadminreligion" value="#{stakeholdersBean.selectedStakeholder.religion}"/>
+                        <h:outputText value="Father's Name:" />
+                        <p:inputText id="edtadminfathername" value="#{stakeholdersBean.selectedStakeholder.fatherName}" />  
+                        <h:outputText value="Mother's Name:" />
+                        <p:inputText id="edtadminmothername" value="#{stakeholdersBean.selectedStakeholder.motherName}" />
+                        <h:outputText value="Guardian Name:" />
+                        <p:inputText id="edtadminguardian" value="#{stakeholdersBean.selectedStakeholder.gadianName}" />   
+                        <h:outputText value="Nationality:" />
+                        <p:inputText id="edtadminnationality" value="#{stakeholdersBean.selectedStakeholder.nationality}"/>
+                        <h:outputText value="County:" />
+                        <p:inputText id="edtadmincounty" value="#{stakeholdersBean.selectedStakeholder.county}"/>
+                        <h:outputText value="Address1:" />
+                        <p:inputText id="edtadminaddress1" value="#{stakeholdersBean.selectedStakeholder.address1}" required="true" requiredMessage="First name  is required."/>
+                        
+                        </h:panelGrid>
+                      </p:panel> 
+                    <p:panel>
+                        <h:panelGrid  columns="2" cellpadding="2"  >
+                        
+                        <h:outputText value="Address2:" />
+                        <p:inputText id="edtadminaddress2" value="#{stakeholdersBean.selectedStakeholder.address2}" />
+                        <h:outputText value="Phone No:" />
+                        <p:inputText id="edtadmincontact1" value="#{stakeholdersBean.selectedStakeholder.contact1}" />
+                        <h:outputText value="Tel No:" />
+                        <p:inputText id="edtadmincontact2" value="#{stakeholdersBean.selectedStakeholder.contact2}" />
+                        <h:outputText value="Email :" />
+                        <p:inputText id="edtadminemail" value="#{stakeholdersBean.selectedStakeholder.email}" />
+                        <h:outputText value="Can Email:" />
+                        <p:selectOneRadio id="edtadminiscanemail" value="#{stakeholdersBean.selectedStakeholder.isCanEmail}"    >
+                            <f:selectItem itemLabel="Yes" itemValue="true" />
+                            <f:selectItem itemLabel="No" itemValue="false" />
+                        </p:selectOneRadio>  
+                        <h:outputText value="Notes:" />
+                        <p:inputTextarea id="edtadminnotes" value="#{stakeholdersBean.selectedStakeholder.notes}" rows="4" />
+                        </h:panelGrid>
+                        
+                    </p:panel>
+                        <h:outputText value="Can Login:" />
+                                <p:selectOneRadio id="edtadmincanlogin" value="#{stakeholdersBean.selectedStakeholder.canLogin}"    >
+                                 <f:selectItem itemLabel="Yes" itemValue="true" />
+                                 <f:selectItem itemLabel="No" itemValue="false" />
+                                 </p:selectOneRadio>
+                            <f:facet name="footer"> 
+                                <p:remoteCommand name="rc" update="@([id$= adminTable]),@([id$= messages])" actionListener="#{stakeholders.updateStudent}" />
+                                <p:commandButton  process="@form" id="edtadminButton" icon="ui-icon-disk" value="Save" actionListener="#{stakeholdersBean.save}"
+                                                  update="@([id$= adminTable]),@([id$= messages])"  oncomplete="PF('admin_edit_dlg').hide();" >
+                                  <!-- <p:ajax update="@([id$= grid_new_student])" resetValues="true" /> -->
+                                   <!-- <p:ajax  /> -->
+                                </p:commandButton>
+                              <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('admin_edit_dlg').hide();">
+                                  <p:ajax update="@([id$= grid_edit_admin])" resetValues="true" />
+                              </p:commandButton>
+                            </f:facet>
+                        </h:panelGrid>
+                    </h:form>
+            </p:dialog>
+    
+            <p:dialog header="Admin Registration" styleClass="fontSize30 TextShadow orange mediumFont marginBottom20 dispBlock" widgetVar="admin_new_dlg"  modal="true" dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false" > <!-- width="300" height="150">  -->
+             <p:graphicImage width="32" height="32" value="/images/profile-photo.jpg" alt="Image Description for" title="SchoolMagagement System" style="padding-left: 45%"/>
+             <p:separator/>
+     
+       
+                <h:form id="form_new_admin">
+                    <h:outputLabel  value="Admin Registration" styleClass="fontSize30 TextShadow orange mediumFont marginBottom20 dispBlock texAliCenter"  />
+                <h:panelGrid id="grid_new_admin" columns="3" cellpadding="2"> 
+                    <p:panel  >
+                        <h:panelGrid  columns="2" cellpadding="2" id="grdadmin1"  > 
+                        <h:outputText value="First Name:"   />
+                        <p:inputText id="nwadminfname" value="#{newStakeholder.newStakeholder.firstName}"  required="true" requiredMessage="First name  is required."/>
+                        <h:outputText value="Middle Name:" />
+                        <p:inputText id="nwadminmidname" value="#{newStakeholder.newStakeholder.middleName}" required="true" requiredMessage="Middle name  is required."/>
+                        <h:outputText value="Last Name:" />
+                        <p:inputText id="nwadminlname" value="#{newStakeholder.newStakeholder.lastName}" />
+                        <h:outputText value="Others Names:" />
+                        <p:inputText id="nwadminothers" value="#{newStakeholder.newStakeholder.otherNames}"/>
+                        <p:outputLabel for="buttoncal" value="DateOfBirth:"   />
+                        <p:calendar id="buttoncal" value="#{newStakeholder.newStakeholder.dateOfBirth}" showOn="button" required="true"  requiredMessage="Date of birth : is required"/>
+                        <h:outputText value="Birth Place:" />
+                        <p:inputText id="nwadminbirthplace" value="#{newStakeholder.newStakeholder.birthPlace}"/>
+                        
+                        <h:outputText value="Gender:" />
+                        <p:selectOneRadio id="nwadmingender" value="#{newStakeholder.newStakeholder.gender}" required="true" requiredMessage="gender is required"    >
+                            <f:selectItem itemLabel="Male" itemValue="Male" />
+                            <f:selectItem itemLabel="Female" itemValue="Female" />
+                        </p:selectOneRadio> 
+                        <h:outputText value="Blood Group:" />
+                        <p:inputText id="nwadminbloodgroup" value="#{newStakeholder.newStakeholder.bloodGroup}"/>
+                        <h:outputText value="Religion:" />
+                        <p:inputText id="nwadminreligion" value="#{newStakeholder.newStakeholder.religion}"/>
+                        <h:outputText value="Father's Name:" />
+                        <p:inputText id="nwadminfathername" value="#{newStakeholder.newStakeholder.fatherName}" />  
+                        </h:panelGrid>
+                    </p:panel>
+                    <p:panel >
+                        <h:panelGrid  columns="2" cellpadding="2"> 
+                        
+                        
+                        <h:outputText value="Guardian Name:" />
+                        <p:inputText id="nwadminguardian" value="#{newStakeholder.newStakeholder.gadianName}" /> 
+                        <h:outputText value="Proffession :" />
+                        <p:inputText id="nwadminproffession" value="#{newStakeholder.newStakeholder.proffession_ID}" /> 
+                        <h:outputText value="Job Description :" />
+                        <p:inputText id="nwadminjob" value="#{newStakeholder.newStakeholder.jobDescription}" />  
+                        <h:outputText value="Nationality:" />
+                        <p:inputText id="nwadminnationality" value="#{newStakeholder.newStakeholder.nationality}"/>
+                        <h:outputText value="County:" />
+                        <p:inputText id="nwadmincounty" value="#{newStakeholder.newStakeholder.county}"/>
+                        <h:outputText value="Address1:" />
+                        <p:inputText id="nwadminaddress1" value="#{newStakeholder.newStakeholder.address1}" required="true" requiredMessage="First name  is required."/>
+                        <h:outputText value="Address2:" />
+                        <p:inputText id="nwadminaddress2" value="#{newStakeholder.newStakeholder.address2}" />
+                        <h:outputText value="Phone No:" />
+                        <p:inputText id="nwadmincontact1" value="#{newStakeholder.newStakeholder.contact1}" />
+                        <h:outputText value="Tel No:" />
+                        <p:inputText id="nwadmincontact2" value="#{newStakeholder.newStakeholder.contact2}" />
+                        <h:outputText value="Email :" />
+                        <p:inputText id="nwadminemail" value="#{newStakeholder.newStakeholder.email}" />
+                        </h:panelGrid>
+                      </p:panel> 
+                    <p:panel>
+                        <h:panelGrid  columns="2" cellpadding="2"  >
+                        <p:outputLabel for="nwadminisstudent" value="isStudent:" />
+                        <p:selectOneRadio id="nwadminisstudent" value="#{newStakeholder.newStakeholder.isStudent}"    >
+                            <f:selectItem itemLabel="No" itemValue="false" />
+                            <f:selectItem itemLabel="Yes" itemValue="true" />
+                          </p:selectOneRadio> 
+                        <p:outputLabel for="nwadminisTeacher" value="isTeacher:" />
+                        <p:selectOneRadio id="nwadminisTeacher" value="#{newStakeholder.newStakeholder.isTeacher}"    >
+                            <f:selectItem itemLabel="No" itemValue="false" />
+                            <f:selectItem itemLabel="Yes" itemValue="true" />
+                            
+                        </p:selectOneRadio>
+                        <p:outputLabel for="nwadminisBOG" value="isBOG:" />
+                        <p:selectOneRadio id="nwadminisBOG" value="#{newStakeholder.newStakeholder.isBOG}"    >
+                            <f:selectItem itemLabel="No" itemValue="false" />
+                            <f:selectItem itemLabel="Yes" itemValue="true" />
+                        </p:selectOneRadio>
+                        <p:outputLabel for="nwadminisWorker" value="isSabodinate Staff:" />
+                        <p:selectOneRadio id="nwadminisWorker" value="#{newStakeholder.newStakeholder.isSabodinate_Staff}"    >
+                            <f:selectItem itemLabel="No" itemValue="false" />
+                            <f:selectItem itemLabel="Yes" itemValue="true" />
+                        </p:selectOneRadio>
+                        <p:outputLabel for="nwadminisGuardian" value="isGuardian:" />
+                        <p:selectOneRadio id="nwadminisGuardian" value="#{newStakeholder.newStakeholder.isGuardian}"    >
+                            <f:selectItem itemLabel="No" itemValue="false" />
+                            <f:selectItem itemLabel="Yes" itemValue="true" />
+                        </p:selectOneRadio>
+                        <p:outputLabel for="nwadminisAdmin" value="isAdmin:" />
+                        <p:selectOneRadio id="nwadminisAdmin" value="#{newStakeholder.newStakeholder.isAdmin}"    >
+                            <f:selectItem itemLabel="No" itemValue="false" />
+                            <f:selectItem itemLabel="Yes" itemValue="true" />
+                        </p:selectOneRadio>
+                        <p:outputLabel for="nwadminiscanemail" value="Can Email:" />
+                        <p:selectOneRadio id="nwadminiscanemail" value="#{newStakeholder.newStakeholder.isCanEmail}"    >
+                            <f:selectItem itemLabel="No" itemValue="false" />
+                            <f:selectItem itemLabel="Yes" itemValue="true" />
+                        </p:selectOneRadio> 
+                        <p:outputLabel  for="nwadmincanlogin" value="Can Login:" />
+                                <p:selectOneRadio id="nwadmincanlogin" value="#{newStakeholder.newStakeholder.canLogin}"    >
+                                 <f:selectItem itemLabel="No" itemValue="false" />
+                                 <f:selectItem itemLabel="Yes" itemValue="true" />
+                                 </p:selectOneRadio>
+                        <h:outputText value="Notes:" />
+                        <p:inputTextarea id="nwadminnotes" value="#{newStakeholder.newStakeholder.notes}" rows="1" />
+                        </h:panelGrid>
+                        
+                    </p:panel>
+                        
+                            <f:facet name="footer"> 
+                                <p:remoteCommand name="rc" update="@([id$= adminTable]),@([id$= messages])" actionListener="#{newStakeholder.updateAdmin}" />
+                                <p:commandButton  process="@form" id="newadminButton" icon="ui-icon-disk" value="Save" actionListener="#{newStakeholder.insertAnyMember}"
+                                                  update="@([id$= adminbeantable]),@([id$= messages])"  oncomplete="PF('admin_new_dlg').hide();" onsuccess="rc();">
+                                  <!-- <p:ajax update="@([id$= grid_new_student])" resetValues="true" /> -->
+                                   <!-- <p:ajax  /> -->
+                                </p:commandButton>
+                              <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('admin_new_dlg').hide();">
+                                  <p:ajax update="@([id$= grid_new_admin])" resetValues="true" />
+                              </p:commandButton>
+                            </f:facet>
+                        </h:panelGrid>
+                    </h:form>
+            </p:dialog>
+            
+            
+          <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+           <p:graphicImage width="auto" height="50" value="main/images/student/elementary_school.png" alt="Image Description for" title="School Management System" /> 
+            <p:separator/>  
+          
+           <h:panelGrid id="carDetail" columns="2" cellpadding="2"  > 
+           <!-- <p:panelGrid  columns="2" rendered="#{not empty dtStakeholderFilterView.selectedStakeholder}" columnClasses="label,value"> -->
+                
+                        <h:outputText value="First Name:"   />
+                        <p:inputText id="edtstudfname12" value="#{dtStakeholderFilterView.selectedStakeholder.firstName}"  required="true" requiredMessage="First name  is required."/>
+                        <h:outputText value="Middle Name:" />
+                        <p:inputText id="edtstudmidname12" value="#{dtStakeholderFilterView.selectedStakeholder.middleName}" required="true" requiredMessage="Middle name  is required."/>
+                        <h:outputText value="Last Name:" />
+                        <p:inputText id="edtstudlname12" value="#{dtStakeholderFilterView.selectedStakeholder.lastName}" />
+                        <h:outputText value="Others Names:" />
+                        <p:inputText id="edtstudothers12" value="#{dtStakeholderFilterView.selectedStakeholder.otherNames}"/>
+                
+           <!-- </p:panelGrid> -->
+           </h:panelGrid>
+             
+    </p:dialog>
+            
+           <!-- </h:form> -->
+        </div>
+        <!-- highlight area end-->
+</html>

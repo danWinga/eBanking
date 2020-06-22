@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <div class="openerp oe_form_sheetbg">
+        
+            <h:form id="form">
+                <p:dataGrid var="product" value="#{productItemBean.productList}" columns="3" layout="grid"
+                        rows="12" paginator="true" id="cars"
+                        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                        rowsPerPageTemplate="6,12,16">
+
+                        <f:facet name="header">
+                            Stock inventory
+                        </f:facet>
+
+                    <p:panel header="#{product.groupName}" style="text-align:center">
+                            <h:panelGrid columns="1" style="width:100%">
+                                <p:graphicImage value="DisplayImage?Image_id=#{product.id}" width="50"/> 
+
+                                <h:outputText value="Status : #{product.status}" />
+                                <h:outputText value="Cost : #{product.costPrice}" />
+                                <h:outputText value="Quantity : #{product.quantity}" />
+
+                                <p:commandLink update="@([id$= product_item_frm])" oncomplete="PF('productItemdlg').show()" title="View Detail">
+                                    <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
+                                    <f:setPropertyActionListener value="#{product}" target="#{productItemBean.selectedProduct}" /> 
+                                </p:commandLink>
+                            </h:panelGrid>
+                        </p:panel>
+
+                    </p:dataGrid>
+    
+            </h:form>
+                <ui:include src="/product/productRecord.xhtml"/> 
+        </div>
+               
+   
+   
+ 
+   
+</html>

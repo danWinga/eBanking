@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+        <style type="text/css">
+                .ui-widget,
+                .ui-widget .ui-widget {
+                       font-size: 12px !important;
+                 }
+       
+            
+            .ui-lable{
+                font-weight:bold;
+            }
+            .ui-input-text{
+                height: 12px !important;
+            }
+            .ui-lable-padding{
+                padding-right: 5px ;
+            }
+            .ui-lable-padding{
+                padding-left: 5px ;
+            }
+            .ui-title-text{
+                padding-left: 30%; font-size: 14px;font-weight: 600; 
+            }
+            .decoText{
+                font-size: 16px; color:#8c9aa; font-weight:400; }
+            .decoTextAmount{
+                font-size: 22px !important; color:#0f0f0f; font-weight:600 ; }
+        </style>
+        <div  class="Content100">
+
+            <div class="ContentSideSectionsx2 overHidden">
+                <p:outputPanel class="Content27 floatLeft overHidden"  style="height:auto;"  >
+                    
+                        <p:panel  >
+                            <h:form id="accSerachFrm">
+                                <p:growl id="msgs12" showDetail="true" />
+                                <p:outputPanel>
+                                
+                                    <h:outputText value="Search:" styleClass="ui-lable" style="margin-right: 2px;" title="Search Account"   />
+                                <h:inputText value="#{transactBean.newTransaction.accNumber}" id="accSearchid" class="ui-input-text" size="15"       >
+                                        
+                                </h:inputText>
+                                <p:commandButton actionListener="#{transactBean.searchClient}" process="@form" id="iconOnly" update=":main1:main2:accSerachFrm:msgs12,:main1:main2:smg,:main1:main2:branchClientRecordFrm:branchClientRecordFd1, 
+                                                 :main1:main2:branchClientRecorContactdFrm:branchClientRecordFd2,:main1:main2:branchClientRecorContactdFrm2,:main1:main2:branchClientRecorContactdFrm2:,:main1:main2:branchClientFrm3" icon="ui-icon-search" title="Search Account" style="margin-bottom: 5px;" />
+                                </p:outputPanel>
+                            </h:form>
+                                <h:form id="branchClientRecordFrm">
+                                    <p:fieldset id="branchClientRecordFd1"   >
+                                                        <h:outputText value="Account Details" class="ui-title-text" />
+                                                        <h:panelGrid columns="2"  >
+                                                                   
+                                                                <h:outputText value="AccNumber:" styleClass="ui-lable"     />
+                                                                <h:inputText value="#{transactBean.clientRecordFound.accNumber} " class="ui-input-text" size="15"  />
+                                                                <p:outputLabel value="AccName:" for="trFname" styleClass="ui-lable"   /> 
+                                                                <h:inputText id="trFname" value="#{transactBean.clientRecordFound.fullName} " class="ui-input-text" size="15"   />
+                                                                <h:outputText value="Branch:"  styleClass="ui-lable"  />
+                                                                <h:inputText  value="#{transactBean.clientRecordFound.branchName} " class="ui-input-text" size="15"    /> 
+                                                                
+                                                        </h:panelGrid>
+
+                                        </p:fieldset>
+
+                                </h:form>
+                                    
+                        </p:panel>
+                        <p:separator/>
+                        <p:panel class="overHidden   "   header="Photo and Signature">
+                                <div class="openerp oe_form_sheetbg">
+
+                                               
+                                        <p:outputPanel styleClass="floatLeft">
+                                                <span title="" data-original-title="" class=" oe_form_field oe_form_field_image oe_avatar oe_right">
+                                                        <p:graphicImage name="/main/images/admission/Admin.png" alt="Image Description for"  title=" System" height="100" width="auto" style="border: 1px;"> 
+
+                                                       </p:graphicImage>
+                                                </span>
+                                       </p:outputPanel> 
+
+                                       <p:outputPanel styleClass="floatRight">
+                                                <span title="" data-original-title="" class=" oe_form_field oe_form_field_image oe_avatar oe_right">
+                                                        <p:graphicImage name="/main/images/admission/Admin.png" alt="Image Description for"  title=" System" height="100" width="auto" style="border: 1px;"> 
+
+                                                       </p:graphicImage>
+                                                </span>
+                                       </p:outputPanel> 
+                                </div>
+                        </p:panel>
+                        <p:separator/>
+                        <p:panel  >
+                                <h:form id="branchClientRecorContactdFrm">
+                                    <h:panelGrid columns="2" id="branchClientRecordFd2"  >
+
+                                        <h:outputText value="PhysicalAddress:" styleClass="ui-lable"  /> 
+                                                <h:outputText value="#{transactBean.clientRecordFound.address} "  />
+                                                <h:outputText value="Contact:" styleClass="ui-lable"  />
+                                                <h:outputText value="#{transactBean.clientRecordFound.contact} "  />
+                                                <h:outputText value="EmailAddress:" styleClass="ui-lable"  />
+                                                <h:outputText value="#{transactBean.clientRecordFound.email} "  />
+                                        </h:panelGrid>
+
+                                </h:form>
+                                    
+                        </p:panel>
+                        
+                        <p:spacer height="3px;"/>
+                
+                </p:outputPanel>
+                
+                <p:panel class="Content68 floatNone overHidden" style="height: 70%;"  >
+                    <h:form >
+                            <p:outputPanel >
+                                    <div class='fluid'>
+                                            <header class='header clearfix'>
+                                                    <span class='logo'></span>
+                                                    
+                                                    <section class='top-nav last'>
+                                                            <li>Deposit<span class='rednum'><h:outputText id="neworderid" value="40,000,000" /></span></li>
+                                                            <li>Withdrawal<span class='rednum'><h:outputText id="acceptedid" value="20,000,000" /></span></li>
+                                                            <li>Float<span class='rednum'><h:outputText id="rejectedid" value="100,000,000" /></span></li>
+                                                            
+                                                    </section>
+                                            </header>
+                                    </div>
+                            </p:outputPanel>
+                    
+                    </h:form>
+                    
+                </p:panel>
+                <p:spacer height="3;"/>
+                <p:panel class="Content68 floatNone overHidden"  >
+                    
+                            <p:outputPanel class="Content45 floatLeft  " style="border: 2px; width: 450px;">
+                               
+                                    <p:fieldset   style="margin-bottom:1px" > 
+                                            
+                                        <h:form  id="branchClientRecorContactdFrm2" >
+                                            <h:outputText value="Last Transaction" class="ui-title-text"  />
+                                            <p:outputPanel class="box-set"  style="margin-bottom:3px" id="branchClientRecorContactdPl"  >
+
+
+                                          <figure class="box">
+                                                    <h:panelGrid  columns="1"  >
+                                                        <h:outputText  value="Datetime:" class="floatLeft"  />
+                                                        <p:calendar id="datetimex" value="#{transactBean.lastTransaction.lastTransDate}" class="ui-input-text" size="15" pattern="dd-MM-yyyy"  />
+                                                    </h:panelGrid>
+                                          </figure>
+                                          <figure class="box">
+                                                <h:panelGrid  columns="1"     >
+
+                                                        <p:outputLabel value="TransactionType:" for="trFnamexx22" class="floatLeft"     /> 
+                                                        <h:inputText id="trFnamexx22" value="#{transactBean.lastTransaction.transType} " class="ui-input-text" size="15"   />  
+
+                                                </h:panelGrid>
+                                          </figure>
+                                          <figure class="box">
+                                               <h:panelGrid  columns="1"     >
+
+                                                        <p:outputLabel value="Amount:" for="trFnamexx" class="floatLeft"    /> 
+                                                        <h:inputText id="trFnamexx" value="#{transactBean.lastTransaction.accLastTranAmount} " class="ui-input-text"  size="10"  />  
+
+                                                </h:panelGrid>
+                                          </figure>
+
+                                        </p:outputPanel>
+                                        </h:form>
+                                    </p:fieldset>
+                               
+                                <p:fieldset   style="margin-bottom:2px" >
+                                        <h:form id="branchClientFrm2">
+                                        <h:outputText value="Current Transaction" class="ui-title-text"  />
+                                        <p:outputPanel class="Content100 overHidden   "  >
+
+                                                <p:outputPanel class="box-set"  style="margin-bottom:3px; border-right: 3px; border-right-color: black;" id="transDepoWid1" >
+
+                                                    <figure class="box2">
+                                                            <h:panelGrid  columns="1" style="margin-right: 10px; "  >
+                                                                            <p:outputLabel for="console" value="Transaction:" style="float: left;" />
+                                                                            <p:selectOneRadio id="console"  value="#{transactBean.newTransaction.transactionType}"    >
+                                                                                <f:selectItem itemLabel="Deposite" itemValue="Deposite" />
+                                                                                <f:selectItem itemLabel="Withdrawal" itemValue="Withdrawal"  />
+                                                                                <p:ajax listener="#{transactBean.checkTransactionType}"  oncomplete="true"  update=":main1:main2:branchClientFrm2:paymentmode,:main1:main2:branchClientFrm3:transcharges" />
+
+                                                                            </p:selectOneRadio>
+                                                            </h:panelGrid>
+                                                    </figure>
+                                                    <figure class="box2b">
+                                                        <h:panelGrid  columns="1"  style="float: left;"     >
+
+                                                                            <p:outputLabel for="paymentmode" value="Payment:" style="float: left;" />
+                                                                            <p:selectOneRadio id="paymentmode" value="#{transactBean.newTransaction.paymentType}" >
+                                                                                <f:selectItem itemLabel="Cash" itemValue="1" />
+                                                                                <f:selectItem itemLabel="Cheque" itemValue="2" />
+                                                                                <p:ajax listener="#{transactBean.chooseCharge}"  oncomplete="true"  update=":main1:main2:branchClientFrm2:console,:main1:main2:branchClientFrm3:transcharges" />
+                                                                            </p:selectOneRadio>
+                                                          </h:panelGrid>
+                                                    </figure>
+
+                                                </p:outputPanel>
+
+                                            </p:outputPanel>
+                                         
+                                        
+                                        <p:separator/>
+
+                                           <p:outputPanel class="Content100 overHidden" id="transDepoWidFrm2"  >
+                                                
+                                                <p:outputPanel class="box-set"   >
+
+                                                        <figure class="box2">
+                                                            <h:panelGrid  columns="1" style="margin-right: 10px;  "  >
+                                                                    <p:outputLabel value="Total Amount:" for="depo"  style="float: left;"   /> 
+                                                                    <h:inputText id="depo" value="#{transactBean.newTransaction.transAmount}" class="ui-input-text decoTextAmount "  size="9" style="height:25px !important; "   >
+                                                                        <p:ajax   listener="#{transactBean.totalAM}" oncomplete="true"   />
+                                                                    </h:inputText>
+                                                            </h:panelGrid>
+                                                         </figure>
+                                                         <figure class="boxc">
+                                                                <h:panelGrid  columns="1"   >
+                                                                        <p:outputLabel value="Bank:" for="bankName" style="float: left;"   /> 
+                                                                        <h:inputText id="bankName" value="#{transactBean.newTransaction.bankCode}" class="ui-input-text"  size="10"  />  
+                                                                </h:panelGrid>
+                                                         </figure>
+                                                         <figure class="boxb">
+                                                                <h:panelGrid  columns="1"  >
+                                                                        <p:outputLabel value="cheque Number:" for="chequecode" style="float: left;"   /> 
+                                                                        <h:inputText id="chequecode" value="#{transactBean.newTransaction.chequeNo}" class="ui-input-text"  size="15"  />  
+                                                                </h:panelGrid>
+                                                         </figure>
+                                                        <figure class="box3">
+                                                            <h:panelGrid  columns="2" style="padding-right: 160px;"  >
+                                                                        <p:outputLabel value="Drawer:" for="chequedrawer" style="float: left;"   /> 
+
+                                                                        <p:inputTextarea id="chequedrawer" rows="1" cols="14" value="#{transactBean.newTransaction.chequeDrawer}"  maxlength="10"  autoResize="false" />
+                                                                </h:panelGrid> 
+                                                         </figure>
+
+                                                </p:outputPanel>
+                                             </p:outputPanel>
+                                  </h:form>
+                                   
+                                </p:fieldset>
+                              
+                            </p:outputPanel>
+                            
+                            
+                            
+                            <p:fieldset  style="margin-bottom:10px" class="Content27 floatRight" >
+                                <h:form id="branchClientFrm3">
+                                        <h:outputText value="Transaction" class="ui-title-text"  />
+                                        <h:panelGrid columns="1"   >
+                                                
+                                                <h:outputText value="Product Type:"  styleClass="ui-lable"  />
+                                                <h:inputText value="#{transactBean.clientRecordFound.productName} " class="ui-input-text"   />
+                                                
+                                                <h:outputText value="Charges:" styleClass="ui-lable"  />
+                                                <h:inputText id="transcharges" value="#{transactBean.selectedAccCherges.amount} " class="ui-input-text"   />
+                                                <h:outputText value="Account Balance:" styleClass="ui-lable"  />
+                                                <h:inputText value="#{transactBean.clientRecordFound.totalFloat} " class="ui-input-text"   />
+                                                <h:outputText value="Minimum Balance:" styleClass="ui-lable"  />
+                                                <h:inputText value="#{transactBean.clientRecordFound.minimumBalance} " class="ui-input-text"   />
+                                                <h:outputText value="Available Balance:" styleClass="ui-lable"  />
+                                                <h:inputText value="#{transactBean.clientRecordFound.accAvailableAmount} " class="ui-input-text"   />
+                                        </h:panelGrid>
+                                
+                                  </h:form>
+                                        
+                            </p:fieldset>
+                            
+                            <p:outputPanel  >
+                                
+                                <p:commandButton  process="@this,:main1:main2:branchClientFrm2"  update=":main1:main2:branchClientRecorContactdFrm2:branchClientRecorContactdPl, :main1:main2:branchClientFrm3, :main1:main2:smg" actionListener="#{transactBean.doNewTransaction}"   icon="ui-icon-disk" value="post"   />
+                                <p:commandButton   icon="ui-icon-disk" value="Print"   />
+                                <p:commandButton value="Cancel" icon="ui-icon-close" />
+                            
+                             </p:outputPanel>
+                            
+                            
+                            
+                    
+                </p:panel>
+           
+                
+                 
+            
+                 
+            </div> 
+        </div>
+        
+        
+</html>

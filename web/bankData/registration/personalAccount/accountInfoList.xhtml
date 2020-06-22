@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+        <style type="text/css">
+                .ui-widget,
+                .ui-widget .ui-widget {
+                       font-size: 12px !important;
+                 }
+       
+            
+        </style>
+    
+            <p:separator />
+                <h:form id="regAccInfoFrm"> 
+                    <h:panelGrid columns="4" >
+                                   
+                                   
+                                   <p:outputLabel for="reaAccIncomelv" value="Income Level:" style="padding-right: 10px;" />
+                                   <h:selectOneMenu  id="reaAccIncomelv" value="#{memberRegistrationBean.newMember.incomeCode }" onselect="true"   valueChangeListener="#{accSettingsBean.accProductList}"  >
+                                       <f:selectItems value="#{dtOptions.incomeLevel}" />
+                                        
+                                    </h:selectOneMenu> 
+                                   
+                                   
+                                   <p:outputLabel for="reaAccCurrency" value="Currency:" style="padding-right: 10px;" />
+                                   <h:selectOneMenu  id="reaAccCurrency" value="#{memberRegistrationBean.newMember.currencyCode }" onselect="true"   valueChangeListener="#{accSettingsBean.accProductList}"  >
+                                       <f:selectItems value="#{dtOptions.curreny}" />
+                                        
+                                    </h:selectOneMenu> 
+                                   
+                                   <p:outputLabel for="reaAccCategory" value="Category:" style="padding-right: 10px;" />
+                                   <h:selectOneMenu  id="reaAccCategory" value="#{memberRegistrationBean.newMember.accTypeCode }" onselect="true"   valueChangeListener="#{accSettingsBean.accProductList}"  >
+                                        <f:selectItems value="#{accSettingsBean.accTypes}" />
+                                        <p:ajax oncomplete="true"    />
+                                    </h:selectOneMenu>   
+                                   <p:outputLabel for="reaAccProd" value="Product:" style="padding-right: 10px;" />
+                                    <h:selectOneMenu  id="reaAccProd" value="#{memberRegistrationBean.newMember.accTypeCode }" onselect="true"   valueChangeListener="#{accSettingsBean.accProductList}"  >
+                                        <f:selectItems value="#{accSettingsBean.accTypes}" />
+                                        
+                                    </h:selectOneMenu>
+
+                                  
+                          </h:panelGrid>
+                </h:form>
+  
+ 
+</html>

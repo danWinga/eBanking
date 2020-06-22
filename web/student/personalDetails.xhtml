@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    
+                    <h:panelGrid columns="3" cellspacing="2">
+                    <p:panel  >
+                        
+                        <h:panelGrid  columns="2" cellpadding="2"   > 
+                                <h:outputText value="First Name:"   />
+                                <p:inputText id="nwstudfname" size="25" value="#{newStakeholder.newStakeholder.firstName}"  required="true" requiredMessage="First name  is required."/>
+                                <h:outputText value="Middle Name:" />
+                                <p:inputText id="nwstudmidname" size="25" value="#{newStakeholder.newStakeholder.middleName}" required="true" requiredMessage="Middle name  is required."/>
+                                <h:outputText value="Last Name:" />
+                                <p:inputText id="nwstudlname"  size="25" value="#{newStakeholder.newStakeholder.lastName}" />
+                                <h:outputText value="Others Names:" />
+                                <p:inputText id="nwstudothers" size="25" value="#{newStakeholder.newStakeholder.otherNames}"/>
+                                <p:outputLabel for="button" value="DOB:"   />
+                                <p:calendar id="button"  value="#{newStakeholder.newStakeholder.dateOfBirth}" showOn="button" required="true"  requiredMessage="Date of birth : is required"/>
+                                <h:outputText value="Birth Place:" />
+                                <p:inputText id="nwstudbirthplace" size="25" value="#{newStakeholder.newStakeholder.birthPlace}"/>
+
+                                <h:outputText value="Gender:" />
+                                <p:selectOneRadio id="nwstudgender" value="#{newStakeholder.newStakeholder.gender}" required="true" requiredMessage="gender is required"    >
+                                    <f:selectItem itemLabel="Male" itemValue="Male" />
+                                    <f:selectItem itemLabel="Female" itemValue="Female" />
+                                </p:selectOneRadio>                    
+                        </h:panelGrid>
+                       
+                    </p:panel>
+                   
+                
+                    <p:panel >
+                        <h:panelGrid  columns="2" cellpadding="2">
+                        <h:outputText value="Marital Status:" />
+                        <p:inputText id="nwstudmaritalstatus" size="25" value="#{newStakeholder.newStakeholder.maritalstatus}"/>
+                        <h:outputText value="Blood Group:" />
+                        <p:inputText id="nwstudbloodgroup"  size="25" value="#{newStakeholder.newStakeholder.bloodGroup}"/>
+                        <h:outputText value="Religion:" />
+                        <p:inputText id="nwstudreligion" size="25"  value="#{newStakeholder.newStakeholder.religion}"/>
+                        <h:outputText value="IDNO:" />
+                        <p:inputText id="nwstudIDNO" size="25" value="#{newStakeholder.newStakeholder.idno}"/>
+                        <h:outputText value="Father's Name:" />
+                        <p:inputText id="nwstudfathername" size="25" value="#{newStakeholder.newStakeholder.fatherName}" />  
+                        <h:outputText value="Mother's Name:" />
+                        <p:inputText id="nwstudmothername" size="25" value="#{newStakeholder.newStakeholder.motherName}" />
+                        <h:outputText value="Guardian Name:" />
+                        <p:inputText id="nwstudguardian"  size="25" value="#{newStakeholder.newStakeholder.gadianName}" />   
+                        
+                        </h:panelGrid>
+                      </p:panel> 
+                   
+                  
+                    <p:panel>
+                        <h:panelGrid  columns="1" cellpadding="2"  >
+                            <h:panelGrid  columns="2" cellpadding="2"  >
+                                    <h:outputText value="Nationality:" />
+                                    <p:inputText id="nwstudnationality" value="#{newStakeholder.newStakeholder.nationality}"/>
+                                    <h:outputText value="County:" />
+                                    <p:inputText id="nwstudcounty" value="#{newStakeholder.newStakeholder.county}"/>
+
+                            </h:panelGrid>
+                            
+                                <h:form id="uploadform">
+                                    <h:panelGrid columns="1" cellpadding="5" >
+                                            <h:outputText value=" Upload Profile Picture :" />
+                                            <p:fileUpload fileUploadListener="#{players.profilePic}" oncomplete="upload.hide();" update=" :main1:main2:messages" multiple="false" mode="advanced" dragDropSupport="false"  
+                                            sizeLimit="10000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+                                            <f:facet name="footer">
+                                                    <p:separator />
+                                                    <div align="right">
+                                                            <p:commandButton value="Close" icon="ui-icon-close" oncomplete="upload.hide();"/>
+                                                    </div>
+                                            </f:facet>
+                                    </h:panelGrid>
+                        
+             
+                                </h:form>
+                                
+                           
+                        </h:panelGrid>
+                        
+                    </p:panel>
+                       
+    </h:panelGrid>          
+                       
+                    
+          
+  
+</html>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    
+        
+        
+        <h:form id="main1"  > 
+             
+            <!--<ui:include src="/admin/admin.xhtml" />  
+             <ui:include src="/login/login.xhtml" />   
+              <ui:include src="/login/login.xhtml" />
+           <ui:include src="/login/login.xhtml" />
+            <ui:include src="/admin/admin.xhtml" />    TAC/9375   -->      
+            <ui:include rendered="" src="#{navigation.urlselected}.xhtml"  />  
+        
+             <p:remoteCommand name="refresh_main1" update="@([id$= main1]),@([id$= messages])" actionListener="#{navigation.update}" />
+        </h:form>
+</html>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-10-25T15:51:24 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="members" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b9235ee3-3f6b-4f50-a4c8-b059d155ffba">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="bWVtYmVycyAsMTUsMTUsOGY3YzBkNGEtMjY3YS00NTI4LWE4ZTctMzI0NzMwY2QwZTY2Ow=="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ebanking"/>
+	<queryString>
+		<![CDATA[SELECT members.memberno,
+	members.staffno,
+	members.title,
+	members.passport,
+	members.surname,
+	members.othernames,
+	members.gender,
+	members.dateofbirth,
+	members.maritalstatus,
+	members.occupation,
+	members.nationality,
+	members.officialcellno,
+	members.email,
+	members.hometelno,
+	members.presentaddr,
+	members.careof,
+	members.street,
+	members.homeaddr,
+	members.currenttown,
+	members.idno,
+	members.issuedby,
+	members.placeofissue,
+	members.dateofissue,
+	members.expriredate,
+	members.utility,
+	members.utilitycompany,
+	members.utilityaccno,
+	members.incomeestimate,
+	members.branchcode,
+	members.pin,
+	members.otherbankcode,
+	members.otherbankname,
+	members.auditid,
+	members.audittime,
+	members.withdrawaldate,
+	members.status,
+	members.signature,
+	members.isstaff,
+	members.iscustomer,
+	members.isstudent,
+	members.isbeneficiary,
+	members.issignatory,
+	members.createdate
+FROM members]]>
+	</queryString>
+	<field name="memberno" class="java.lang.String"/>
+	<field name="title" class="java.lang.String"/>
+	<field name="surname" class="java.lang.String"/>
+	<field name="othernames" class="java.lang.String"/>
+	<field name="gender" class="java.lang.String"/>
+	<field name="dateofbirth" class="java.sql.Date"/>
+	<field name="maritalstatus" class="java.lang.String"/>
+	<field name="occupation" class="java.lang.String"/>
+	<field name="nationality" class="java.lang.String"/>
+	<field name="officialcellno" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="idno" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="118">
+			<staticText>
+				<reportElement x="180" y="12" width="195" height="30" uuid="816c372b-eb41-4de4-afcb-81e847815183"/>
+				<text><![CDATA[Member Data Record]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement key="" x="45" y="4" width="45" height="17" forecolor="#D91F1C" uuid="9ef1fda9-03ab-4e8e-a9d0-bf8d92518a24">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Surname]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="23" width="595" height="1" uuid="f32dd23c-e9da-4d96-a0fc-44cfd8f1cbaa"/>
+			</line>
+			<staticText>
+				<reportElement key="" x="94" y="6" width="60" height="17" forecolor="#D91F1C" uuid="2dd1d741-23c4-4ddc-9bd2-8146da6cc99b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[OtherNames]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" x="2" y="6" width="38" height="17" forecolor="#D91F1C" uuid="a0a9ce02-6859-4414-b6d5-01da296e5e6d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" x="159" y="7" width="51" height="17" forecolor="#D91F1C" uuid="cc6a1466-ce82-47fc-b94d-4c5dc5c54d1d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" x="214" y="8" width="56" height="17" forecolor="#D91F1C" uuid="b9f4ffab-e062-4d7b-b185-93daf8178deb">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[DOB]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" x="276" y="7" width="54" height="17" forecolor="#D91F1C" uuid="104ed71e-1469-4ce1-81ad-eddb8ba4161b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" x="336" y="7" width="57" height="17" forecolor="#D91F1C" uuid="4d661608-b445-482d-82f9-8152f013a145">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Nationality]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" x="398" y="7" width="57" height="17" forecolor="#D91F1C" uuid="ef62151c-eb49-48ad-a361-79aca03b4467">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Contact]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" x="461" y="5" width="109" height="17" forecolor="#D91F1C" uuid="820bc61b-80e9-41cd-968e-df0c5c3a13a2">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="45" y="1" width="45" height="13" uuid="3b4e6b13-510c-4faa-abd4-9145ed829acd"/>
+				<textFieldExpression><![CDATA[$F{surname}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-20" y="18" width="610" height="1" uuid="4bf5e05e-ca50-4d78-af33-93ee894d0f7f"/>
+			</line>
+			<textField>
+				<reportElement x="96" y="0" width="58" height="15" uuid="922e0a94-9cdf-4d26-9230-b1784635e1ad"/>
+				<textFieldExpression><![CDATA[$F{othernames}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="3" width="51" height="15" uuid="ae016a36-cef0-4a5b-b844-0b424d036e1f"/>
+				<textFieldExpression><![CDATA[$F{gender}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="3" width="39" height="13" uuid="42880809-e1ff-4561-958b-f088ea1fcccf"/>
+				<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="214" y="2" width="56" height="15" uuid="c9b6c114-d2c1-4b95-9ed6-619a2cdcedb9"/>
+				<textFieldExpression><![CDATA[$F{dateofbirth}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="3" width="54" height="15" uuid="48af6663-f4e2-47f0-b7d5-06c59758f341"/>
+				<textFieldExpression><![CDATA[$F{maritalstatus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="0" width="58" height="15" uuid="268683c5-86f6-47df-bcdf-e76e67f56f56"/>
+				<textFieldExpression><![CDATA[$F{nationality}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="2" width="58" height="15" uuid="c979b48a-2d78-47bb-b4aa-3fb8bb289d56"/>
+				<textFieldExpression><![CDATA[$F{officialcellno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="463" y="3" width="107" height="13" uuid="4fb4426d-349a-4070-bb47-98bcfa8c4bdd"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="30" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="70" splitType="Stretch">
+			<textField>
+				<reportElement x="260" y="30" width="60" height="30" uuid="4a8d3261-bffe-4be2-afee-d930651a61e6"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

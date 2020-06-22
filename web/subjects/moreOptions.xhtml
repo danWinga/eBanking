@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+        
+        
+        <p:dialog id="newsubject" header="New subject" widgetVar="newSubjectdlg" dynamic="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:graphicImage height="50" width="60"  style="padding-left: 5%" />
+                <p:separator />
+                <h:form id="formNewSubject">                 
+                        <h:panelGrid columns="2" cellpadding="5">                  
+                                <h:outputText value="Name:" />
+                                <h:inputText size="30" value="#{newSubject.newSubject.subjectName}" required="true" requiredMessage="Subject name is required" />
+                                <h:outputText value="Short Name:" />
+                                <h:inputText size="30" value="#{newSubject.newSubject.shortName}"  />
+                       
+                                <h:outputText value="FileName:" />
+                                <h:selectOneMenu value="#{newSubject.newSubject.fileCode}">
+                                <f:selectItems value="#{comboBoxes.filescode}"/>
+                                </h:selectOneMenu>
+                        </h:panelGrid>
+                        <p:separator />
+                        <h:outputText style="color:blue; font-style: italic; font-weight: bold; " value="Brief describe of your Subject" />
+                        <p:editor value="#{newSubject.newSubject.details}" height="100" width="500" />
+                        
+                        <p:separator/>
+                        <div align="right">
+                            <h:panelGrid  columns="2" cellpadding="4"> 
+                                 <p:commandButton process="@form" value="Save" update="@([id$= subjectTable]), @([id$= messages])"  actionListener="#{newSubject.addNew}" oncomplete="PF('newSubjectdlg').hide();" icon="ui-icon-disk"/> 
+                                 <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('newSubjectdlg').hide();"/>
+                            </h:panelGrid>
+                        </div>
+                </h:form>
+        </p:dialog>
+        
+        <p:dialog widgetVar="subj_editOptionsDlg" closable="false" header="Edit Folder"  modal="true" dynamic="true" showEffect="fade" hideEffect="fade" resizable="false"><!-- width="560" height="540"> -->
+                <h:form id="formEditSubject">                 
+                        <h:panelGrid id="subj_display2" columns="1" cellpadding="5"> 
+                            <h:panelGrid columns="2">
+                                <h:outputText value="code:" />
+                                <h:inputText size="30" value="#{subjectBean.selectedSubject.subjectCode}" disabled="true" />
+                                <h:outputText value="Name:" />
+                                <h:inputText size="30" value="#{subjectBean.selectedSubject.subjectName}" />
+                                <h:outputText value="shortName:" />
+                                <h:inputText size="30" value="#{subjectBean.selectedSubject.shortName}" />
+                                <h:outputText value="FileName:" />
+                                <h:selectOneMenu value="#{subjectBean.selectedSubject.fileCode}">
+                                     <f:selectItems value="#{comboBoxes.filescode}"/>
+                                </h:selectOneMenu>
+                            </h:panelGrid> 
+                            <p:separator />
+                            <h:panelGrid >   
+                                
+                                <h:outputText style="color:blue; font-style: italic; font-weight: bold; " value="Brief describe of your Subjuct" />
+                                <p:editor value="#{subjectBean.selectedSubject.details}" height="150" width="400" />
+                            </h:panelGrid>
+                        <p:separator/>
+                        <div align="right">
+                            <h:panelGrid  columns="2" cellpadding="4"> 
+                                <p:commandButton process="@form" value="Save" update="@([id$= subjectTable]), @([id$= messages])" actionListener="#{subjectBean.edit}"  oncomplete="PF('subj_editOptionsDlg').hide();" icon="ui-icon-disk"/> 
+                                <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('subj_editOptionsDlg').hide();"/>
+                             </h:panelGrid>
+                        </div>
+                        </h:panelGrid>
+                </h:form>
+        </p:dialog>
+        <p:dialog widgetVar="subj_deleteOptionsDlg" closable="false" header="Delete  Subject"  modal="true" dynamic="true" showEffect="fade" hideEffect="fade" resizable="false"><!-- width="560" height="540"> -->
+                <h:form id="formDeleteSubject">                 
+                        <h:panelGrid id="subj_deletedisplay2" columns="1" cellpadding="5"> 
+                            <h:panelGrid columns="2">
+                                <h:outputText value="You are about to Delete:" />
+                                 <h:outputText value="Subject Name :#{subjectBean.selectedSubject.subjectName}" />
+                                
+                            </h:panelGrid> 
+                                                        
+                        <p:separator/>
+                        <div align="right">
+                            <h:panelGrid  columns="2" cellpadding="4"> 
+                            <p:commandButton process="@form" value="OK" update="@([id$= subjectTable]), @([id$= messages])" actionListener="#{subjectBean.edit}"  oncomplete="PF('subj_deleteOptionsDlg').hide();" icon="ui-icon-disk"/> 
+                            <p:commandButton value="Cancel" icon="ui-icon-close" oncomplete="PF('subj_deleteOptionsDlg').hide();"/>
+                            </h:panelGrid>
+                        </div>
+                        </h:panelGrid>
+                </h:form>
+        </p:dialog>
+
+</html>

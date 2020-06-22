@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    
+        
+        
+        <h:form id="main1"  > 
+                
+            <p:poll interval="1" listener="#{loginBean.updatecontex}" update=":main1" autoStart="true" />
+             <!-- <ui:include src="/login/login.xhtml" />   
+              <ui:include src="/login/login.xhtml" />
+             
+           <ui:include src="/login/login.xhtml" />
+            <ui:include src="/admin/admin.xhtml" />    TAC/9375   -->    
+             <h:form id="fromlog1" rendered="#{not loginBean.isloggedin}" >
+             <ui:include src="#{navigation.urlselected}.xhtml"  />  
+             </h:form>
+             <p:outputPanel id="loadpagecontent" rendered="#{loginBean.isloggedin}" >
+             <ui:include  src="#{navigation.urlselected}.xhtml"   />  
+             </p:outputPanel>
+        </h:form>
+</html>

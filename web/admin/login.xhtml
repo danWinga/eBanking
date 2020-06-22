@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+  
+        
+                 <center>
+                    <div class="ui-fluid"> 
+                     <div class="Contentlogin">
+                        <p:panel   style="width:40% ; margin-top: 3%; bottom: auto;"  >
+                           
+                           <!-- <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"  />-->
+                            <h:panelGrid columns="1" >
+                                 <p:graphicImage width="auto" height="auto;" value="/images/ducation.png" alt="Image Description for" title="Revenue Collection System" style="float: none;"/>  
+                            </h:panelGrid>
+                                    <h:panelGrid columns="2" cellpadding="5">
+                                        <p:graphicImage value="/images/login.png" alt="Image Description for" title="login"/>
+                                        <h:outputLabel for="username" value="Login:" styleClass="fontSize30 TextShadow orange mediumFont marginBottom20 dispBlock" />
+                                        <h:outputLabel for="username" value="UserName:" />
+                                        <p:inputText value="#{loginBean.user}" id="username" required="true" requiredMessage="Please Enter username!" label="username" />
+                                        <h:outputLabel for="password" value="Password:" />
+                                        <h:inputSecret value="#{loginBean.password}" id="password" required="true" requiredMessage="Please Enter password!" label="password" />
+                                        <p:commandButton icon="ui-icon-key" id="loginButton" type="submit" process="@form" value="Login" actionListener="#{loginBean.checkUser}"   update="@([id$= logmessages])">
+                                            
+                                        </p:commandButton>
+                                        
+                                    </h:panelGrid>
+                                    
+<!--                                    <p:calendar mode="inline" navigator="none"/> -->
+                         
+                        </p:panel>
+                     </div>
+                     <!--<p:messages id="smg" showDetail="true" autoUpdate="true" closable="true" /> -->
+                    </div>
+                 </center>
+       
+</html>
+
+

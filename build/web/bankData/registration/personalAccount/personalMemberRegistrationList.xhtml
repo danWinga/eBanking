@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style type="text/css">
+               
+       
+        .highlight {
+               background-color:grey !important; 
+              
+         }
+            .highlight2 {
+             background-color:blue  !important ; 
+         }
+         
+          .value {
+                font-weight: bold !important;
+            }
+            
+            .ui-datatable {
+                margin-bottom:10px !important
+            }
+            
+            .ui-datatable .ui-datatable-footer {
+                text-align:left !important;
+            }
+            
+            .ui-datalist ul {
+                padding: 0 0 0 10px !important;
+                margin: 5px 0 !important;
+            }
+            
+            .ui-datatable .ui-button-icon-only .ui-button-text {
+                padding: 0 !important;
+                line-height: 1.2 !important;
+            }
+            
+            
+            .ui-datatable {
+                margin-bottom: 10px !important;
+            }
+            
+            .ui-datatable .ui-datatable-footer {
+                text-align:left !important;
+            }
+            
+            .ui-datalist ul {
+                padding: 0 0 0 10px !important;
+                margin: 5px 0 !important;
+            }
+            
+            .ui-datatable .ui-button-icon-only .ui-button-text {
+                padding: 0;
+                line-height: 1.2;
+            }
+        </style>
+        
+        <h:form id="personalFrmlist">
+              <!--  rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'highlight' : 'highlight2'}" -->  
+           
+            <p:dataTable paginatorAlwaysVisible="false"   var="membaz" value="#{memberRegistrationBean.membersList}"  resizableColumns="true" 
+                         id="membersinfoTable" paginator="true" rows="6" 
+                        paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                        rowsPerPageTemplate="5,6,9,10,20,30,40,50,60,70"  widgetVar="membersInfovarTable"   lazy="true"   filteredValue="#{memberRegistrationBean.filteredMember}" selectionMode="single"
+                        selection="#{memberRegistrationBean.selectedMember}" rowKey="#{membaz.memberNo}">
+                        <p:ajax event="rowSelect" listener="#{memberRegistrationBean.onRowSelect}" update=":main1:main2:personalAccRegFrm:editpersonalAccRegFrm:editPersonalInfoPl,:main1:main2:personalAccRegFrm:accRegMemeberDtFrm:memberAccountExitsTable"   /> <!--  oncomplete="PF('editMemberdlg3').show()"-->
+                        <f:facet name="header"> 
+                                
+                               <p:outputPanel>
+                                      <h:outputText  styleClass=" PFRedText fontSize12 mediumFont " value="Member Record" /> 
+                                       <p:separator />
+                                       <div align="right">
+                                           
+                                           <h:outputText value="Search all fields:" style="margin-right: 10px;" />
+                                                <p:inputText id="globalFilter" onkeyup="PF('membersInfovarTable').filter()" style="width:150px" placeholder="Enter keyword"/>
+                                        
+                                           <p:commandButton  onclick="PF('newMemberdlg3').show(); " icon="ui-icon-circle-plus"   value="New"/>  
+                                       </div>
+                               </p:outputPanel>
+                       </f:facet> 
+
+                        <p:column  sortBy="#{membaz.memberNo}"   headerText="MemberNo" style="width:8%;">
+                            <h:outputText value="#{membaz.memberNo}" />
+                        </p:column>  
+                        <p:column  sortBy="#{membaz.idNo}" headerText="ID NO"  style="width:12%;" filterMatchMode="contains" >
+                            <h:outputText value=" #{membaz.idNo}" /> 
+                        </p:column>  
+
+                        <p:column  sortBy="#{membaz.surname}" headerText="Surname:"  style="width:8%;" filterMatchMode="contains">
+                            <h:outputText value="#{membaz.surname}" />  
+                        </p:column>  
+                        <p:column  sortBy="#{membaz.otherNames}" headerText="Othernames"  style="width:15%;" filterMatchMode="contains" >
+                            <h:outputText value="#{membaz.otherNames}" /> 
+                        </p:column> 
+                        <p:column  sortBy="#{membaz.gender }" headerText="Gender"  style="width:8%;" filterMatchMode="contains">
+                            <h:outputText value="#{membaz.gender}" /> 
+                        </p:column> 
+                        <p:column  sortBy="#{membaz.cellNo }" headerText="Phone No"  style="width:12%;" filterMatchMode="contains">
+                            <h:outputText value="#{membaz.officeNo}" /> 
+                        </p:column>
+                        <p:column  sortBy="#{membaz.physicalAddress}" headerText="Location"  style="width:15%;" filterMatchMode="contains"  >
+                            <h:outputText value="#{membaz.physicalAddress}" /> 
+                        </p:column>
+                        <p:column style="width:10%; ">
+
+                               <p:menuButton style="max-height: 10px;" value="More" >
+                                       <p:menuitem   value="Edit " id="mnEditMember" process="@this" icon="ui-icon-pencil" update=":main1:main2:personalAccRegFrm:editpersonalAccRegFrm:editPersonalInfoPl"  oncomplete="PF('editMemberdlg3').show()"     >
+                                            <f:setPropertyActionListener value="#{membaz}" target="#{memberRegistrationBean.selectedMember}"   />
+                                       </p:menuitem>
+                                       <p:separator/>
+
+                                       <p:separator/>
+                                       <p:menuitem value="Delete "  icon="ui-icon-refresh"   title="Delete" >
+
+                                       </p:menuitem>
+
+                                       <p:separator />
+
+
+                               </p:menuButton> 
+
+                       </p:column>
+
+
+        </p:dataTable>
+     
+     </h:form> 
+ 
+
+    
+    <ui:include src="/bankData/registration/memberRecord/newMemberRegistration.xhtml"/> 
+    <ui:include src="/bankData/registration/memberRecord/editPersonalMemberInfo.xhtml"/> 
+       
+</html>

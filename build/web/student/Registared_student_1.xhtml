@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+     <style type="text/css">
+        .ui-widget,
+        .ui-widget .ui-widget {
+               font-size: 12px !important;
+         }
+            .highlight {
+               background: whitesmoke  !important ;
+         }
+            .highlight2 {
+             background: center  !important ; 
+         }
+         .studMain{
+             width: 100% ! important;
+         }
+         .studcont1{
+             width: 45% ! important;
+             
+         }
+    </style>
+<!-- highlight area start-->
+        <div class="ContentSideSections overHidden">
+           
+            
+          <p:growl id="messages" showDetail="true" />
+
+            <h:form id="StudentBean_form"> 
+                <p:dataTable var="studentBean" value="#{stakeholdersBean.studentList}" sortMode="multiple" scrollRows="100000" scrollable="true" liveScroll="true"  resizableColumns="true" id="studentbean"
+            rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'highlight' : 'highlight2'}" rowIndexVar="rowIndex" paginator="true" rows="5" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
+            rowsPerPageTemplate="10,20,30,40,50,60,70,80,100,"  widgetVar="studentBeanTable"  emptyMessage="No student found with given criteria"> 
+
+                 <f:facet name="header">  
+                        <p:outputPanel>  
+                            <h:outputText value="Registered students Record" style="color:palevioletred ! important; font-style:bold; font-weight: 2200; font-size: 20px; " />
+                                    <p:separator/>
+                                    
+                                    <div align="right">
+                                        
+                                        <h:outputText value="Search: " ></h:outputText><p:inputText id="globalFilter" onkeyup="PF('studentBeanTable').filter()" style="width:150px" placeholder="Enter keyword"/>
+                                         <p:commandButton  id="newstudent" style="padding-left: 5px;" value="New" onclick="PF('student_new_dlg').show(); "> </p:commandButton>
+                                        
+                                        <p:graphicImage width="16" height="16" value="/images/src/pdf.gif" alt="Download PDF File" title="Download PDF File"/> 
+                                        <p:graphicImage width="16" height="16" value="/images/src/xls.jpg" alt="Download Excel File" title="Download Excel File"/> 
+                                        <p:graphicImage width="16" height="16" value="/images/src/csv.jpg" alt="Download CSV File" title="Download CSV File"/> 
+                                        <p:graphicImage width="16" height="16" value="/images/src/xml.jpg" alt="Download XML File" title="Download XML File"/> 
+                                        
+                                    </div>
+                                </p:outputPanel>    
+                </f:facet> 
+                <p:column style="width:2%">  
+                        <h:outputText id="dragIcon" styleClass="ui-icon ui-icon-person" />  
+                </p:column> 
+                    <p:column id="studBean_Id" style="width:3%" sortBy="#{studentBean.id}" headerText="Index" footerText="Index">  
+                        <h:outputText value="#{studentBean.id}" /> 
+                </p:column>  
+                    <p:column id="studBean_fname" style="width:4%" sortBy="#{studentBean.studentID}" headerText="StudentID" footerText="StudentId">  
+                        <h:outputText value="#{studentBean.studentID}" />  
+                </p:column>
+                    <p:column id="studBean_mname" style="width:4%" sortBy="#{studentBean.middleName}" headerText="Middle Name" footerText="Middle Name">  
+                        <h:outputText value="#{studentBean.middleName}" />  
+                </p:column>
+                    <p:column id="studBean_lname" style="width:4%" sortBy="#{studentBean.lastName}" headerText="Last Name" footerText="Last Name">  
+                        <h:outputText value="#{studentBean.lastName}" />  
+                </p:column>
+               
+                <p:column id="studBean_othernames" style="width:4%" sortBy="#{studentBean.otherNames}" headerText="Other Names" footerText="Other Names">  
+                    <h:outputText value="#{studentBean.otherNames}" />  
+                </p:column>
+                <p:column id="studBean_gender" style="width:4%" sortBy="#{studentBean.gender}" headerText="Gender" footerText="Gender">  
+                        <h:outputText value="#{studentBean.gender}" />  
+                </p:column>
+                <p:column id="studBean_DateOfbirth" style="width:4%" sortBy="#{studentBean.dateOfBirth}" headerText="Date Of Birth" footerText="DateOfBirth">  
+                        <h:outputText value="#{studentBean.dateOfBirth}" />  
+                </p:column>
+                    
+                <p:column id="studBean_placeOfBirth" style="width:4%" sortBy="#{studentBean.birthPlace}" headerText="PlaceOfBirth" footerText="PlaceOfBirth">  
+                        <h:outputText value="#{studentBean.birthPlace}" />  
+                </p:column>
+                <p:column id="studBean_bloodGroup" style="width:2%" sortBy="#{studentBean.bloodGroup}" headerText="Blood Group" footerText="Blood Group">  
+                        <h:outputText value="#{studentBean.bloodGroup}" />  
+                </p:column>
+                    
+                <p:column id="studBean_nationality" style="width:4%" sortBy="#{studentBean.nationality}" headerText="Nationality" footerText="Nationality">  
+                        <h:outputText value="#{studentBean.nationality}" />  
+                </p:column>
+                <p:column id="studBean_religion" style="width:4%" sortBy="#{studentBean.religion}" headerText="Religion" footerText="Religion">  
+                        <h:outputText value="#{studentBean.religion}" />  
+                </p:column> 
+                <p:column id="studBean_address1" style="width:4%" sortBy="#{studentBean.address1}" headerText="Address1" footerText="Address1">  
+                    <h:outputText value="#{studentBean.address1}" />  
+                </p:column>
+                    
+                <p:column id="studBean_address2" style="width:4%" sortBy="#{studentBean.address2}" headerText="Address2" footerText="Address2">  
+                    <h:outputText value="#{studentBean.address2}" />  
+                </p:column> 
+                <p:column id="studBean_county" style="width:4%" sortBy="#{studentBean.county}" headerText="County" footerText="County">  
+                    <h:outputText value="#{studentBean.county}" />  
+                </p:column> 
+                    
+                <p:column id="studBean_city" style="width:4%" sortBy="#{studentBean.city}" headerText="City" footerText="City">  
+                        <h:outputText value="#{studentBean.city}" />  
+                </p:column> 
+                <p:column id="studBean_contact1" style="width:4%" sortBy="#{studentBean.contact1}" headerText="Contact1" footerText="Contact1">  
+                        <h:outputText value="#{studentBean.contact1}" />  
+                </p:column> 
+                <p:column id="studBean_contact2" style="width:4%" sortBy="#{studentBean.contact2}" headerText="Contact2" footerText="Contact2">  
+                        <h:outputText value="#{studentBean.contact2}" />  
+                </p:column>
+                <p:column id="studBean_fathername" style="width:4%" sortBy="#{studentBean.fatherName}" headerText="Father's Name" footerText="Father Name">  
+                        <h:outputText value="#{studentBean.fatherName}" />  
+                </p:column> 
+                <p:column id="studBean_mothername" style="width:4%" sortBy="#{studentBean.motherName}" headerText="Mother's Name" footerText="Mother Name">  
+                        <h:outputText value="#{studentBean.motherName}" />  
+                </p:column> 
+                <p:column id="studBean_guardian" style="width:4%" sortBy="#{studentBean.gadianName}" headerText="Guardian" footerText="Guardian">  
+                        <h:outputText value="#{studentBean.fatherName}" />  
+                </p:column> 
+                    
+                <p:column id="studBean_note" style="width:4%" sortBy="#{studentBean.notes}" headerText="Notes" footerText="Notes">  
+                        <h:outputText value="#{studentBean.notes}" />  
+                </p:column>
+                <p:column id="studBean_regdate" style="width:4%" sortBy="#{studentBean.registrationDate}" headerText="Registration Date" footerText="Registration Date">  
+                        <h:outputText value="#{studentBean.registrationDate}" />  
+                </p:column> 
+        
+                 
+                    <p:commandButton id="selectclassButton4"   icon="ui-icon-folder-open" onclick="PF('class_edit_dlg').show();" oncomplete="rc()" >
+                       
+                        <f:setPropertyActionListener value="#{studentBean}" target="#{stakeholdersBean.selectedStakeholder}"  />
+                    </p:commandButton>
+                    
+   
+                
+        
+                <p:column id="stdelete" headerText="Delete" style="width:4%" footerText="Delete">  
+                         
+                </p:column> 
+            
+       </p:dataTable> 
+       
+</h:form>
+            <p:dialog  header="Edit Classes" showHeader="true" widgetVar="class_edit_dlg" dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false"  > <!-- width="300" height="150">  -->
+            <p:graphicImage width="32" height="32" value="/images/Profile.png" alt="Image Description for" title="School Management System" style="padding-left: 45%"/> 
+            <p:separator/>
+            <h:form id="form_edit_class"> 
+            <h:panelGrid id="grid_edit_class" columns="2" cellpadding="5">                   
+                <h:outputText value="Class Code:" />
+                <p:inputText id="edtclasscode" value="#{viewClassesBean.selectedClass.classCode}" required="true" requiredMessage="Class code is required" />
+                
+                <h:outputText value="Class Name:" />
+                <p:inputText id="edtclassname" value="#{viewClassesBean.selectedClass.className}" required="true" requiredMessage="Class name is required" />
+                
+               <h:outputText value="Capacity:" />
+               <p:inputText id="edtcapacity" value="#{viewClassesBean.selectedClass.capacity}"  />
+               <h:outputText value="Other Details:" />
+               <p:inputTextarea id="edtclassdetails" value="#{viewClassesBean.selectedClass.details}" />
+                <f:facet name="footer">  
+                    <p:remoteCommand name="rc" update="@([id$= grid_edit_class]),@([id$=classesTable])" actionListener="#{viewClassesBean.reset}" />
+ 
+                    <p:commandButton  process="form_edit_class" id="editclassButton" icon="ui-icon-disk" value="Save"  actionListener="#{viewClassesBean.editClass}" 
+                                      update="@([id$=classesTable]),@([id$= messages])" oncomplete="PF('class_edit_dlg').hide();" >
+                        
+                    </p:commandButton>
+                    <p:commandButton value="Close" icon="ui-icon-close"  oncomplete="PF('class_edit_dlg').hide();"   >
+                      
+                    </p:commandButton>
+                </f:facet>
+        </h:panelGrid>
+        </h:form>   
+    </p:dialog>
+    
+            <p:dialog header="Student Registration" styleClass="fontSize30 TextShadow orange mediumFont marginBottom20 dispBlock" widgetVar="student_new_dlg" dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false" > <!-- width="300" height="150">  -->
+             <p:graphicImage width="32" height="32" value="/images/profile-photo.jpg" alt="Image Description for" title="SchoolMagagement System" style="padding-left: 45%"/>
+             <p:separator/>
+     
+       
+                <h:form id="form_new_student">
+                    <h:outputLabel  value="Student Registration" styleClass="fontSize30 TextShadow orange mediumFont marginBottom20 dispBlock texAliCenter"  />
+                <h:panelGrid id="grid_new_student" columns="3" cellpadding="2"> 
+                    <p:panel  >
+                        <h:panelGrid  columns="2" cellpadding="2" id="grdstud1"  > 
+                        <h:outputText value="First Name:"   />
+                        <p:inputText id="nwstudfname" value="#{stakeholders.firstName}"  required="true" requiredMessage="First name  is required."/>
+                        <h:outputText value="Middle Name:" />
+                        <p:inputText id="nwstudmidname" value="#{stakeholders.middleName}" required="true" requiredMessage="Middle name  is required."/>
+                        <h:outputText value="Last Name:" />
+                        <p:inputText id="nwstudlname" value="#{stakeholders.lastName}" />
+                        <h:outputText value="Others Names:" />
+                        <p:inputText id="nwstudothers" value="#{stakeholders.otherNames}"/>
+                        <p:outputLabel for="button" value="DateOfBirth:"   />
+                        <p:calendar id="button" value="#{stakeholders.dateOfBirth}" showOn="button" required="true"  requiredMessage="Date of birth : is required"/>
+                        <h:outputText value="Birth Place:" />
+                        <p:inputText id="nwstudbirthplace" value="#{stakeholders.birthPlace}"/>
+                        
+                        <h:outputText value="Gender:" />
+                        <p:selectOneRadio id="nwstudgender" value="#{stakeholders.gender}" required="true" requiredMessage="gender is required"    >
+                            <f:selectItem itemLabel="Male" itemValue="true" />
+                            <f:selectItem itemLabel="Female" itemValue="false" />
+                        </p:selectOneRadio>                    
+                        </h:panelGrid>
+                    </p:panel>
+                    <p:panel >
+                        <h:panelGrid  columns="2" cellpadding="2"> 
+                        <h:outputText value="Blood Group:" />
+                        <p:inputText id="nwstudbloodgroup" value="#{stakeholders.bloodGroup}"/>
+                        <h:outputText value="Religion:" />
+                        <p:inputText id="nwstudreligion" value="#{stakeholders.religion}"/>
+                        <h:outputText value="Father's Name:" />
+                        <p:inputText id="nwstudfathername" value="#{stakeholders.fatherName}" />  
+                        <h:outputText value="Mother's Name:" />
+                        <p:inputText id="nwstudmothername" value="#{stakeholders.motherName}" />
+                        <h:outputText value="Guardian Name:" />
+                        <p:inputText id="nwstudguardian" value="#{stakeholders.gadianName}" />   
+                        <h:outputText value="Nationality:" />
+                        <p:inputText id="nwstudnationality" value="#{stakeholders.nationality}"/>
+                        <h:outputText value="County:" />
+                        <p:inputText id="nwstudcounty" value="#{stakeholders.county}"/>
+                        <h:outputText value="Address1:" />
+                        <p:inputText id="nwstudaddress1" value="#{stakeholders.address1}" required="true" requiredMessage="First name  is required."/>
+                        
+                        </h:panelGrid>
+                      </p:panel> 
+                    <p:panel>
+                        <h:panelGrid  columns="2" cellpadding="2"  >
+                        
+                        <h:outputText value="Address2:" />
+                        <p:inputText id="nwstudaddress2" value="#{stakeholders.address2}" />
+                        <h:outputText value="Phone No:" />
+                        <p:inputText id="nwstudcontact1" value="#{stakeholders.contact1}" />
+                        <h:outputText value="Tel No:" />
+                        <p:inputText id="nwstudcontact2" value="#{stakeholders.contact2}" />
+                        <h:outputText value="Email :" />
+                        <p:inputText id="nwstudemail" value="#{stakeholders.email}" />
+                        <h:outputText value="Can Email:" />
+                        <p:selectOneRadio id="nwstudiscanemail" value="#{stakeholders.isCanEmail}"    >
+                            <f:selectItem itemLabel="Yes" itemValue="true" />
+                            <f:selectItem itemLabel="No" itemValue="false" />
+                        </p:selectOneRadio>  
+                        <h:outputText value="Notes:" />
+                        <p:inputTextarea id="nwstudnotes" value="#{stakeholders.notes}" rows="4" />
+                        </h:panelGrid>
+                        
+                    </p:panel>
+                        <h:outputText value="Can Login:" />
+                                <p:selectOneRadio id="nwstudcanlogin" value="#{stakeholders.canLogin}"    >
+                                 <f:selectItem itemLabel="Yes" itemValue="true" />
+                                 <f:selectItem itemLabel="No" itemValue="false" />
+                                 </p:selectOneRadio>
+                            <f:facet name="footer"> 
+                                  
+                                <p:commandButton  process="@form" id="newstudentButton" icon="ui-icon-disk" value="Save" actionListener="#{stakeholders.insertStudent}"
+                                                   update="@([id$= studentBeanTable]),@([id$= messages])"  >
+                                  <!-- <p:ajax update="@([id$= grid_new_student])" resetValues="true" /> -->
+                                </p:commandButton>
+                              <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('student_new_dlg').hide();">
+                                  <p:ajax update="@([id$= grid_new_student])" resetValues="true" />
+                              </p:commandButton>
+                            </f:facet>
+                        </h:panelGrid>
+                    </h:form>
+            </p:dialog>
+
+        </div>
+        <!-- highlight area end-->
+</html>

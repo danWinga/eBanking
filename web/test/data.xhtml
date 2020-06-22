@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+        
+   
+   
+    <div class="ContentSideSections overHidden">
+           
+            <div class="Content66 floatRight overHidden" >
+                <p:outputPanel >
+                        <h:panelGrid id="teacherInfoDtlxxxx" columns="3" cellpadding="5">
+                            <p:outputPanel >
+                                <h:panelGrid  columns="1" cellpadding="5">
+                                      <p:graphicImage name="demo/images/godfather/godfather1.jpg" />  
+                                </h:panelGrid>
+                            </p:outputPanel>
+                            <p:outputPanel >
+                                <h:panelGrid  columns="2" cellpadding="5">
+                                        <h:outputText value="Employee No:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.TAC_ID}" />
+                                        <h:outputText value="SurName:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.lastName}" />
+                                        <h:outputText value="FirstName:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.firstName}" />
+                                        <h:outputText value="MiddleName:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.middleName}" />
+                                        <h:outputText value="Title.:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.email}" />
+                                </h:panelGrid>
+                            </p:outputPanel>
+                            <p:outputPanel >
+                                <h:panelGrid  columns="2" cellpadding="5">
+                                        <h:outputText value="ID Number:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.TAC_ID}" />
+                                        <h:outputText value="PassportNumber:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.stakeholderCode}" />
+                                        <h:outputText value="Gender:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.gender}" />
+                                        <h:outputText value="Marital Status:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.gender}" />
+                                        <h:outputText value="Religion:" />
+                                        <h:inputText size="30" value="#{subjectTeacherBean.selectedStake.religion}" />
+                                </h:panelGrid>
+                            </p:outputPanel>
+                        </h:panelGrid>   
+                </p:outputPanel>
+                    
+  
+           
+            </div>
+        </div>
+     
+</html>

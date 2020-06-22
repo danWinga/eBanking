@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+        
+    <p:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="PlStsubjectClass">
+        <h:form id="frmplsubjectclass"> 
+            <h:outputText style="color:palevioletred ! important; font-style:bold; font-weight: 2200; font-size: 20px; " value=" Assign Subjects to classes" />
+             <p:separator />
+            <h:panelGrid columns="2" cellpadding="5">                
+                                                    
+                                        
+                                <h:outputText value="Choose Class:" />
+                                <h:selectOneMenu value="#{subjectClassBean.newSubclass.classCode}"  onselect="true"  valueChangeListener="#{subjectClassBean.prepareList}"   >
+                                    <f:selectItem itemLabel="Select Class" itemValue=""  />
+                                    <f:selectItems value="#{comboBoxes.classes}"/>
+                                     <p:ajax  oncomplete="true" listener="#{subjectClassBean.prepareList}" update="@([id$= plSubjclasslist ])" />
+                                </h:selectOneMenu>
+                                
+                               
+                        </h:panelGrid>
+            <p:separator />
+                <h3 style="margin-top: 0">Assign Subject</h3>
+                <p:pickList id="plSubjclasslist" value="#{subjectClassBean.subjclassList}" var="subjectList"  itemValue="#{subjectList.subjCode}" itemLabel="#{subjectList.subjectName}"
+                     showSourceControls="false" showTargetControls="false" 
+                    showSourceFilter="true" showTargetFilter="true" filterMatchMode="contains" > 
+                    <p:ajax event="transfer" listener="#{subjectClassBean.onTransfer}" update="@([id$= messages ])" />
+    
+                    <f:facet name="sourceCaption">All Subject</f:facet>  
+                    <f:facet name="targetCaption">Selected Subjects</f:facet>  
+                    <p:column>  
+                        #{subjectList.subjCode} - #{subjectList.subjectName} 
+                    </p:column>  
+                </p:pickList>
+                <p:commandButton id="allsubjSubmit" value="Add Subjects" process="@form"  actionListener="#{subjectClassBean.addSubjectsToClass}" oncomplete="PF('PlStsubjectClass').hide()" style="margin-top:5px" />
+                <p:commandButton id="allsubjclose" value="close"  oncomplete="PF('PlStsubjectClass').hide()" style="margin-top:5px" />
+           
+     
+        </h:form>
+    </p:dialog>
+      
+        
+</html>

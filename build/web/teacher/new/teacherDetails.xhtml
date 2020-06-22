@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    
+                    <h:panelGrid columns="3" cellspacing="2">
+                    <p:panel  >
+                        
+                        <h:panelGrid  columns="2" cellpadding="2"   > 
+                                <h:outputText value="First Name:"   />
+                                <p:inputText id="nwteacherfname" size="25" value="#{newStakeholder.newStakeholder.firstName}"  required="true" requiredMessage="First name  is required."/>
+                                <h:outputText value="Middle Name:" />
+                                <p:inputText id="nwteachermidname" size="25" value="#{newStakeholder.newStakeholder.middleName}" required="true" requiredMessage="Middle name  is required."/>
+                                <h:outputText value="Last Name:" />
+                                <p:inputText id="nwteacherlname"  size="25" value="#{newStakeholder.newStakeholder.lastName}" />
+                                <h:outputText value="Others Names:" />
+                                <p:inputText id="nwteacherothers" size="25" value="#{newStakeholder.newStakeholder.otherNames}"/>
+                                                
+                        </h:panelGrid>
+                       
+                    </p:panel>
+                   
+                
+                    <p:panel >
+                        <h:panelGrid  columns="2" cellpadding="2">
+                        <p:outputLabel for="teacherbutton" value="DOB:"   />
+                        <p:calendar id="teacherbutton"  value="#{newStakeholder.newStakeholder.dateOfBirth}" showOn="teacherbutton" required="true"  requiredMessage="Date of birth : is required"/>
+                        <h:outputText value="Gender:" />
+                        <p:selectOneRadio id="nwteachergender" value="#{newStakeholder.newStakeholder.gender}" required="true" requiredMessage="gender is required"    >
+                            <f:selectItem itemLabel="Male" itemValue="Male" />
+                            <f:selectItem itemLabel="Female" itemValue="Female" />
+                        </p:selectOneRadio>    
+                        
+                        <h:outputText value="Marital Status:" />
+                        <p:inputText id="nwteachermaritalstatus" size="25" value="#{newStakeholder.newStakeholder.maritalstatus}"/>
+                        <h:outputText value="Blood Group:" />
+                        <p:inputText id="nwteacherbloodgroup"  size="25" value="#{newStakeholder.newStakeholder.bloodGroup}"/>
+                        
+                        
+                        </h:panelGrid>
+                      </p:panel> 
+                   
+                  
+                    <p:panel>
+                        <h:panelGrid  columns="1" cellpadding="2"  >
+                            
+                            <h:panelGrid  columns="2" cellpadding="2"  >
+                                <h:outputText value="Religion:" />
+                                <p:inputText id="nwteacherreligion" size="25"  value="#{newStakeholder.newStakeholder.religion}"/>
+                                <h:outputText value="IDNO:" />
+                                <p:inputText id="nwteacherIDNO" size="25" value="#{newStakeholder.newStakeholder.idno}"/>
+                                <h:outputText value="Nationality:" />
+                                <p:inputText id="nwteachernationality" value="#{newStakeholder.newStakeholder.nationality}"/>
+                                <h:outputText value="County:" />
+                                <p:inputText id="nwteachercounty" value="#{newStakeholder.newStakeholder.county}"/>
+
+                            </h:panelGrid>
+                            
+                                
+                                
+                           
+                        </h:panelGrid>
+                        
+                    </p:panel>
+                       
+    </h:panelGrid>          
+                       
+                    
+          
+  
+</html>

@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+        <style type="text/css">
+                .ui-widget,
+                .ui-widget .ui-widget {
+                       font-size: 12px !important;
+                 }
+                   .value {
+                font-weight: bold;
+            }
+            
+            .ui-datatable {
+                margin-bottom: 25px
+            }
+            
+            .ui-datatable .ui-datatable-footer {
+                text-align:left;
+            }
+            
+            .ui-datalist ul {
+                padding: 0 0 0 10px;
+                margin: 5px 0;
+            }
+            
+            .ui-datatable .ui-button-icon-only .ui-button-text {
+                padding: 0;
+                line-height: 1.2;
+            }
+       
+            
+            .ui-lable{
+                font-weight:bold;
+            }
+        </style>
+        <div  class="Content100">
+            
+        <h:form id="frmCounty">
+        
+            <!-- <p:panelGrid columns="3"> -->
+            <div class="ContentSideSectionsx2 overHidden">
+            <div class="Content33 floatLeft overHidden">
+        
+            <p:dataTable paginatorAlwaysVisible="false"  var="countyData" value="#{dtBranchBean.countyList}" resizableColumns="true" id="countyDataTable" paginator="true" rows="2"
+                         paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                         rowsPerPageTemplate="2,3,5,10,15"  widgetVar="countyVarTable" selection="#{dtBranchBean.selectedCounty}" selectionMode="single" rowKey="#{countyData.countyCode}"   lazy="true" >
+                         <p:ajax event="rowSelect" listener="#{dtBranchBean.onRowCountSelect}" update=":main1:main2:frmCounty:branchDataTable,:main1:main2:smg"   />
+                        <f:facet name="header">  
+                                <p:outputPanel>
+                                    <h:outputText  styleClass=" PFRedText fontSize12 mediumFont " value="County Recoerd" /> 
+                                        <p:separator />
+                                        <div align="right">
+                                            <p:commandButton  update=":main1:main2:frmCounty:newCounty:newCountyPl" oncomplete="PF('newCountydlg5').show(); " icon="ui-icon-document" value="Add New"/> 
+                                        </div>
+                                </p:outputPanel>
+                        </f:facet> 
+
+                  <p:column style="width:80%"   sortBy="#{countyData.countyName}" filterBy="#{countyData.countyName}" headerText="County " width="80%">
+                    <h:outputText value="#{countyData.countyName}"  />
+                  </p:column>
+                         <p:column style="width:20%" headerText="Menu" >  
+                            <p:menuButton   value="Opt">
+                                    
+                                    <p:separator />
+                                    <p:menuitem value="Edit" process="@this"  icon="ui-icon-circle-plus" oncomplete="PF('editCountydlg5').show();" update=":main1:main2:frmCounty:editCounty:editCountyPl" style="margin:0 auto;" >
+                                        <f:setPropertyActionListener value="#{countyData}" target="#{dtBranchBean.selectedCounty}" />
+                                    </p:menuitem>
+                                    <p:separator/>
+                                    <p:menuitem value="Delete" process="@this"  icon="ui-icon-image" oncomplete="PF('deleteCountydlg5').show();" update=":main1:main2:frmCounty:deleteCounty:deleteCountyPl" style="margin:0 auto;" >
+                                            <f:setPropertyActionListener value="#{countyData}" target="#{dtBranchBean.selectedCounty}" />
+                                    </p:menuitem>
+                            </p:menuButton>
+                    </p:column> 
+                        
+
+            </p:dataTable>
+           
+            </div>
+            <div class="Content33 floatLeft overHidden">
+        <p:dataTable paginatorAlwaysVisible="false"  var="branchData" value="#{dtBranchBean.branchList}" resizableColumns="true" id="branchDataTable" paginator="true" rows="2"
+                         paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                         rowsPerPageTemplate="2,3,5,10,15"  widgetVar="branchVarTable"  selection="#{dtBranchBean.selectedBranch}"  selectionMode="single" rowKey="#{branchData.branchCode}" lazy="true" >
+                        <p:ajax event="rowSelect" listener="#{dtBranchBean.onRowBranchSelect}" update=":main1:main2:frmCounty:stBrachinfo,:main1:main2:frmCounty:tellerDataTable,:main1:main2:frmCounty:branchManagerDataTable,:main1:main2:smg"   />
+                        <f:facet name="header">  
+                                <p:outputPanel>
+                                     <h:outputText  styleClass=" PFRedText fontSize12 mediumFont " value="Branch Recoerd" />  
+                                        <p:separator />
+                                        <div align="right">
+                                             <p:commandButton  update=":main1:main2:frmCounty:newBranch:newBranchPl" oncomplete="PF('newBranchdlg5').show(); " icon="ui-icon-document" value="AddNew"/> 
+                                        </div>
+                                </p:outputPanel>
+                        </f:facet> 
+
+                        <p:column  sortBy="#{branchData.branchName}" filterBy="#{branchData.branchName}" id="branchnamecolumnid" headerText="Branch " width="80%" style="max-height: 3px !important;">
+                        <h:outputText value="#{branchData.branchName}" />
+                </p:column>
+                
+                        <p:column  width="20%" headerText="Menu" id="brenchmenuid" >  
+                            <p:menuButton  value="Opt"  iconPos="right"  id="xxx"     style="max-height: 3px !important; "  >
+                                    
+                                    <p:separator />
+                                    <p:menuitem value="Edit" process="branchnamecolumnid,xxx,  brenchmenuid"  icon="ui-icon-circle-plus" oncomplete="PF('editBranchdlg5').show();" update=":main1:main2:frmCounty:editBranch:editBranchPl" style="margin:0 auto;" >
+                                        <f:setPropertyActionListener id="branchmenuaction " value="#{branchData}" target="#{dtBranchBean.selectedBranch}" />
+                                    </p:menuitem>
+                                    <p:separator/>
+                                    <p:menuitem value="Add Manager" process="@this"  icon="ui-icon-circle-plus" oncomplete="PF('managerBranchdlg5').show();" update=":main1:main2:frmCounty:managerBranch:managerBranchPl" style="margin:0 auto;" >
+                                        <f:setPropertyActionListener value="#{branchData}" target="#{dtBranchBean.selectedBranch}" />
+                                    </p:menuitem>
+                                    <p:menuitem value="Delete" process="@this"  icon="ui-icon-delete" oncomplete="PF('deleteCountydlg5').show();" update=":main1:main2:frmCounty:deleteCounty:deleteCountyPl" style="margin:0 auto;" >
+                                        <f:setPropertyActionListener value="#{branchData}" target="#{dtBranchBean.selectedBranch}" />
+                                    </p:menuitem>
+                            </p:menuButton>
+                    </p:column> 
+               
+        </p:dataTable>
+        </div>
+        <div class="Content30 floatLeft overHidden">
+          
+       <p:dataTable paginatorAlwaysVisible="false"  var="tellerData" value="#{dtBranchBean.tellerList}" resizableColumns="true" id="tellerDataTable" paginator="true" rows="2"
+                         paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                         rowsPerPageTemplate="2,3,5,10,15"  widgetVar="tellerVarTable"  lazy="true" >
+                        <!-- <p:ajax event="rowSelect" listener="#{dtBranchBean.onRowBranchSelect}" update=":main1:msgFrm:messages"   /> -->
+                        <f:facet name="header">  
+                                <p:outputPanel>
+                                    <h:outputText  styleClass=" PFRedText fontSize12 mediumFont " value="Teller Record" /> 
+                                        <p:separator />
+                                        <div align="right">
+                                            <!-- <p:commandButton  update=":main1:main2:personalAccRegFrm:regNextOfKinTabId:newNextOfKinFrm:newNextOfKinPl" oncomplete="PF('newNextOfKinDlg').show(); " icon="ui-icon-document" value="Add New"/>  -->
+                                        </div>
+                                </p:outputPanel>
+                        </f:facet> 
+
+           <p:column  sortBy="#{tellerData.tellerName}" filterBy="#{tellerData.tellerName}" headerText="Teller " width="60%">
+                    <h:outputText value="#{tellerData.tellerName}"  />
+           </p:column> 
+            
+        </p:dataTable>
+        </div> 
+                
+        
+       <!--  </p:panelGrid> -->
+        
+       <p:separator class="Content100 floatNone  overHidden" />
+            
+       <p:panel  id="stBrachinfo" header="Branch Details"    class="Content66 floatLeft  overHidden">
+                    <h:panelGrid columns="4"  >
+                             
+                                   <h:outputText   value="County:"  style="padding-right: 10px; padding-bottom: 10px;"  /> 
+                                   <p:inputText id="stCountyName" disabled="true" value="#{dtBranchBean.selectedCounty.countyName } "   />
+                                   <h:outputText   value="Branch:" styleClass="ui-lable"  style="padding-right: 10px; padding-bottom: 10px;"   /> 
+                                   <p:inputText id="stBranchName" disabled="true"  value="#{dtBranchBean.selectedBranch.branchName }"   />
+                                   <h:outputText value="Town:" styleClass="ui-lable" style="padding-right: 10px; padding-bottom: 10px;"   /> 
+                                   <p:inputText id="stTown" disabled="true"  value="#{dtBranchBean.selectedBranch.town}"   />
+                                   <h:outputText value="Office Contact:" styleClass="ui-lable"  style="padding-right: 10px; padding-bottom: 10px;"  /> 
+                                   <p:inputText id="stOfficeContact" disabled="true"   value="#{dtBranchBean.selectedBranch.officeContact } "  />
+                                   <h:outputText value="Fax:" styleClass="ui-lable" style="padding-right: 10px;" />
+                                   <p:inputText id="stFax" disabled="true"   value="#{dtBranchBean.selectedBranch.fax } "  />
+                                   <h:outputText value="Email:" styleClass="ui-lable" style="padding-right: 10px;"  />
+                                   <p:inputText id="stEmail" disabled="true"   value="#{dtBranchBean.selectedBranch.email } "  size="40" />
+                                   <h:outputText value="Status:" styleClass="ui-lable" style="padding-right: 10px;" />
+                                   <p:inputText id="stStatus" disabled="true"   value="#{dtBranchBean.selectedBranch.status } "  />
+                                   <h:outputText value="Physical Address:" styleClass="ui-lable" style="padding-right: 10px;" />
+                                   <p:inputTextarea id="stPhysicalAddress" disabled="true"   value="#{dtBranchBean.selectedBranch.physicaladdress } " rows="2" addLine="true" cols="40" />
+                          </h:panelGrid>
+       </p:panel>
+       <p:panel   header="Manager Details" class="Content33x floatLeft overHidden">
+           
+           <p:dataTable paginatorAlwaysVisible="false"  var="branchManagerData" value="#{dtBranchBean.branchManagerList}" resizableColumns="true" id="branchManagerDataTable" paginator="true" rows="5"
+                         paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                         rowsPerPageTemplate="5,10,15"  widgetVar="branchManagerVarTable"  lazy="true" >
+                        <!-- <p:ajax event="rowSelect" listener="#{dtBranchBean.onRowBranchSelect}" update=":main1:msgFrm:messages"   /> -->
+                        <f:facet name="header">  
+                                <p:outputPanel>
+                                    <h:outputText  styleClass=" PFRedText fontSize12 mediumFont " value="Branch Manager Record" /> 
+                                        <p:separator />
+                                        <div align="right">
+                                            <!-- <p:commandButton  update=":main1:main2:personalAccRegFrm:regNextOfKinTabId:newNextOfKinFrm:newNextOfKinPl" oncomplete="PF('newNextOfKinDlg').show(); " icon="ui-icon-document" value="Add New"/>  -->
+                                        </div>
+                                </p:outputPanel>
+                        </f:facet> 
+
+               <p:column  sortBy="#{branchManagerData.fullName}  "  headerText="Name " width="60%">
+                   <h:outputText value="#{branchManagerData.fullName}  "  />
+                </p:column> 
+               <p:column  sortBy="#{branchManagerData.contact} "  headerText="Contacts " width="60%">
+                    <h:outputText value="#{branchManagerData.contact}"  />
+                </p:column> 
+            
+        </p:dataTable>
+       </p:panel>
+       </div>
+            
+        <p:dialog header="New County" widgetVar="newCountydlg5" dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false"> <!-- width="300" height="150">  -->
+                    
+                    <p:separator/>
+                    <ui:include src="/bankData/accountSettings/branchData/newCounty.xhtml" />
+        </p:dialog>
+        <p:dialog header="Edit County" widgetVar="editCountydlg5" dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false"> <!-- width="300" height="150">  -->
+                    
+                    <p:separator/>
+                    <ui:include src="/bankData/accountSettings/branchData/editCounty.xhtml" />
+        </p:dialog>
+            
+        <p:dialog header="Delete County" widgetVar="deleteCountydlg5" dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false"> <!-- width="300" height="150">  -->
+                    
+                    <p:separator/>
+                    <ui:include src="/bankData/accountSettings/branchData/deleteCounty.xhtml" />
+        </p:dialog>
+    <ui:include src="/bankData/accountSettings/branchData/branchDialogsData.xhtml" /> 
+     </h:form>   
+        </div>    
+    
+   
+ 
+</html>

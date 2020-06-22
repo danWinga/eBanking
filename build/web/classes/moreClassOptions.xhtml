@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+       
+        
+    <p:dialog styleClass=" PFRedText fontSize18 mediumFont "  header="New Classes" widgetVar="newclassesdlg" dynamic="true" showEffect="fade" hideEffect="fade" resizable="false" width="auto">
+                <p:graphicImage height="50" width="70"  style="padding-left: 5%" />
+                <p:separator />
+                <h:form id="formclasses"> 
+                    <p:outputPanel id="clsNewdisplay2" >
+                            <h:panelGrid columns="2" cellpadding="5">                
+                                  <p:outputLabel for="classnm" value="Name:" />
+                                  <h:inputText size="30" id="classnm" value="#{newClass.newClasses.className}" required="true" requiredMessage="Class name is required" />
+                        
+                                        
+                                <h:outputText value="FileName:" />
+                                <h:selectOneMenu value="#{newClass.newClasses.fileCode}" >
+                                    <f:selectItem itemLabel="Select One" itemValue="" />
+                                    <f:selectItems value="#{comboBoxes.filescode}"/>
+                                </h:selectOneMenu>
+                               
+                        </h:panelGrid>
+                   
+                               
+                        <p:separator />
+                        <h:outputText style="color:blue; font-style: italic; font-weight: bold; " value="Brief describe of your Class" />
+                        <p:editor value="#{newClass.newClasses.details}" height="150" width="400" />
+                        
+                        <p:separator/>
+                        <div class="BoxRight">
+                            <p:commandButton process="@form" value="Save" update="@([id$= clsTable]), @([id$= messages])"  actionListener="#{newClass.insertRecord}" oncomplete="PF('newclassesdlg').hide();" icon="ui-icon-disk"/> 
+                            <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('newclassesdlg').hide();"/>
+                        </div>
+                         </p:outputPanel>
+                </h:form>
+        </p:dialog>
+        
+        <p:dialog widgetVar="editclsOptionsdlg" closable="false" styleClass=" PFRedText fontSize18 mediumFont " header="Edit Class"  modal="true" dynamic="true" showEffect="fade" hideEffect="fade" resizable="false"><!-- width="560" height="540"> -->
+                <h:form id="formeditcls">  
+                     <p:outputPanel id="clsdisplay2" >
+                        
+                            <h:panelGrid columns="2">
+                                <h:outputText value="ID:" />
+                                <h:inputText size="30" value="#{viewClassesBean.selectedClass.classCode}" disabled="true" />
+                                <h:outputText value="File Name:" />
+                                <h:selectOneMenu value="#{viewClassesBean.selectedClass.fileCode}">
+                                    <f:selectItems value="#{comboBoxes.filescode}"/>
+                                </h:selectOneMenu>
+                                <h:outputText value="Name:" />
+                                <h:inputText size="30" value="#{viewClassesBean.selectedClass.className}"  />
+                            </h:panelGrid> 
+                            <p:separator />
+                            <h:panelGrid >   
+                                
+                                <h:outputText style="color:blue; font-style: italic; font-weight: bold; " value="Brief describe of your class" />
+                                <p:editor value="#{viewClassesBean.selectedClass.details}" height="170" width="400" />
+                            </h:panelGrid>
+                        <p:separator/>
+                        <div class="BoxRight">
+                            <h:panelGrid  columns="2" cellpadding="4"> 
+                                <p:commandButton process="@form" value="Save" action="#{viewClassesBean.validate}" update="@([id$= clsTable]), @([id$= messages])"  oncomplete="PF('editclsOptionsdlg').hide();" icon="ui-icon-disk"/> 
+                                <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('editclsOptionsdlg').hide();"/>
+                            </h:panelGrid>
+                        </div>
+                     </p:outputPanel>
+                </h:form>
+        </p:dialog>
+
+</html>

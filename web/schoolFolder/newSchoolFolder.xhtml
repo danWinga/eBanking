@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+       
+        
+        <p:dialog id="newfolder" styleClass=" PFRedText fontSize18 mediumFont " header="New School Folder" widgetVar="newfolderdlg" dynamic="true" showEffect="fade" hideEffect="fade" resizable="false">
+                
+                
+                <p:separator />
+                <h:form id="formfolder"> 
+                    <p:outputPanel id="folderPl" style="text-align:center;">
+                        <h:panelGrid columns="4" cellpadding="5">                  
+                            <h:outputText value="Name:" />
+                            <h:inputText size="30" value="#{schoolFolders.newFolder.accountName}" required="true" requiredMessage="Folder name is required" />
+                                                              
+                        </h:panelGrid>
+                        <p:separator />
+                        <h:outputText style="color:blue; font-style: italic; font-weight: bold; " value="Brief describe of your folder" />
+                        <p:editor value="#{schoolFolders.newFolder.description}" height="150" width="500" />
+                        
+                        <p:separator/>
+                        <div class="BoxRight">
+                            <h:panelGrid  columns="2" cellpadding="4"> 
+                                <p:commandButton process="@form" value="Save" update=":main1:main2:folderTabId:folderTable, :main1:main2:messages"  actionListener="#{schoolFolders.saveData}" oncomplete="PF('newfolderdlg').hide();" icon="ui-icon-disk"/> 
+                                <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('newfolderdlg').hide();"/>
+                             </h:panelGrid>
+                        </div>
+                    </p:outputPanel>
+                </h:form>
+        </p:dialog>
+        
+        <p:dialog widgetVar="editFolderOptionsDlg" styleClass=" PFRedText fontSize18 mediumFont " closable="false" header="Edit Folder"  modal="true" dynamic="true" showEffect="fade" hideEffect="fade" resizable="false"><!-- width="560" height="540"> -->
+                <p:separator />
+                <h:form id="formeditfolder">                 
+                        <p:outputPanel id="display44" style="text-align:center;">
+                            <h:panelGrid columns="2">
+                                <h:outputText value="ID:" />
+                                <h:inputText size="30" value="#{schoolFolders.selectedFolder.id}" />
+                                <h:outputText value="Code:" />
+                                <h:inputText size="30" value="#{schoolFolders.selectedFolder.accCode}" />
+                                <h:outputText value="Name:" />
+                                <h:inputText size="30" value="#{schoolFolders.selectedFolder.accountName}" />
+                            </h:panelGrid> 
+                            <p:separator />
+                            <h:panelGrid >   
+                                
+                                <h:outputText style="color:blue; font-style: italic; font-weight: bold; " value="Brief describe of your Folder" />
+                                <p:editor value="#{schoolFolders.selectedFolder.description}" height="180" width="500" />
+                            </h:panelGrid>
+                        <p:separator/>
+                         <div class="BoxRight">
+                             <h:panelGrid  columns="2" cellpadding="2"> 
+                                 <p:commandButton process="formeditfolder" value="Save" update=":main1:main2:folderTabId:folderTable, :main1:main2:messages" actionListener="#{schoolFolders.edit}"   oncomplete="PF('editFolderOptionsDlg').hide();" icon="ui-icon-disk"/> 
+                                <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('editFolderOptionsDlg').hide();"/>
+                             </h:panelGrid>
+                        </div>
+                        </p:outputPanel>
+                </h:form>
+        </p:dialog>
+        
+         <p:dialog  styleClass=" PFRedText fontSize18 mediumFont " header="Delete Folder" widgetVar="deleteFolderOptionsDlg" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <h:form id="formDeletefolder">
+                    <p:outputPanel id="deleteFolderPl" style="text-align:left;">
+                        <h:panelGrid  columns="2" cellpadding="5"  rendered="#{not empty schoolFolders.selectedFolder}" >
+                            <f:facet name="header">
+
+                            </f:facet>aaaa
+
+                           <h:outputLabel  for="fldaccId" value="Folder Id:"  />
+                           <h:inputText size="30" id="fldaccId" value="#{schoolFolders.selectedFolder.accCode}" disabled="true"  />
+
+                            <h:outputLabel  for="fldaccName" value="Folder Name" />
+                            <h:inputText size="30"   id="fldaccName" value="#{schoolFolders.selectedFolder.accountName}" disabled="true" />
+
+                        </h:panelGrid>
+                        <p:separator/>
+                         <div class="BoxRight">
+                             <h:panelGrid  columns="2" cellpadding="2"> 
+                                 <p:commandButton process="deleteFolderPl" value="Save" update="@([id$= folderTable]), @([id$= messages])" actionListener="#{schoolFolders.delete()}"   oncomplete="PF('deleteFolderOptionsDlg').hide();" icon="ui-icon-disk"/> 
+                                  <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('deleteFolderOptionsDlg').hide();"/>
+                             </h:panelGrid>
+                        </div>
+        </p:outputPanel>
+        </h:form>
+    </p:dialog>
+
+</html>

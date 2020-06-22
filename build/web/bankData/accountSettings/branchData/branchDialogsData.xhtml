@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+        .ui-widget,
+        .ui-widget .ui-widget {
+               font-size: 12px !important;
+         }
+         .ui-lable{
+                font-weight:bold;
+            }
+    </style>
+         <p:dialog header="New Branch" widgetVar="newBranchdlg5" dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false"> <!-- width="300" height="150">  -->
+                    
+                    <p:separator/>
+                <h:form id="newBranch">
+                    <h:panelGrid id="newBranchPl" columns="4" cellpadding="5">                  
+                            <h:outputText value="County Name:" styleClass="ui-lable" />
+                            <p:inputText id="newbrchCountyName"  disabled="true"  value="#{dtBranchBean.selectedCounty.countyName}"   />
+                            <h:outputText value="BranchCode:" styleClass="ui-lable" />
+                            <p:inputText id="newbrchCode"   value="#{dtBranchBean.newBranch.branchCode}"   />
+                            <h:outputText value="Branch Name :" styleClass="ui-lable" />
+                            <p:inputText id="newbrchName"   value="#{dtBranchBean.newBranch.branchName }"  rendered="true"  requiredMessage="Branch Name is Required" />
+                            <h:outputText value="Office Phone :" styleClass="ui-lable" />
+                            <p:inputText id="newbrchOfficeContact"   value="#{dtBranchBean.newBranch.officeContact}" rendered="true"  requiredMessage="phone no is Required"   />
+                            <h:outputText value="Fax :" styleClass="ui-lable" />
+                            <p:inputText id="newbrchFax"   value="#{dtBranchBean.newBranch.fax}"   />
+                            
+                            <h:outputText value="Address :" styleClass="ui-lable" />
+                            <p:inputText id="newbrchAddress"   value="#{dtBranchBean.newBranch.address }"   />
+                            <h:outputText value="Town :" styleClass="ui-lable" />
+                            <p:inputText id="newbrchTown"   value="#{dtBranchBean.newBranch.town }" rendered="true"  requiredMessage="Town is Required"    />
+                            <h:outputText value="Email:" styleClass="ui-lable" />
+                            <p:inputText id="newbrchEmail"   value="#{dtBranchBean.newBranch.email }"   />
+                            <h:outputText value="Status :" styleClass="ui-lable" />
+                            <p:selectOneMenu id="newBrchStatus" value="#{dtBranchBean.newBranch.status}" rendered="true"  requiredMessage="Status is Required"  >
+                                         <f:selectItem itemLabel="Active" itemValue="Active"/>
+                                         <f:selectItem itemLabel="Inactive" itemValue="Inactive"/>
+                                        
+                             </p:selectOneMenu>
+                            <h:outputText value="Physical Address :" styleClass="ui-lable" />
+                            <p:inputTextarea id="newbrchPhysicalAddress"   value="#{dtBranchBean.newBranch.physicaladdress }"  cols="40" addLine="true" rendered="true"  requiredMessage="Physical Location is Required"   />
+                                   
+
+                            <f:facet name="footer">  
+                                        <p:separator/>
+                                        <div align="right">
+                                                <p:commandButton  process="newBranch" id="newBrchButton" icon="ui-icon-disk" value="Save" actionListener="#{dtBranchBean.addNewBranch}" update=":main1:main2:frmCounty:branchDataTable,:main1:msgFrm:messages"  oncomplete="PF('newBranchdlg5').hide();"/>
+                                                <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('newBranchdlg5').hide();"/>
+                                        </div>
+                            </f:facet>
+                    </h:panelGrid>
+                </h:form>
+        </p:dialog>
+    
+        <p:dialog header="Edit Branch" widgetVar="editBranchdlg5" dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false"> <!-- width="300" height="150">  -->
+                    
+                    <p:separator/>
+                <h:form id="editBranch">
+                    <h:panelGrid id="editBranchPl" columns="4" cellpadding="5">                  
+                            <h:outputText value="County Name:" styleClass="ui-lable" />
+                            <h:selectOneMenu  id="editbrchCountyCode" value="#{dtBranchBean.selectedCounty.countyCode}" >
+                                <f:selectItems value="#{dtOptions.county}" />
+                            </h:selectOneMenu> 
+                            <h:outputText value="BranchCode:" styleClass="ui-lable" />
+                            <p:inputText id="editbrchCode"   value="#{dtBranchBean.selectedBranch.branchCode}"   />
+                            <h:outputText value="Branch Name :" styleClass="ui-lable" />
+                            <p:inputText id="editbrchName"   value="#{dtBranchBean.selectedBranch.branchName }"  rendered="true"  requiredMessage="Branch Name is Required" />
+                            <h:outputText value="Office Phone :" styleClass="ui-lable" />
+                            <p:inputText id="editbrchOfficeContact"   value="#{dtBranchBean.selectedBranch.officeContact}" rendered="true"  requiredMessage="phone no is Required"   />
+                            <h:outputText value="Fax :" styleClass="ui-lable" />
+                            <p:inputText id="editbrchFax"   value="#{dtBranchBean.selectedBranch.fax}"   />
+                                       
+
+                            <h:outputText value="Address :" styleClass="ui-lable" />
+                            <p:inputText id="editbrchAddress"   value="#{dtBranchBean.selectedBranch.address }"   />
+                            <h:outputText value="Town :" styleClass="ui-lable" />
+                            <p:inputText id="editbrchTown"   value="#{dtBranchBean.selectedBranch.town }" rendered="true"  requiredMessage="Town is Required"    />
+                            <h:outputText value="Email:" styleClass="ui-lable" />
+                            <p:inputText id="editbrchEmail"   value="#{dtBranchBean.selectedBranch.email }"   />
+                            <h:outputText value="Status :" styleClass="ui-lable" />
+                            <p:selectOneMenu id="editBrchStatus" value="#{dtBranchBean.selectedBranch.status}" rendered="true"  requiredMessage="Status is Required"  >
+                                         <f:selectItem itemLabel="Active" itemValue="Active"/>
+                                         <f:selectItem itemLabel="Inactive" itemValue="Inactive"/>
+                                        
+                             </p:selectOneMenu>
+                            <h:outputText value="Physical Address :" styleClass="ui-lable" />
+                            <p:inputTextarea id="editbrchPhysicalAddress"   value="#{dtBranchBean.selectedBranch.physicaladdress }"  cols="40" addLine="true" rendered="true"  requiredMessage="Physical Location is Required"   />
+                                   
+
+                            <f:facet name="footer">  
+                                        <p:separator/>
+                                        <div align="right">
+                                                <p:commandButton  process="editBranch" id="editBrchButton" icon="ui-icon-disk" value="Save" actionListener="#{dtBranchBean.editBranch}" update=":main1:main2:frmCounty:branchDataTable,:main1:msgFrm:messages"  oncomplete="PF('editBranchdlg5').hide();"/>
+                                                <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('editBranchdlg5').hide();"/>
+                                        </div>
+                            </f:facet>
+                    </h:panelGrid>
+                </h:form>
+        </p:dialog>
+    
+        <p:dialog header="Assign Manager" widgetVar="managerBranchdlg5" dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false"> <!-- width="300" height="150">  -->
+                    
+                    <p:separator/>
+                <h:form id="managerBranch">
+                    <h:panelGrid id="managerBranchPl" columns="4" cellpadding="5">                  
+                            
+                            <h:outputText value="BranchCode:" styleClass="ui-lable" />
+                            <p:inputText id="managerbrchCode"   value="#{dtBranchBean.selectedBranch.branchCode}" disabled="true"   />
+                            <h:outputText value="Branch Name :" styleClass="ui-lable" />
+                            <p:inputText id="managerbrchName"   value="#{dtBranchBean.selectedBranch.branchName }"  rendered="true"  requiredMessage="Branch Name is Required" disabled="true" />
+                            <h:outputText value="Manager:" styleClass="ui-lable" />
+                            <h:selectOneMenu  id="branchManagerName" value="#{dtBranchBean.selectedBranchManager.managerId}" >
+                                <f:selectItems value="#{dtBranchBean.manager}" />
+                            </h:selectOneMenu> 
+                            <h:outputText value="Office Phone :" styleClass="ui-lable" />
+                            <p:inputText id="managerbrchOfficeContact"   value="#{dtBranchBean.selectedBranch.officeContact}" rendered="true"  requiredMessage="phone no is Required"   />
+                            
+                            <h:outputText value="Address :" styleClass="ui-lable" />
+                            <p:inputText id="managerbrchAddress"   value="#{dtBranchBean.selectedBranch.address }"   />
+                            <h:outputText value="Town :" styleClass="ui-lable" />
+                            <p:inputText id="managerbrchTown"   value="#{dtBranchBean.selectedBranch.town }" rendered="true"  requiredMessage="Town is Required"    />
+                            <h:outputText value="Email:" styleClass="ui-lable" />
+                            <p:inputText id="managerbrchEmail"   value="#{dtBranchBean.selectedBranch.email }"   />
+                            
+                            <h:outputText value="Physical Address :" styleClass="ui-lable" />
+                            <p:inputTextarea id="managerbrchPhysicalAddress"   value="#{dtBranchBean.selectedBranch.physicaladdress }"  cols="40" addLine="true" rendered="true"  requiredMessage="Physical Location is Required"   />
+                                   
+
+                            <f:facet name="footer">  
+                                        <p:separator/>
+                                        <div align="right">
+                                            <p:commandButton  process="managerBranch" id="managerBrchButton" icon="ui-icon-disk" value="Save" actionListener="#{dtBranchBean.assignBranchManager}" update=":main1:main2:frmCounty:branchDataTable,:main1:msgFrm:messages"  oncomplete="PF('managerBranchdlg5').hide();"/>
+                                                <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('managerBranchdlg5').hide();"/>
+                                        </div>
+                            </f:facet>
+                    </h:panelGrid>
+                </h:form>
+        </p:dialog>
+</html>
+

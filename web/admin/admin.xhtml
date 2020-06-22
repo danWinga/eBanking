@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/superadmintemplate.xhtml">
+      <!-- "/WEB-INF/admintemplate.xhtml"-->
+
+<!-- highlight area start-->
+       
+<ui:define name="implementation" >
+    
+    <h:form id="main2" >
+            
+            <p:growl id="smg" showDetail="true" sticky="false" autoUpdate="true" />  
+           
+            
+           <!--  <ui:include src="/login/loginCont_2.xhtml" />  -->
+            <ui:include src="#{navigation.pageName}.xhtml" />
+
+        </h:form>
+         
+                   
+                               
+      
+    </ui:define>
+ 
+
+</ui:composition>

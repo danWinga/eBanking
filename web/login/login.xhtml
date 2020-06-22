@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/logintemplate.xhtml">
+      
+
+<!-- highlight area start-->
+       
+<ui:define name="implementation">
+    <h:form id="formLog" >
+        <p:messages id="logsmg" showDetail="true" autoUpdate="true" closable="true" />
+        <p:messages id="logmessages" showDetail="true" autoUpdate="true" />
+              <!-- <ui:include src="/login/loginCont.xhtml" /> SAB/8901 
+                <ui:include src="/login/registration.xhtml" /> -->
+            <ui:include src="/login/loginCont.xhtml" /> 
+    </h:form>
+                                
+      
+</ui:define>
+ 
+
+</ui:composition>

@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<!-- highlight area start-->
+        <div class="ContentSideSections overHidden">
+            <div class="Content33 floatLeft overHidden TextShadow">
+            <h:form>
+            <p:growl id="messages" showDetail="true" />
+
+            <h:panelGrid columnClasses="value">
+            <h4 style="margin-top: 0">Editable Schedule</h4>
+            <p:schedule id="schedule" value="#{scheduleView.eventModel}" widgetVar="myschedule" timeZone="GMT+2">
+
+            <p:ajax event="dateSelect" listener="#{scheduleView.onDateSelect}" update="@([id$=eventDetails])" oncomplete="PF('eventDialog').show();" />
+            <p:ajax event="eventSelect" listener="#{scheduleView.onEventSelect}" update="@([id$=eventDetails])" oncomplete="PF('eventDialog').show();" />
+            <p:ajax event="eventMove" listener="#{scheduleView.onEventMove}" update="@([id$=messages])" />
+            <p:ajax event="eventResize" listener="#{scheduleView.onEventResize}" update="@([id$=messages])"/>
+
+        </p:schedule>
+
+       
+    </h:panelGrid>
+
+    <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip">
+        <h:panelGrid id="eventDetails" columns="2">
+            <h:outputLabel for="title" value="Title:" />
+            <p:inputText id="title" value="#{scheduleView.event.title}" required="true" />
+
+            <h:outputLabel for="from" value="From:" />
+            <p:inputMask id="from" value="#{scheduleView.event.startDate}" mask="99/99/9999">
+                <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT+2"/>
+            </p:inputMask>
+
+            <h:outputLabel for="to" value="To:" />
+            <p:inputMask id="to" value="#{scheduleView.event.endDate}" mask="99/99/9999">
+                <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT+2"/>
+            </p:inputMask>
+
+            <h:outputLabel for="allDay" value="All Day:" />
+            <h:selectBooleanCheckbox id="allDay" value="#{scheduleView.event.allDay}" />
+
+            <p:commandButton type="reset" value="Reset" />
+            <p:commandButton id="addButton" value="Save" actionListener="#{scheduleView.addEvent}" oncomplete="PF('myschedule').update();PF('eventDialog').hide();" />
+        </h:panelGrid>
+    </p:dialog>    
+</h:form>
+
+            </div>
+            <div class="Content66 floatRight overHidden" style="background-image:url(#{resource['main/images/highlightCircuitLines.svg']})">
+                
+                <div class="PropertyBox TextShadow">
+                  <h:graphicImage name="main/images/ajaxFramework.svg" />
+                    <span class="PropertyTopic boldFont">STUDENT RECORD</span>
+                    <span class="PropertyText mediumFont">Without Javascript<br />Declarative Updates<br />Partial Page Rendering<br />Extensions</span>
+                </div>  
+                <div class="PropertyBox TextShadow">
+                    <h:graphicImage name="main/images/components.svg" />
+                    <span class="PropertyTopic boldFont">ADMINISTRATION</span>
+                    <span class="PropertyText mediumFont">Over 100<br />Flexible and Easy to Use<br />Built-in Ajax<br />HTML5 Support<br />Accessible</span>
+                </div>
+                <div class="PropertyBox TextShadow">
+                    <h:graphicImage name="main/images/productivity.svg" />
+                    <span class="PropertyTopic boldFont">ACADEMICS</span>
+                    <span class="PropertyText mediumFont">Simple<br />Effective<br />Powerful<br />Lightweight</span>
+                </div>
+                <div class="PropertyBox TextShadow">
+                    <h:graphicImage name="main/images/mobile.svg" />
+                    <span class="PropertyTopic boldFont">FINANCE</span>
+                    <span class="PropertyText mediumFont">Mobile Optimized RenderKit<br />Mobile Components<br />Cross Platform<br />Same Backend</span>
+                </div>
+                <div class="PropertyBox TextShadow">
+                    <h:graphicImage name="main/images/push.svg" />
+                    <span class="PropertyTopic boldFont">FEES</span>
+                    <span class="PropertyText mediumFont">Powered by Atmosphere<br />Websockets<br />Fallback Transports<br />Portable<br />Scalable</span>
+                </div>
+                <div class="PropertyBox TextShadow">
+                    <h:graphicImage name="main/images/themeMarket.svg" />
+                    <span class="PropertyTopic boldFont">CLASSES</span>
+                    <span class="PropertyText mediumFont">35+ Available Themes<br />Premium Themes<br />Theme Creator Tool<br /></span>
+                </div>
+                 <div class="PropertyBox TextShadow">
+                    <h:graphicImage name="main/images/ajaxFramework.svg" />
+                    <span class="PropertyTopic boldFont">STUDENT RECORD</span>
+                    <span class="PropertyText mediumFont">Without Javascript<br />Declarative Updates<br />Partial Page Rendering<br />Extensions</span>
+                </div>
+                 <div class="PropertyBox TextShadow">
+                    <h:graphicImage name="main/images/ajaxFramework.svg" />
+                    <span class="PropertyTopic boldFont">STUDENT RECORD</span>
+                    <span class="PropertyText mediumFont">Without Javascript<br />Declarative Updates<br />Partial Page Rendering<br />Extensions</span>
+                </div>
+                 <div class="PropertyBox TextShadow">
+                    <h:graphicImage name="main/images/ajaxFramework.svg" />
+                    <span class="PropertyTopic boldFont">STUDENT RECORD</span>
+                    <span class="PropertyText mediumFont">Without Javascript<br />Declarative Updates<br />Partial Page Rendering<br />Extensions</span>
+                </div>
+                
+            </div>
+        </div>
+        <!-- highlight area end-->
+</html>

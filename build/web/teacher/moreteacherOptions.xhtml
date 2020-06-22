@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+     <div class="ContentSideSections overHidden"> 
+         
+         <p:dialog header="Teacher Registration" styleClass="fontSize30 TextShadow orange mediumFont marginBottom20 dispBlock" widgetVar="teacher_new_dlg" dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false" > <!-- width="300" height="150">  -->
+             <p:graphicImage width="32" height="32" value="/images/profile-photo.jpg" alt="Image Description for" title="SchoolManagement System" style="padding-left: 45%"/>
+             <p:separator/>
+             <h:form id="form_new_teacher">
+                 
+                 <p:outputPanel autoUpdate="true" >
+                    <h:outputLabel  value="Teacher Registration Form" styleClass="fontSize30 TextShadow orange mediumFont marginBottom20 dispBlock texAliCenter"  />
+     
+                    <ui:include src="/teacher/new/teacherDtView.xhtml"/>
+                    <p:separator/>
+                    <div class="BoxRight">
+                        <p:commandButton  process="form_new_teacher" id="newteachertButton" icon="ui-icon-disk" value="Save" actionListener="#{newStakeholder.insertTeacher}"
+                                                          update=":main1:main2:teacherTable,:main1:main2:messages"  oncomplete="PF('teacher_new_dlg').hide();" >
+                            </p:commandButton>
+                            <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('teacher_new_dlg').hide();">
+
+                            </p:commandButton>
+                
+                     </div>
+                </p:outputPanel>
+                 
+            </h:form> 
+            </p:dialog>
+         
+         
+         
+            
+         
+   </div>
+
+</html>

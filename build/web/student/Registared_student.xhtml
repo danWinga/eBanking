@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    
+<!-- highlight area start-->
+        <div class="ContentSideSections overHidden">
+        
+           
+            <p:dataTable var="studBean" value="#{stakeholdersBean.studentrecord}" sortMode="multiple" id="studentTable"   scrollRows="100000" scrollable="true" liveScroll="true"  resizableColumns="true" 
+                         rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'highlight' : 'highlight2'}"  rowKey="#{studBean.stakeholderCode}" paginator="true" rows="5"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
+                         rowsPerPageTemplate="10,20,30,40,50,60,70,80,100,"  widgetVar="studentBeanTable"  filteredValue="#{stakeholdersBean.filteredStakeholders}" selectionMode="single"
+                         selection="#{stakeholdersBean.selectedStakeholder}"   lazy="true" emptyMessage="No student found with given criteria"> 
+               <p:ajax event="rowSelect" listener="#{stakeholdersBean.onRowSelect}" update=":main1:main2:form_edit_student:studentTbViewId12" oncomplete="PF('student_edit_dlg').show();" />
+                 <f:facet name="header">  
+                        <p:outputPanel>  
+                            <h:outputText value=" Students Registation Record" styleClass=" PFRedText fontSize18 mediumFont " />
+                                    <p:separator/>
+                                                            
+                                    <div align="right">
+                                        <!--  onclick="PF('student_new_dlg').show(); " onstart="rc(); -->
+                                        <h:outputText value="Search: " ></h:outputText><p:inputText id="globalFilter" onkeyup="PF('studentBeanTable').filter()"   style="width:150px" placeholder="Enter keyword"/>
+                                        <p:commandButton  id="newstudent" style="padding-left: 5px;" value="New"  update=":main1:main2:form_new_student:studentTbViewId1" oncomplete="PF('student_new_dlg').show(); "> </p:commandButton>
+                                        
+                                        <p:graphicImage width="16" height="16" value="/images/src/pdf.gif" alt="Download PDF File" title="Download PDF File"/> 
+                                        <p:graphicImage width="16" height="16" value="/images/src/xls.jpg" alt="Download Excel File" title="Download Excel File"/> 
+                                        <p:graphicImage width="16" height="16" value="/images/src/csv.jpg" alt="Download CSV File" title="Download CSV File"/> 
+                                        <p:graphicImage width="16" height="16" value="/images/src/xml.jpg" alt="Download XML File" title="Download XML File"/> 
+                                        
+                                    </div>
+                                </p:outputPanel>    
+                </f:facet> 
+                <p:column style="width:2%">  
+                        <h:outputText id="dragIcon" styleClass="ui-icon ui-icon-person" />  
+                </p:column> 
+                <p:column id="studBean_Id" style="width:3%" filterBy="#{studBean.id}" sortBy="#{studBean.id}" headerText="Index"  filterMatchMode="contains">  
+                        <h:outputText value="#{studBean.id}" /> 
+                </p:column> 
+                <p:column id="studBean_studid" style="width:8%" filterBy="#{studBean.studentID}" sortBy="#{studBean.studentID}" headerText="StudentID"  filterMatchMode="contains">  
+                        <h:outputText value="#{studBean.studentID}" />  
+                </p:column>
+                
+                <p:column id="studBean_fname" style="width:8%" filterBy="#{studBean.firstName}" sortBy="#{studBean.firstName}" headerText="First Names"  filterMatchMode="contains">  
+                    <h:outputText value="#{studBean.firstName}" />  
+                </p:column>
+                <p:column id="studBean_lname" style="width:8%" filterBy="#{studBean.lastName}" sortBy="#{studBean.lastName}" headerText=" Last Names"  filterMatchMode="contains">  
+                        <h:outputText value="#{studBean.lastName}" />  
+                </p:column>
+               
+                
+                <p:column id="studBean_gender" style="width:8%" filterBy="#{studBean.gender}" sortBy="#{studBean.gender}" headerText="Gender"  filterMatchMode="contains">  
+                        <h:outputText value="#{studBean.gender}" />  
+                </p:column>
+                <p:column id="studBean_DateOfbirth" style="width:8%" filterBy="#{studBean.dateOfBirth}" sortBy="#{studBean.dateOfBirth}" headerText="Date Of Birth"  filterMatchMode="contains">  
+                        <h:outputText value="#{studBean.dateOfBirth}" />  
+                </p:column>
+                    
+                                   
+                <p:column id="studBean_nationality" style="width:8%" filterBy="#{studBean.nationality}" sortBy="#{studBean.nationality}" headerText="Nationality"  filterMatchMode="contains" >  
+                        <h:outputText value="#{studBean.nationality}" />  
+                </p:column>
+                <p:column id="studBean_religion" style="width:8%" filterBy="#{studBean.religion}" sortBy="#{studBean.religion}" headerText="Religion"  filterMatchMode="contains">  
+                        <h:outputText value="#{studBean.religion}" />  
+                </p:column> 
+                <p:column id="studBean_address1" style="width:8%" filterBy="#{studBean.address1}" sortBy="#{studBean.address1}" headerText="Address1"  filterMatchMode="contains">  
+                    <h:outputText value="#{studBean.address1}" />  
+                </p:column>
+                    
+               
+                <p:column id="studBean_contact1" style="width:8%" filterBy="#{studBean.contact1}" sortBy="#{studBean.contact1}" headerText="Contact1"  filterMatchMode="contains">  
+                        <h:outputText value="#{studBean.contact1}" />  
+               <!-- </p:column> 
+                <p:column id="studBean_contact2" style="width:4%" filterBy="#{studBean.contact2}" sortBy="#{studBean.contact2}" headerText="Contact2" footerText="Contact2" filterMatchMode="contains">  
+                        <h:outputText value="#{studBean.contact2}" />  -->
+                </p:column>
+                <p:column id="studBean_fathername" style="width:4%" filterBy="#{studBean.fatherName}" sortBy="#{studBean.fatherName}" headerText="Father's Name"  filterMatchMode="contains">  
+                        <h:outputText value="#{studBean.fatherName}" />  
+                </p:column> 
+                <p:column id="studBean_mothername" style="width:4%" filterBy="#{studBean.motherName}" sortBy="#{studBean.motherName}" headerText="Mother's Name"  filterMatchMode="contains">  
+                        <h:outputText value="#{studBean.motherName}" />  
+                </p:column> 
+                <p:column id="studBean_guardian" style="width:4%"  filterBy="#{studBean.gadianName}" sortBy="#{studBean.gadianName}" headerText="Guardian"  filterMatchMode="contains">  
+                        <h:outputText value="#{studBean.fatherName}" />  
+                </p:column> 
+                    
+               <!-- <p:column id="studBean_note" style="width:4%"  filterBy="#{studBean.notes}" sortBy="#{studBean.notes}" headerText="Notes" footerText="Notes" filterMatchMode="contains">  
+                        <h:outputText value="#{studBean.notes}" />  
+                </p:column> -->
+                <p:column id="studBean_regdate" style="width:4%" filterBy="#{studBean.registrationDate}" sortBy="#{studBean.registrationDate}" headerText="Registration Date"  filterMatchMode="contains">  
+                        <h:outputText value="#{studBean.registrationDate}" />  
+                </p:column> 
+               
+               <p:column id="studmenu" style="width:10%" headerText="Menu" >
+                    <h:form>
+                        
+                    <p:menuButton value="Actions">
+                        
+                        <p:menuitem value="Update"  process=":main1:main2:studentTable" update=":main1:main2:form_edit_student:studentTbViewId12:editpersonD,:main1:main2:form_edit_student:studentTbViewId12:editcont" oncomplete="PF('student_edit_dlg').show();"  icon="ui-icon-arrowrefresh-1-w" >
+                            <f:setPropertyActionListener value="#{studBean}" target="#{stakeholdersBean.selectedStakeholder}" />
+                        </p:menuitem>
+                        <p:menuitem value="Delete" actionListener="#{stakeholdersBean.delete}" ajax="false" icon="ui-icon-close"/>
+                        <p:menuitem value="Save" actionListener="#{stakeholdersBean.save}" update="@([id$= messages])" icon="ui-icon-disk"/>
+                     <p:separator />
+                     <p:menuitem value="Homepage" icon="ui-icon-extlink"  actionListener="#{navigation.setPageName('/chat/chat')}" update="@([id$=main2])" />
+                     </p:menuButton> 
+                    </h:form>   
+                </p:column> 
+                     
+                
+            
+       </p:dataTable> 
+       
+
+<ui:include src="/student/morestudentOptions.xhtml"/>
+
+            
+            
+           <!-- </h:form> -->
+        </div>
+        <!-- highlight area end-->
+</html>

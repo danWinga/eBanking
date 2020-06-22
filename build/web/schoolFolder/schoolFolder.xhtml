@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+         
+
+        <p:dataTable var="schfolder" value="#{schoolFolders.schoolfolderList}" resizableColumns="true" id="folderTable" paginator="true" rows="5"
+                 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                 rowsPerPageTemplate="5,10,15"  widgetVar="schoolFolderTable" selectionMode="single" selection="#{schoolFolders.selectedFolder}" rowKey="#{schfolder.accCode}"  lazy="true" >
+             <p:ajax event="rowSelect" listener="#{schoolFolders.onRowSelect}" update=":main1:main2:folderTabId:formeditfolder:display44" oncomplete="PF('editFolderOptionsDlg').show()"  />
+                <f:facet name="header">  
+                        <p:outputPanel>
+                            <h:outputText  styleClass=" PFRedText fontSize18 mediumFont " value="School Folders" />
+                                <p:separator />
+                                <div align="right">
+                                    <p:commandButton  update=":main1:main2:folderTabId:formfolder:folderPl" oncomplete="PF('newfolderdlg').show(); " icon="ui-icon-document" value="New Folder"/> 
+                                </div>
+                        </p:outputPanel>
+                </f:facet> 
+            
+            <p:column  sortBy="#{schfolder.accountName}">
+                     <h:outputText value="#{schfolder.accountName}" />
+            </p:column>  
+            <p:column  sortBy="#{schfolder.accCode}" headerText="Folder Code">
+                       <h:outputText value=" #{schfolder.accCode}" /> 
+            </p:column>  
+            <p:column  sortBy="#{schfolder.accountName}" headerText="Name">
+                       <h:outputText value="#{schfolder.accountName}" />  
+            </p:column>  
+            <p:column  sortBy="#{schfolder.description}" headerText="Description">
+                       <h:outputText value="#{schfolder.description}" /> 
+            </p:column> 
+             <p:column style="width:80px;text-align: center">
+               
+                        <p:menuButton style="width:auto" value="More">
+                                <p:menuitem  process=":main1:main2:folderTabId:folderTable" value="Edit Folder" id="folderEdit" icon="ui-icon-pencil"  update=":main1:main2:folderTabId:formeditfolder:display44" oncomplete="PF('editFolderOptionsDlg').show()">
+                                    <f:setPropertyActionListener  value="#{schfolder}"  target="#{schoolFolders.selectedFolder}" />
+                                                                      
+                                </p:menuitem>
+                                <p:separator/>
+                                
+                                <p:separator/>
+                                <p:menuitem value="Delete Folder" process=":main1:main2:folderTabId:folderTable" icon="ui-icon-circle-plus" update=":main1:main2:folderTabId:formDeletefolder:deleteFolderPl" oncomplete="PF('deleteFolderOptionsDlg').show()"   title="Delete" >
+                                        <f:setPropertyActionListener  value="#{schfolder}"  target="#{schoolFolders.selectedFolder}" />
+                                </p:menuitem>
+                            
+                                <p:separator />
+                                
+                                
+                      </p:menuButton> 
+                
+                </p:column>
+            
+
+        </p:dataTable>
+        
+        
+        <ui:include src="/schoolFolder/newSchoolFolder.xhtml"/>
+        
+</html>

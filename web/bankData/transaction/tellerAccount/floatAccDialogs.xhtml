@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+        .ui-widget,
+        .ui-widget .ui-widget {
+               font-size: 12px !important;
+         }
+         .ui-lable{
+                font-weight:bold;
+            }
+    </style>
+         <p:dialog header="Manage Float" widgetVar="manageFloatdlg5" dynamic="true" showEffect="bounce" hideEffect="clip" resizable="false"> <!-- width="300" height="150">  -->
+                    
+                    <p:separator/>
+                <h:form id="manageFloatFrm">
+                    <h:panelGrid id="manageFloatPl" columns="2" cellpadding="5">                  
+                            
+                            <h:outputText value="Teller:" styleClass="ui-lable" />
+                            <p:selectOneMenu id="newBrchFloatAssgn" value="#{dtTellerAccountBean.newTellerFloat.assignId}" rendered="true"  requiredMessage="Status is Required"  >
+                                <f:selectItems value="#{dtTellerAccountBean.teller}" />
+                                        
+                             </p:selectOneMenu>
+                            <h:outputText value="Account:" styleClass="ui-lable" />
+                            <p:selectOneMenu id="newBrchFloatAccManager" value="#{dtTellerAccountBean.newTellerFloat.branchManagerId}" rendered="true"  requiredMessage="Status is Required"  >
+                                <f:selectItems value="#{dtTellerAccountBean.branchAcc}" />
+                            </p:selectOneMenu>
+                            
+                            <h:outputText value="Transaction Type:" styleClass="ui-lable" />
+                            <p:selectOneRadio  id="newBrchFloatTransaction" value="#{dtTellerAccountBean.transState}"  onclick="true" >
+                                        <f:selectItem itemLabel="Topup" itemValue="1"/>
+                                        <f:selectItem itemLabel="Withdraw" itemValue="2"/>
+                                        <p:ajax listener="#{dtTellerAccountBean.checkTransTate}"/>
+                            </p:selectOneRadio>
+                            
+                            <h:outputText value="Amount:" styleClass="ui-lable" />
+                            <p:inputText id="newBrchFloatAmount"   value="#{dtTellerAccountBean.newTellerFloat.floatAmount}"   />
+                            
+                            <f:facet name="footer">  
+                                        <p:separator/>
+                                        <div align="right">
+                                            <p:commandButton  process="manageFloatFrm" id="savemanageFloatButton" icon="ui-icon-disk" value="Save" actionListener="#{dtTellerAccountBean.manageTellerFloat()}" update=":main1:main2:frmTellerFloat:floatDataTable,:main1:main2:branchTellerTranstFrm:tellerTransTable,:main1:main2:smg"  oncomplete="PF('manageFloatdlg5').hide();"/>
+                                            <p:commandButton value="Close" icon="ui-icon-close" oncomplete="PF('manageFloatdlg5').hide();"/>
+                                        </div>
+                            </f:facet>
+                    </h:panelGrid>
+                </h:form>
+        </p:dialog>
+    
+        
+</html>
+
